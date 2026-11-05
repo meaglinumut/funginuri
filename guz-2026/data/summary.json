@@ -1,0 +1,23 @@
+{
+  "observations": 1045,
+  "observers": 27,
+  "species": 255,
+  "taxa": 468,
+  "quality": {
+    "needs_id": 698,
+    "research": 347
+  },
+  "location": {
+    "gps_likely": 619,
+    "uncertain": 198,
+    "gps_explicit": 37,
+    "estimated": 191
+  },
+  "static_users": [
+    "kocoleoptera"
+  ],
+  "date": "2026-09-27",
+  "time_zone": "Europe/Istanbul",
+  "source": "observations-809258.csv",
+  "original_gps_verified": false
+}

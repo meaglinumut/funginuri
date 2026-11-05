@@ -1,0 +1,8 @@
+{
+  "n": 493,
+  "median_m": 17,
+  "p90_m": 94,
+  "p95_m": 219,
+  "within_heuristic_radius": 0.905,
+  "method": "Her aday kayıt için aynı gözlemcinin tüm kayıtları referanslardan çıkarılarak diğer gözlemcilerden tahmin; bağımsız saha doğrulaması değildir."
+}

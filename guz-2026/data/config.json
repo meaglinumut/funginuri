@@ -1,0 +1,89 @@
+{
+  "title": "Boğaziçi Tür Say Güz 2026",
+  "date": "27 Eylül 2026",
+  "start": 580,
+  "end": 1030,
+  "bounds": [
+    [
+      41.0775,
+      29.030497064579254
+    ],
+    [
+      41.089,
+      29.057502935420736
+    ]
+  ],
+  "satellite": "assets/campus-satellite.jpg",
+  "groups": {
+    "Plantae": [
+      "Bitkiler",
+      "#A8CC09"
+    ],
+    "Fungi": [
+      "Mantarlar",
+      "#FF1493"
+    ],
+    "Insecta": [
+      "Böcekler",
+      "#FF6300"
+    ],
+    "Arachnida": [
+      "Örümceğimsiler",
+      "#FF8D00"
+    ],
+    "Mollusca": [
+      "Yumuşakçalar",
+      "#FF4500"
+    ],
+    "Animalia": [
+      "Diğer hayvanlar",
+      "#1E90FF"
+    ],
+    "Mammalia": [
+      "Memeliler",
+      "#2BCEFF"
+    ],
+    "Reptilia": [
+      "Sürüngenler",
+      "#1978D5"
+    ],
+    "Aves": [
+      "Kuşlar",
+      "#1565B3"
+    ],
+    "Unidentified": [
+      "Tanımlanmamış",
+      "#AAAAAA"
+    ]
+  },
+  "statuses": {
+    "gps_explicit": [
+      "CSV’de GPS işaretli",
+      "#087f8c"
+    ],
+    "gps_likely": [
+      "GPS adayı",
+      "#3e9c69"
+    ],
+    "estimated": [
+      "Tahmini konum",
+      "#e8a132"
+    ],
+    "uncertain": [
+      "Belirsiz konum",
+      "#9b7eb5"
+    ],
+    "unlocated": [
+      "Konumsuz",
+      "#999999"
+    ]
+  },
+  "method_validation": {
+    "n": 493,
+    "median_m": 17,
+    "p90_m": 94,
+    "p95_m": 219,
+    "within_heuristic_radius": 0.905,
+    "method": "Her aday kayıt için aynı gözlemcinin tüm kayıtları referanslardan çıkarılarak diğer gözlemcilerden tahmin; bağımsız saha doğrulaması değildir."
+  }
+}

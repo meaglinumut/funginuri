@@ -1,0 +1,295 @@
+[
+  {
+    "user": "kocoleoptera",
+    "observations": 253,
+    "species": 175,
+    "taxa": 226,
+    "research": 97,
+    "location": {
+      "uncertain": 71,
+      "estimated": 182
+    }
+  },
+  {
+    "user": "zynxy",
+    "observations": 103,
+    "species": 38,
+    "taxa": 89,
+    "research": 11,
+    "location": {
+      "gps_likely": 81,
+      "uncertain": 4,
+      "gps_explicit": 18
+    }
+  },
+  {
+    "user": "meaglinumut",
+    "observations": 76,
+    "species": 52,
+    "taxa": 68,
+    "research": 38,
+    "location": {
+      "gps_explicit": 1,
+      "uncertain": 31,
+      "gps_likely": 44
+    }
+  },
+  {
+    "user": "luludia",
+    "observations": 55,
+    "species": 21,
+    "taxa": 48,
+    "research": 13,
+    "location": {
+      "gps_likely": 55
+    }
+  },
+  {
+    "user": "espressofizik",
+    "observations": 52,
+    "species": 20,
+    "taxa": 47,
+    "research": 12,
+    "location": {
+      "gps_likely": 52
+    }
+  },
+  {
+    "user": "irmdrk",
+    "observations": 46,
+    "species": 25,
+    "taxa": 46,
+    "research": 13,
+    "location": {
+      "gps_likely": 32,
+      "uncertain": 14
+    }
+  },
+  {
+    "user": "begim",
+    "observations": 45,
+    "species": 10,
+    "taxa": 35,
+    "research": 6,
+    "location": {
+      "gps_likely": 39,
+      "uncertain": 6
+    }
+  },
+  {
+    "user": "didarl",
+    "observations": 40,
+    "species": 22,
+    "taxa": 36,
+    "research": 20,
+    "location": {
+      "gps_likely": 35,
+      "uncertain": 5
+    }
+  },
+  {
+    "user": "talha1001",
+    "observations": 40,
+    "species": 23,
+    "taxa": 40,
+    "research": 18,
+    "location": {
+      "estimated": 1,
+      "gps_likely": 7,
+      "uncertain": 32
+    }
+  },
+  {
+    "user": "toprak_",
+    "observations": 35,
+    "species": 11,
+    "taxa": 32,
+    "research": 4,
+    "location": {
+      "gps_likely": 31,
+      "uncertain": 4
+    }
+  },
+  {
+    "user": "caverdido",
+    "observations": 34,
+    "species": 20,
+    "taxa": 32,
+    "research": 15,
+    "location": {
+      "gps_likely": 33,
+      "uncertain": 1
+    }
+  },
+  {
+    "user": "begum26214",
+    "observations": 31,
+    "species": 19,
+    "taxa": 30,
+    "research": 12,
+    "location": {
+      "gps_likely": 31
+    }
+  },
+  {
+    "user": "serayaytekin",
+    "observations": 29,
+    "species": 18,
+    "taxa": 23,
+    "research": 20,
+    "location": {
+      "gps_likely": 29
+    }
+  },
+  {
+    "user": "alperuzun",
+    "observations": 28,
+    "species": 17,
+    "taxa": 27,
+    "research": 11,
+    "location": {
+      "gps_likely": 26,
+      "uncertain": 2
+    }
+  },
+  {
+    "user": "zehraaaa",
+    "observations": 25,
+    "species": 13,
+    "taxa": 25,
+    "research": 5,
+    "location": {
+      "gps_likely": 24,
+      "uncertain": 1
+    }
+  },
+  {
+    "user": "gunes_bodur",
+    "observations": 25,
+    "species": 16,
+    "taxa": 25,
+    "research": 12,
+    "location": {
+      "gps_explicit": 1,
+      "gps_likely": 24
+    }
+  },
+  {
+    "user": "defne77130",
+    "observations": 24,
+    "species": 11,
+    "taxa": 21,
+    "research": 6,
+    "location": {
+      "gps_explicit": 14,
+      "uncertain": 2,
+      "estimated": 8
+    }
+  },
+  {
+    "user": "sevval_kzlrmk",
+    "observations": 16,
+    "species": 2,
+    "taxa": 12,
+    "research": 3,
+    "location": {
+      "uncertain": 4,
+      "gps_likely": 11,
+      "gps_explicit": 1
+    }
+  },
+  {
+    "user": "azra48363",
+    "observations": 16,
+    "species": 12,
+    "taxa": 16,
+    "research": 9,
+    "location": {
+      "uncertain": 14,
+      "gps_likely": 2
+    }
+  },
+  {
+    "user": "dalgiczurafa",
+    "observations": 15,
+    "species": 6,
+    "taxa": 15,
+    "research": 5,
+    "location": {
+      "gps_likely": 15
+    }
+  },
+  {
+    "user": "melih38692",
+    "observations": 14,
+    "species": 4,
+    "taxa": 11,
+    "research": 2,
+    "location": {
+      "gps_likely": 9,
+      "uncertain": 5
+    }
+  },
+  {
+    "user": "demetentia",
+    "observations": 12,
+    "species": 5,
+    "taxa": 12,
+    "research": 5,
+    "location": {
+      "gps_likely": 12
+    }
+  },
+  {
+    "user": "duyguhhh",
+    "observations": 10,
+    "species": 7,
+    "taxa": 10,
+    "research": 6,
+    "location": {
+      "gps_likely": 9,
+      "uncertain": 1
+    }
+  },
+  {
+    "user": "maveytheslayer",
+    "observations": 10,
+    "species": 5,
+    "taxa": 10,
+    "research": 3,
+    "location": {
+      "gps_explicit": 2,
+      "gps_likely": 8
+    }
+  },
+  {
+    "user": "yrnztrk",
+    "observations": 8,
+    "species": 6,
+    "taxa": 8,
+    "research": 1,
+    "location": {
+      "gps_likely": 8
+    }
+  },
+  {
+    "user": "periferik",
+    "observations": 2,
+    "species": 1,
+    "taxa": 1,
+    "research": 0,
+    "location": {
+      "gps_likely": 2
+    }
+  },
+  {
+    "user": "zeynepakten",
+    "observations": 1,
+    "species": 0,
+    "taxa": 1,
+    "research": 0,
+    "location": {
+      "uncertain": 1
+    }
+  }
+]

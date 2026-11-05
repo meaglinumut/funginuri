@@ -1,3 +1,5 @@
+Güncel ortak etkinlik dosyaları: `css/events.css`, `js/event-map.js`, `js/event-stats.js`. Bolu ve Güz aynı dosyaları kullanır. Ayrıntılar: [Ortak biçim rehberi](ORTAK_FORMAT_KURULUM.md).
+
 # BounMantar: ayrı sayfalar ve düzenlenebilir veriler
 
 Bu paket, son BounMantar retro site paketinin dosya düzeni yeniden kurulmuş sürümüdür. Tasarım ve içerik korunmuştur. Harita, istatistikler ve canlı rehberi artık kendi adreslerinde açılır. Sayfaların içine gömülü iframe veya büyük veri blokları yoktur.

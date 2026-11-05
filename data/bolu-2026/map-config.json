@@ -9,5 +9,82 @@
       40.77256889998193,
       31.521
     ]
-  ]
+  ],
+  "observations_url": "../data/bolu-2026/observations.json",
+  "groups": {
+    "Plantae": [
+      "Bitkiler",
+      "#A8CC09"
+    ],
+    "Fungi": [
+      "Mantarlar",
+      "#FF1493"
+    ],
+    "Insecta": [
+      "Böcekler",
+      "#FF6300"
+    ],
+    "Arachnida": [
+      "Örümceğimsiler",
+      "#FF8D00"
+    ],
+    "Mollusca": [
+      "Yumuşakçalar",
+      "#FF4500"
+    ],
+    "Animalia": [
+      "Diğer hayvanlar",
+      "#1E90FF"
+    ],
+    "Mammalia": [
+      "Memeliler",
+      "#2BCEFF"
+    ],
+    "Reptilia": [
+      "Sürüngenler",
+      "#1978D5"
+    ],
+    "Aves": [
+      "Kuşlar",
+      "#1565B3"
+    ],
+    "Unidentified": [
+      "Tanımlanmamış",
+      "#AAAAAA"
+    ],
+    "Amphibia": [
+      "İkiyaşamlılar",
+      "#7eaa00"
+    ],
+    "Protozoa": [
+      "Protozoa",
+      "#691776"
+    ]
+  },
+  "title": "Bolu At Yaylası ve Gölleri Bölgesi Tür Say 2026",
+  "start": 420,
+  "end": 930,
+  "default_smoothing": 60,
+  "default_visibility": 2.5,
+  "min_zoom": 14,
+  "max_zoom": 20,
+  "total_observations": 2792,
+  "coverage_origin": [
+    40.765,
+    31.5
+  ],
+  "statuses": {
+    "gps_likely": [
+      "GPS adayı",
+      "#8ff4cc"
+    ],
+    "estimated": [
+      "Tahmini konum",
+      "#ffc376"
+    ],
+    "uncertain": [
+      "Belirsiz konum",
+      "#ddaff1"
+    ]
+  }
 }

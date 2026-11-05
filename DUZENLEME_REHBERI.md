@@ -1,3 +1,5 @@
+Güncel ortak etkinlik dosyaları: `css/events.css`, `js/event-map.js`, `js/event-stats.js`. Bolu ve Güz aynı dosyaları kullanır. Ayrıntılar: [Ortak biçim rehberi](ORTAK_FORMAT_KURULUM.md).
+
 # Veri düzenleme rehberi
 
 JSON metin dosyalarını VS Code gibi bir düzenleyicide açabilirsiniz. Tırnakları, köşeli parantezleri ve virgülleri koruyun. Son öğeden sonra virgül koymayın. Düzenledikten sonra dosyayı UTF-8 olarak kaydedin. JSON dosyalarına yorum satırı eklemeyin.

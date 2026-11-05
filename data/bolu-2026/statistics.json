@@ -1,0 +1,731 @@
+{
+  "metrics": [
+    {
+      "value": "2.792",
+      "label": "Gözlem"
+    },
+    {
+      "value": "701",
+      "label": "Farklı takson"
+    },
+    {
+      "value": "25",
+      "label": "Gözlemci"
+    },
+    {
+      "value": "21,5%",
+      "label": "Araştırma sınıfı"
+    }
+  ],
+  "charts": [
+    {
+      "title": "Gözlemlerin tanımlanma durumu",
+      "center_value": "2.792",
+      "center_label": "Gözlem",
+      "items": [
+        {
+          "label": "Tanımlama gerekli",
+          "count": 2192,
+          "color": "#B56A52"
+        },
+        {
+          "label": "Araştırma sınıfı",
+          "count": 600,
+          "color": "#93A17A"
+        }
+      ]
+    },
+    {
+      "title": "Canlı gruplarına göre gözlemler",
+      "center_value": "2.792",
+      "center_label": "Gözlem",
+      "items": [
+        {
+          "label": "Mantarlar",
+          "count": 1933,
+          "color": "#FF1493"
+        },
+        {
+          "label": "Bitkiler",
+          "count": 637,
+          "color": "#A8CC09"
+        },
+        {
+          "label": "Böcekler",
+          "count": 84,
+          "color": "#FF6300"
+        },
+        {
+          "label": "Örümceğimsiler",
+          "count": 35,
+          "color": "#FF8D00"
+        },
+        {
+          "label": "Yumuşakçalar",
+          "count": 24,
+          "color": "#FF4500"
+        },
+        {
+          "label": "Diğer hayvanlar",
+          "count": 21,
+          "color": "#1E90FF"
+        },
+        {
+          "label": "Tanımlanmamış",
+          "count": 18,
+          "color": "#AAAAAA"
+        },
+        {
+          "label": "İkiyaşamlılar",
+          "count": 14,
+          "color": "#7eaa00"
+        },
+        {
+          "label": "Memeliler",
+          "count": 10,
+          "color": "#2BCEFF"
+        },
+        {
+          "label": "Protozoa",
+          "count": 7,
+          "color": "#d74242"
+        },
+        {
+          "label": "Kuşlar",
+          "count": 6,
+          "color": "#24ACFF"
+        },
+        {
+          "label": "Sürüngenler",
+          "count": 3,
+          "color": "#1E90FF"
+        }
+      ]
+    },
+    {
+      "title": "Canlı gruplarına göre taksonlar",
+      "center_value": "701",
+      "center_label": "Farklı takson",
+      "items": [
+        {
+          "label": "Mantarlar",
+          "count": 382,
+          "color": "#FF1493"
+        },
+        {
+          "label": "Bitkiler",
+          "count": 206,
+          "color": "#A8CC09"
+        },
+        {
+          "label": "Böcekler",
+          "count": 50,
+          "color": "#FF6300"
+        },
+        {
+          "label": "Örümceğimsiler",
+          "count": 20,
+          "color": "#FF8D00"
+        },
+        {
+          "label": "Yumuşakçalar",
+          "count": 11,
+          "color": "#FF4500"
+        },
+        {
+          "label": "Diğer hayvanlar",
+          "count": 8,
+          "color": "#1E90FF"
+        },
+        {
+          "label": "Protozoa",
+          "count": 6,
+          "color": "#c86a26"
+        },
+        {
+          "label": "İkiyaşamlılar",
+          "count": 5,
+          "color": "#7eaa00"
+        },
+        {
+          "label": "Memeliler",
+          "count": 5,
+          "color": "#2BCEFF"
+        },
+        {
+          "label": "Kuşlar",
+          "count": 4,
+          "color": "#24ACFF"
+        },
+        {
+          "label": "Tanımlanmamış",
+          "count": 3,
+          "color": "#AAAAAA"
+        },
+        {
+          "label": "Sürüngenler",
+          "count": 1,
+          "color": "#1E90FF"
+        }
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "value": "389",
+      "label": "Yalnızca bir kayıtta görülen takson"
+    },
+    {
+      "value": "69.2%",
+      "label": "Gözlemlerin mantarlara ait bölümü"
+    },
+    {
+      "value": "111.7",
+      "label": "Gözlemci başına ortalama kayıt"
+    }
+  ],
+  "rankings": {
+    "obs": [
+      [
+        "salix-babylonica",
+        474
+      ],
+      [
+        "meaglinumut",
+        308
+      ],
+      [
+        "caverdido",
+        150
+      ],
+      [
+        "defne77130",
+        146
+      ],
+      [
+        "espressofizik",
+        140
+      ],
+      [
+        "sud4",
+        137
+      ],
+      [
+        "duyguhhh",
+        135
+      ],
+      [
+        "luludia",
+        127
+      ],
+      [
+        "rabiafk",
+        109
+      ],
+      [
+        "nazlican4",
+        108
+      ],
+      [
+        "jensofn",
+        101
+      ],
+      [
+        "zbaharat",
+        93
+      ],
+      [
+        "besirtaha",
+        88
+      ],
+      [
+        "yaasemyyn",
+        80
+      ],
+      [
+        "sumeyye75476",
+        77
+      ],
+      [
+        "emryss",
+        77
+      ],
+      [
+        "begim",
+        74
+      ],
+      [
+        "irem65599",
+        66
+      ],
+      [
+        "dalgiczurafa",
+        58
+      ],
+      [
+        "ahmet_faruk",
+        52
+      ],
+      [
+        "fyodor96678",
+        50
+      ],
+      [
+        "potatoman54",
+        40
+      ],
+      [
+        "tennysonkazoo",
+        40
+      ],
+      [
+        "ahmet49459",
+        38
+      ],
+      [
+        "draximal",
+        24
+      ]
+    ],
+    "taxa": [
+      [
+        "salix-babylonica",
+        254
+      ],
+      [
+        "meaglinumut",
+        206
+      ],
+      [
+        "defne77130",
+        119
+      ],
+      [
+        "duyguhhh",
+        87
+      ],
+      [
+        "rabiafk",
+        85
+      ],
+      [
+        "sud4",
+        81
+      ],
+      [
+        "jensofn",
+        79
+      ],
+      [
+        "nazlican4",
+        75
+      ],
+      [
+        "zbaharat",
+        73
+      ],
+      [
+        "luludia",
+        70
+      ],
+      [
+        "sumeyye75476",
+        63
+      ],
+      [
+        "caverdido",
+        63
+      ],
+      [
+        "emryss",
+        61
+      ],
+      [
+        "espressofizik",
+        57
+      ],
+      [
+        "yaasemyyn",
+        53
+      ],
+      [
+        "begim",
+        48
+      ],
+      [
+        "besirtaha",
+        47
+      ],
+      [
+        "potatoman54",
+        37
+      ],
+      [
+        "dalgiczurafa",
+        34
+      ],
+      [
+        "fyodor96678",
+        34
+      ],
+      [
+        "irem65599",
+        33
+      ],
+      [
+        "ahmet_faruk",
+        32
+      ],
+      [
+        "tennysonkazoo",
+        20
+      ],
+      [
+        "ahmet49459",
+        20
+      ],
+      [
+        "draximal",
+        15
+      ]
+    ],
+    "research": [
+      [
+        "salix-babylonica",
+        143
+      ],
+      [
+        "meaglinumut",
+        66
+      ],
+      [
+        "duyguhhh",
+        40
+      ],
+      [
+        "sud4",
+        36
+      ],
+      [
+        "defne77130",
+        33
+      ],
+      [
+        "rabiafk",
+        27
+      ],
+      [
+        "nazlican4",
+        26
+      ],
+      [
+        "emryss",
+        25
+      ],
+      [
+        "luludia",
+        20
+      ],
+      [
+        "potatoman54",
+        20
+      ],
+      [
+        "espressofizik",
+        19
+      ],
+      [
+        "yaasemyyn",
+        18
+      ],
+      [
+        "caverdido",
+        18
+      ],
+      [
+        "sumeyye75476",
+        14
+      ],
+      [
+        "begim",
+        12
+      ],
+      [
+        "irem65599",
+        12
+      ],
+      [
+        "fyodor96678",
+        11
+      ],
+      [
+        "jensofn",
+        11
+      ],
+      [
+        "zbaharat",
+        10
+      ],
+      [
+        "besirtaha",
+        9
+      ],
+      [
+        "dalgiczurafa",
+        8
+      ],
+      [
+        "ahmet49459",
+        8
+      ],
+      [
+        "ahmet_faruk",
+        6
+      ],
+      [
+        "tennysonkazoo",
+        6
+      ],
+      [
+        "draximal",
+        2
+      ]
+    ]
+  },
+  "top_taxa": [
+    {
+      "label": "Agaricomycetes",
+      "count": 229
+    },
+    {
+      "label": "Agaricales",
+      "count": 200
+    },
+    {
+      "label": "Russula",
+      "count": 156
+    },
+    {
+      "label": "Fungi",
+      "count": 56
+    },
+    {
+      "label": "Inocybe",
+      "count": 38
+    },
+    {
+      "label": "Hypholoma fasciculare",
+      "count": 36
+    },
+    {
+      "label": "Agaricineae",
+      "count": 35
+    },
+    {
+      "label": "Magnoliopsida",
+      "count": 35
+    },
+    {
+      "label": "Clavariadelphus truncatus",
+      "count": 33
+    },
+    {
+      "label": "Lycoperdon",
+      "count": 29
+    }
+  ],
+  "hours": [
+    {
+      "label": "01.00",
+      "count": 14
+    },
+    {
+      "label": "07.00",
+      "count": 21
+    },
+    {
+      "label": "08.00",
+      "count": 23
+    },
+    {
+      "label": "09.00",
+      "count": 783
+    },
+    {
+      "label": "10.00",
+      "count": 843
+    },
+    {
+      "label": "11.00",
+      "count": 92
+    },
+    {
+      "label": "12.00",
+      "count": 37
+    },
+    {
+      "label": "13.00",
+      "count": 523
+    },
+    {
+      "label": "14.00",
+      "count": 272
+    },
+    {
+      "label": "15.00",
+      "count": 32
+    }
+  ],
+  "observers": [
+    {
+      "user": "salix-babylonica",
+      "observations": 474,
+      "taxa": 254,
+      "research": 143
+    },
+    {
+      "user": "meaglinumut",
+      "observations": 308,
+      "taxa": 206,
+      "research": 66
+    },
+    {
+      "user": "caverdido",
+      "observations": 150,
+      "taxa": 63,
+      "research": 18
+    },
+    {
+      "user": "defne77130",
+      "observations": 146,
+      "taxa": 119,
+      "research": 33
+    },
+    {
+      "user": "espressofizik",
+      "observations": 140,
+      "taxa": 57,
+      "research": 19
+    },
+    {
+      "user": "sud4",
+      "observations": 137,
+      "taxa": 81,
+      "research": 36
+    },
+    {
+      "user": "duyguhhh",
+      "observations": 135,
+      "taxa": 87,
+      "research": 40
+    },
+    {
+      "user": "luludia",
+      "observations": 127,
+      "taxa": 70,
+      "research": 20
+    },
+    {
+      "user": "rabiafk",
+      "observations": 109,
+      "taxa": 85,
+      "research": 27
+    },
+    {
+      "user": "nazlican4",
+      "observations": 108,
+      "taxa": 75,
+      "research": 26
+    },
+    {
+      "user": "jensofn",
+      "observations": 101,
+      "taxa": 79,
+      "research": 11
+    },
+    {
+      "user": "zbaharat",
+      "observations": 93,
+      "taxa": 73,
+      "research": 10
+    },
+    {
+      "user": "besirtaha",
+      "observations": 88,
+      "taxa": 47,
+      "research": 9
+    },
+    {
+      "user": "yaasemyyn",
+      "observations": 80,
+      "taxa": 53,
+      "research": 18
+    },
+    {
+      "user": "sumeyye75476",
+      "observations": 77,
+      "taxa": 63,
+      "research": 14
+    },
+    {
+      "user": "emryss",
+      "observations": 77,
+      "taxa": 61,
+      "research": 25
+    },
+    {
+      "user": "begim",
+      "observations": 74,
+      "taxa": 48,
+      "research": 12
+    },
+    {
+      "user": "irem65599",
+      "observations": 66,
+      "taxa": 33,
+      "research": 12
+    },
+    {
+      "user": "dalgiczurafa",
+      "observations": 58,
+      "taxa": 34,
+      "research": 8
+    },
+    {
+      "user": "ahmet_faruk",
+      "observations": 52,
+      "taxa": 32,
+      "research": 6
+    },
+    {
+      "user": "fyodor96678",
+      "observations": 50,
+      "taxa": 34,
+      "research": 11
+    },
+    {
+      "user": "potatoman54",
+      "observations": 40,
+      "taxa": 37,
+      "research": 20
+    },
+    {
+      "user": "tennysonkazoo",
+      "observations": 40,
+      "taxa": 20,
+      "research": 6
+    },
+    {
+      "user": "ahmet49459",
+      "observations": 38,
+      "taxa": 20,
+      "research": 8
+    },
+    {
+      "user": "draximal",
+      "observations": 24,
+      "taxa": 15,
+      "research": 2
+    }
+  ]
+}

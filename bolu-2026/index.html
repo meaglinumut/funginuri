@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bolu Tür Say 2026 · Harita | BounMantar</title><link rel="stylesheet" href="../vendor/leaflet.css"><link rel="stylesheet" href="../css/layout.css"><link rel="stylesheet" href="../css/retro-base.css"><link rel="stylesheet" href="../css/tokens.css"><link rel="stylesheet" href="../css/theme.css"><link rel="stylesheet" href="../css/navigation.css"></head><body data-base="../"><div data-include="header"></div><main class="page-shell"><div data-include="bolu-2026-hero"></div><nav class="event-tabs" aria-label="Türsay bölümleri"><a class="section-link" aria-current="page" href="./">Gözlem haritası</a><a class="section-link" href="istatistikler.html">İstatistikler</a><a class="section-link" href="canlilar.html">Araştırma sınıfı canlılar</a></nav><section aria-label="Gözlem haritası" id="mapPanel" >
+<div class="map-card">
+<div class="map-toolbar">
+<div aria-label="Harita görünümü" class="map-modes" role="group">
+<button aria-pressed="true" class="selected" data-view="heat">Isı haritası</button>
+<button aria-pressed="false" data-view="points">Gözlem noktaları</button>
+<button aria-pressed="false" data-view="paths">Gözlemci rotaları</button>
+<button aria-pressed="false" data-view="coverage">Gözlemci kapsamı</button>
+</div>
+<button aria-controls="filterPanel" aria-expanded="false" class="filter-toggle" id="filterToggle"><svg aria-hidden="true" viewbox="0 0 20 20"><path d="M3 5h14M6 10h8M8 15h4"></path></svg>Filtreler<span hidden="" id="filterBadge"></span></button>
+</div>
+<div class="filter-panel" hidden="" id="filterPanel">
+<label>Konum türü<select id="source"><option value="both">Tüm konumlar</option><option value="gps">Özgün konumlar</option><option value="est">Tahmini konumlar</option><option value="spatial">Yalnızca yaklaşık bölgeler</option></select></label>
+<label>Gözlemci<select id="observer"><option value="all">Tüm gözlemciler</option><option value="ahmet49459">ahmet49459</option><option value="ahmet_faruk">ahmet_faruk</option><option value="begim">begim</option><option value="besirtaha">besirtaha</option><option value="caverdido">caverdido</option><option value="dalgiczurafa">dalgiczurafa</option><option value="defne77130">defne77130</option><option value="draximal">draximal</option><option value="duyguhhh">duyguhhh</option><option value="emryss">emryss</option><option value="espressofizik">espressofizik</option><option value="fyodor96678">fyodor96678</option><option value="irem65599">irem65599</option><option value="jensofn">jensofn</option><option value="luludia">luludia</option><option value="meaglinumut">meaglinumut</option><option value="nazlican4">nazlican4</option><option value="potatoman54">potatoman54</option><option value="rabiafk">rabiafk</option><option value="salix-babylonica">salix-babylonica</option><option value="sud4">sud4</option><option value="sumeyye75476">sumeyye75476</option><option value="tennysonkazoo">tennysonkazoo</option><option value="yaasemyyn">yaasemyyn</option><option value="zbaharat">zbaharat</option></select></label>
+<label>Canlı grubu<select id="taxa"><option value="all">Tüm canlı grupları</option><option value="Plantae">Bitkiler</option><option value="Insecta">Böcekler</option><option value="Animalia">Hayvanlar</option><option value="Aves">Kuşlar</option><option value="Fungi">Mantarlar</option><option value="Mammalia">Memeliler</option><option value="Protozoa">Protozoa</option><option value="Reptilia">Sürüngenler</option><option value="Unidentified">Tanımlanmamış</option><option value="Mollusca">Yumuşakçalar</option><option value="Arachnida">Örümceğimsiler</option><option value="Amphibia">İkiyaşamlılar</option></select></label>
+<button class="text-button" id="resetFilters">Sıfırla</button>
+</div>
+<div class="map-wrap">
+<div aria-label="Bolu Tür Say gözlem haritası" id="map"></div>
+<div aria-live="polite" class="map-count"><strong id="shownCount">2.648</strong> gözlem</div>
+<button aria-label="Gözlemleri haritaya sığdır" class="fit-map" id="fit" title="Gözlemleri sığdır"><svg aria-hidden="true" viewbox="0 0 20 20"><path d="M7 3H3v4m10-4h4v4M3 13v4h4m10-4v4h-4"></path></svg></button>
+<div class="map-legend" id="legend"></div>
+</div>
+<div class="timebar">
+<button aria-label="Zaman animasyonunu başlat" class="play-button" id="play"><svg aria-hidden="true" viewbox="0 0 16 16"><path d="m5 3 8 5-8 5z"></path></svg><span>Oynat</span></button>
+<div class="time-slider"><input aria-label="Gözlem saati" id="timeRange" max="930" min="420" step="1" type="range" value="930"/><div class="time-labels"><span>07.00</span><output aria-live="off" id="clock">Tüm gözlemler</output><span>15.30</span></div></div>
+<label class="display-mode"><span class="sr-only">Zaman gösterimi</span><select aria-label="Zaman gösterimi" id="timeMode"><option value="all">Tüm gözlemler</option><option value="cumulative">Birikimli</option><option value="window">Son 30 dakika</option></select></label>
+</div>
+</div>
+</section></main><div data-include="footer"></div><script src="../js/common.js"></script><script src="../vendor/leaflet.js"></script><script src="../js/bolu-map.js"></script></body></html>

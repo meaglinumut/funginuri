@@ -1,0 +1,4 @@
+
+.section-link{display:block;text-align:center;padding:12px;background:var(--button);color:var(--text);border:3px outset var(--border-light);font-family:var(--font-display);text-decoration:none}.section-link[aria-current="page"]{background:var(--active);border-style:inset}.section-link:hover{background:var(--panel)}.runtime-error{padding:15px;border:2px solid var(--accent)}
+
+.section-link{flex:1}@media(max-width:720px){.section-link{font-size:13px;padding:9px 4px}}

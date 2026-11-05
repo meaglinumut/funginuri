@@ -15,8 +15,7 @@
     const embedded = L.imageOverlay(CFG.satellite, CFG.bounds, {attribution: 'Esri, Vantor, Earthstar Geographics, GIS User Community'});
     const layers = {
       embedded,
-      osm: L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 19, attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'}),
-      light: L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {maxZoom: 20, attribution: '© OpenStreetMap contributors · © CARTO'})
+      osm: L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 19, attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'})
     };
     let basemap = embedded; basemap.addTo(map);
     L.control.scale({imperial: false}).addTo(map);
@@ -27,7 +26,7 @@
     function color(v) {const z = Math.min(.9999, Math.max(0,v))*4, i = Math.floor(z), f=z-i; return colors[i].map((x,k)=>Math.round(x+(colors[i+1][k]-x)*f));}
     function selectRows(time = true) {
       const source = $('source').value, user = $('observer').value, group = $('taxa').value, quality = $('quality').value, mode = $('timeMode').value, end = +$('timeRange').value;
-      return located.filter(d => (source === 'all' || (source === 'reliable' ? gps(d) || d.status === 'estimated' : source === 'gps' ? gps(d) : source === 'explicit' ? d.status === 'gps_explicit' : d.status === source)) && (user === 'all' || d.user === user) && (group === 'all' || d.group === group) && (quality === 'all' || d.quality === quality) && (!time || mode === 'all' || (d.t !== null && d.t <= end && (mode === 'cumulative' || d.t >= end - 30))));
+      return located.filter(d => (source === 'reliable' ? gps(d) || d.status === 'estimated' : source === 'gps' ? gps(d) : d.status === 'estimated') && (user === 'all' || d.user === user) && (group === 'all' || d.group === group) && (quality === 'all' || d.quality === quality) && (!time || mode === 'all' || (d.t !== null && d.t <= end && (mode === 'cumulative' || d.t >= end - 30))));
     }
     const active = () => view === 'paths' ? visible.filter(gps) : visible;
     function density(rows, w, h) {
@@ -62,21 +61,19 @@
         } else {
           if(view==='paths'){
             const byUser=new Map();for(const d of active().filter(d=>d.t!==null)){if(!byUser.has(d.user))byUser.set(d.user,[]);byUser.get(d.user).push(d);}
-            ctx.lineWidth=$('observer').value==='all'?1.3:2.8;ctx.strokeStyle=$('observer').value==='all'?'rgba(255,255,160,.65)':'#ffff50';
+            ctx.lineWidth=$('observer').value==='all'?1.1:2.4;ctx.strokeStyle=$('observer').value==='all'?'rgba(225,250,232,.55)':'#8dffd2';
             for(const rows of byUser.values()){rows.sort((a,b)=>a.t-b.t);for(let i=1;i<rows.length;i++){const d=rows[i], p=rows[i-1], gap=(d.t-p.t)*60, dist=map.distance([d.lat,d.lon],[p.lat,p.lon]);if(gap<=0||gap>1200||dist/gap>2)continue;const a=map.latLngToContainerPoint([p.lat,p.lon]),b=map.latLngToContainerPoint([d.lat,d.lon]);ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}}
           }
-          for(const d of active()){const p=map.latLngToContainerPoint([d.lat,d.lon]), r=view==='paths'?2.5:4;ctx.fillStyle=CFG.statuses[d.status][1];ctx.strokeStyle='#17251c';ctx.lineWidth=.7;ctx.beginPath();if(d.status==='estimated'){ctx.moveTo(p.x,p.y-r-1);ctx.lineTo(p.x+r+1,p.y+r);ctx.lineTo(p.x-r-1,p.y+r);ctx.closePath();}else ctx.arc(p.x,p.y,r,0,Math.PI*2);ctx.fill();ctx.stroke();}
+          for(const d of active()){const p=map.latLngToContainerPoint([d.lat,d.lon]), r=view==='paths'?2.1:3.5;ctx.fillStyle=d.status==='estimated'?'#ffc376':d.status==='uncertain'?'#ddaff1':'#8ff4cc';ctx.strokeStyle=d.status==='estimated'?'#795621':'#245441';ctx.lineWidth=.7;ctx.beginPath();if(d.status==='estimated'){ctx.moveTo(p.x,p.y-r-1);ctx.lineTo(p.x+r,p.y+r);ctx.lineTo(p.x-r,p.y+r);ctx.closePath();}else ctx.arc(p.x,p.y,r,0,Math.PI*2);ctx.fill();ctx.stroke();}
         }
-        if($('uncertainty').checked){ctx.strokeStyle='rgba(255,230,110,.75)';ctx.lineWidth=1;for(const d of visible.filter(d=>d.status==='estimated')){const p=map.latLngToContainerPoint([d.lat,d.lon]), edge=map.latLngToContainerPoint([d.lat,(d.lon+(d.radius||100)/(111195*Math.cos(d.lat*Math.PI/180)))]);ctx.beginPath();ctx.arc(p.x,p.y,Math.abs(edge.x-p.x),0,Math.PI*2);ctx.stroke();}}
       }
     });
     const overlay=new Overlay().addTo(map);
     function update(invalidate=false) {
       if(invalidate)scale=null;filtered=selectRows(false);visible=selectRows(true);const shown=active();
       $('shownCount').textContent=shown.length.toLocaleString('tr-TR');$('clock').textContent=$('timeMode').value==='all'?'Tüm gün':fmt(+$('timeRange').value);$('smoothValue').textContent=$('smooth').value+' m';$('visibilityValue').textContent=Number($('visibility').value).toLocaleString('tr-TR')+'×';
-      const n=shown.filter(gps).length, e=shown.filter(d=>d.status==='estimated').length, u=shown.filter(d=>d.status==='uncertain').length;
-      $('selectionSummary').textContent=`Gösterilen: ${shown.length.toLocaleString('tr-TR')} / 1.045 kayıt · ${n} GPS adayı · ${e} tahmini · ${u} belirsiz`+(view==='paths'?' · Rotalar yalnızca GPS adaylarını bağlar.':'');
-      $('legend').innerHTML=['heat','coverage','richness'].includes(view)?`<span>${view==='heat'?'Göreli gözlem yoğunluğu':view==='coverage'?'50 m hücrede gözlemci sayısı':'50 m hücrede tür sayısı'}</span><div class="legend-gradient"></div><div class="legend-ends"><span>Az</span><span>Çok</span></div>`:'<span>● GPS adayı &nbsp; ▲ Tahmini &nbsp; ● Belirsiz</span>';
+      $('selectionSummary').textContent=`Gösterilen: ${shown.length.toLocaleString('tr-TR')} / ${DATA.length.toLocaleString('tr-TR')} kayıt`;
+      $('legend').innerHTML=['heat','coverage','richness'].includes(view)?`<span>${view==='heat'?'Göreli gözlem yoğunluğu':view==='coverage'?'50 m hücrede gözlemci sayısı':'50 m hücrede tür sayısı'}</span><div class="legend-gradient"></div><div class="legend-ends"><span>Az</span><span>Çok</span></div>`:view==='paths'?'<span>GPS adayı gözlemler arasındaki bağlantılar</span>':'<div class="legend-dots"><span><i class="legend-dot" aria-hidden="true"></i>GPS adayı</span><span><i class="legend-triangle" aria-hidden="true">▲</i>Tahmini</span></div>';
       overlay.draw();
     }
     map.on('click',e=>{
@@ -86,14 +83,14 @@
     });
     document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>{view=b.dataset.view;document.querySelectorAll('[data-view]').forEach(x=>{x.classList.toggle('selected',x===b);x.setAttribute('aria-pressed',String(x===b));});update();});
     ['source','observer','taxa','quality'].forEach(id=>$(id).onchange=()=>update(true));
-    $('smooth').oninput=()=>update(true);$('visibility').oninput=()=>update();$('uncertainty').onchange=()=>update();
+    $('smooth').oninput=()=>update(true);$('visibility').oninput=()=>update();
     $('filterToggle').onclick=()=>{const isHidden=$('filterPanel').hidden;$('filterPanel').hidden=!isHidden;$('filterToggle').setAttribute('aria-expanded',String(isHidden));};
     $('resetFilters').onclick=()=>{$('source').value='reliable';['observer','taxa','quality'].forEach(id=>$(id).value='all');update(true);};
     $('basemap').onchange=()=>{map.removeLayer(basemap);basemap=layers[$('basemap').value];basemap.addTo(map);};
-    for(const key of ['osm','light']){let errors=0;layers[key].on('tileerror',()=>{if(++errors>=4&&basemap===layers[key]){$('basemap').value='embedded';$('basemap').dispatchEvent(new Event('change'));$('selectionSummary').textContent+=' · Çevrimiçi zemin yüklenemedi; yerel uyduya dönüldü.';}});}
-    function stop(){playing=false;clearTimeout(timer);$('play').querySelector('span').textContent='Oynat';$('play').setAttribute('aria-label','Zaman animasyonunu başlat');}
+    for(const key of ['osm']){let errors=0;layers[key].on('tileerror',()=>{if(++errors>=4&&basemap===layers[key]){$('basemap').value='embedded';$('basemap').dispatchEvent(new Event('change'));console.warn('OpenStreetMap yüklenemedi; uydu zemini gösteriliyor.');}});}
+    function stop(){playing=false;clearTimeout(timer);$('play').querySelector('span').textContent='Oynat';$('play').setAttribute('aria-label','Zaman animasyonunu başlat');$('play').querySelector('path').setAttribute('d','m5 3 8 5-8 5z');}
     function tick(){if(!playing)return;const t=+$('timeRange').value;if(t>=CFG.end){stop();return;}$('timeRange').value=Math.min(CFG.end,t+Number($('speed').value));update();timer=setTimeout(tick,180);}
-    $('play').onclick=()=>{if(playing){stop();return;}if($('timeMode').value==='all')$('timeMode').value='cumulative';if(+$('timeRange').value>=CFG.end)$('timeRange').value=CFG.start;playing=true;$('play').querySelector('span').textContent='Duraklat';$('play').setAttribute('aria-label','Zaman animasyonunu duraklat');tick();};
+    $('play').onclick=()=>{if(playing){stop();return;}if($('timeMode').value==='all')$('timeMode').value='cumulative';if(+$('timeRange').value>=CFG.end)$('timeRange').value=CFG.start;playing=true;$('play').querySelector('span').textContent='Duraklat';$('play').setAttribute('aria-label','Zaman animasyonunu duraklat');$('play').querySelector('path').setAttribute('d','M4 3h3v10H4zm5 0h3v10H9z');tick();};
     $('timeRange').oninput=()=>{if($('timeMode').value==='all')$('timeMode').value='cumulative';update();};$('timeMode').onchange=()=>{stop();update();};
     $('fit').onclick=()=>{const rows=active();map.fitBounds(rows.length?L.latLngBounds(rows.map(d=>[d.lat,d.lon])).pad(.08):originalBounds.pad(.08));};
     document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});

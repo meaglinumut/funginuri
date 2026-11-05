@@ -1,5 +1,15 @@
 # Boğaziçi Tür Say Güz 2026 güncellemesi
 
+## Görünüm düzeltmesi, üçüncü sürüm
+
+Proje bağlantısı üç etkinlik sayfasında da başlık kutusunun sağındadır. Gözlemci, canlı grubu ve harita zemini seçimleri Filtreler dışında her zaman görünür. Noktalar, tahmin üçgenleri ve rota çizgileri Bolu renkleriyle eşleştirildi.
+
+Önceki paketi yüklediyseniz bu ZIP’ten yalnızca `guz-2026` klasörünü deponun ana dizinine sürükleyip yükleyin. Önceden dosya silmeyin. Ana index, menü, Bolu ve renk dosyalarını yeniden yüklemeniz gerekmez.
+
+Bolu’nun ortak teması kullanılır. Konum filtresi üç seçeneklidir: GPS + tahminler, GPS adayları, tahmini konumlar. Harita zeminleri uydu ve OpenStreetMap’tir. Isı ayarları ve zaman çubuğu klasik kare tutamaçlıdır. Harita altındaki açıklamalar ve konum grafiği kaldırıldı. Konum verilerinde değişiklik yapılmadı.
+
+## İlk kez yükleme
+
 ZIP’i bilgisayarda ayıklayın. GitHub deposunun ana dizininde Add file → Upload files açın. Paketin içindeki `guz-2026`, `partials`, `js` klasörlerini ve `index.html` dosyasını birlikte sürükleyin. ZIP dosyasını veya dış paket klasörünü yüklemeyin. Commit changes ile kaydedin.
 
 Yeni etkinlik `/guz-2026/` adresinde açılır. Ana sayfa kartı ve Geçmiş türsaylar menüsü hazırdır. İstatistikler `guz-2026/istatistikler.html`, sonraya bırakılan canlılar bölümü `guz-2026/canlilar.html` dosyasındadır.

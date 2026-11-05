@@ -1,0 +1,146 @@
+{
+  "event": "Boğaziçi Tür Say Güz 2026",
+  "photographer": {
+    "name": "Koray Öğreten",
+    "username": "kocoleoptera",
+    "url": "https://www.inaturalist.org/people/kocoleoptera"
+  },
+  "source": "iNaturalist",
+  "photos": [
+    {
+      "observation_id": "404253069",
+      "scientific_name": "Eristalinus taeniops",
+      "common_name": "",
+      "image_large": "https://inaturalist-open-data.s3.amazonaws.com/photos/742346071/large.jpg",
+      "image_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/742346071/medium.jpg",
+      "image_original": "https://inaturalist-open-data.s3.amazonaws.com/photos/742346071/original.jpg",
+      "observation_url": "https://www.inaturalist.org/observations/404253069"
+    },
+    {
+      "observation_id": "404253061",
+      "scientific_name": "Iphiclides podalirius",
+      "common_name": "Erik Kırlangıçkuyruğu",
+      "image_large": "https://inaturalist-open-data.s3.amazonaws.com/photos/742346041/large.jpg",
+      "image_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/742346041/medium.jpg",
+      "image_original": "https://inaturalist-open-data.s3.amazonaws.com/photos/742346041/original.jpg",
+      "observation_url": "https://www.inaturalist.org/observations/404253061"
+    },
+    {
+      "observation_id": "404253060",
+      "scientific_name": "Podarcis siculus",
+      "common_name": "İtalyan Duvar Kertenkelesi",
+      "image_large": "https://inaturalist-open-data.s3.amazonaws.com/photos/742346043/large.jpg",
+      "image_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/742346043/medium.jpg",
+      "image_original": "https://inaturalist-open-data.s3.amazonaws.com/photos/742346043/original.jpg",
+      "observation_url": "https://www.inaturalist.org/observations/404253060"
+    },
+    {
+      "observation_id": "404253008",
+      "scientific_name": "Clanga pomarina",
+      "common_name": "Küçük Orman Kartalı",
+      "image_large": "https://inaturalist-open-data.s3.amazonaws.com/photos/742345769/large.jpg",
+      "image_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/742345769/medium.jpg",
+      "image_original": "https://inaturalist-open-data.s3.amazonaws.com/photos/742345769/original.jpg",
+      "observation_url": "https://www.inaturalist.org/observations/404253008"
+    },
+    {
+      "observation_id": "404197322",
+      "scientific_name": "Bilobella",
+      "common_name": "",
+      "image_large": "https://inaturalist-open-data.s3.amazonaws.com/photos/742238747/large.jpg",
+      "image_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/742238747/medium.jpg",
+      "image_original": "https://inaturalist-open-data.s3.amazonaws.com/photos/742238747/original.jpg",
+      "observation_url": "https://www.inaturalist.org/observations/404197322"
+    },
+    {
+      "observation_id": "404197314",
+      "scientific_name": "Crioceris bicruciata",
+      "common_name": "",
+      "image_large": "https://inaturalist-open-data.s3.amazonaws.com/photos/742238714/large.jpg",
+      "image_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/742238714/medium.jpg",
+      "image_original": "https://inaturalist-open-data.s3.amazonaws.com/photos/742238714/original.jpg",
+      "observation_url": "https://www.inaturalist.org/observations/404197314"
+    },
+    {
+      "observation_id": "404197270",
+      "scientific_name": "Mintho rufiventris",
+      "common_name": "",
+      "image_large": "https://inaturalist-open-data.s3.amazonaws.com/photos/742238657/large.jpg",
+      "image_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/742238657/medium.jpg",
+      "image_original": "https://inaturalist-open-data.s3.amazonaws.com/photos/742238657/original.jpg",
+      "observation_url": "https://www.inaturalist.org/observations/404197270"
+    },
+    {
+      "observation_id": "404197275",
+      "scientific_name": "Sapromyzosoma",
+      "common_name": "",
+      "image_large": "https://inaturalist-open-data.s3.amazonaws.com/photos/742238650/large.jpg",
+      "image_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/742238650/medium.jpg",
+      "image_original": "https://inaturalist-open-data.s3.amazonaws.com/photos/742238650/original.jpg",
+      "observation_url": "https://www.inaturalist.org/observations/404197275"
+    },
+    {
+      "observation_id": "404253149",
+      "scientific_name": "Graphosoma italicum italicum",
+      "common_name": "Italyan Kokar Böceği",
+      "image_large": "https://inaturalist-open-data.s3.amazonaws.com/photos/742346374/large.jpg",
+      "image_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/742346374/medium.jpg",
+      "image_original": "https://inaturalist-open-data.s3.amazonaws.com/photos/742346374/original.jpg",
+      "observation_url": "https://www.inaturalist.org/observations/404253149"
+    },
+    {
+      "observation_id": "404253093",
+      "scientific_name": "Nezara viridula",
+      "common_name": "Pis Kokulu Yeşil Böcek",
+      "image_large": "https://inaturalist-open-data.s3.amazonaws.com/photos/742346196/large.jpg",
+      "image_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/742346196/medium.jpg",
+      "image_original": "https://inaturalist-open-data.s3.amazonaws.com/photos/742346196/original.jpg",
+      "observation_url": "https://www.inaturalist.org/observations/404253093"
+    },
+    {
+      "observation_id": "404253082",
+      "scientific_name": "Pararge aegeria",
+      "common_name": "Karanlık Orman Esmeri",
+      "image_large": "https://inaturalist-open-data.s3.amazonaws.com/photos/742346107/large.jpg",
+      "image_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/742346107/medium.jpg",
+      "image_original": "https://inaturalist-open-data.s3.amazonaws.com/photos/742346107/original.jpg",
+      "observation_url": "https://www.inaturalist.org/observations/404253082"
+    },
+    {
+      "observation_id": "404253085",
+      "scientific_name": "Erinaceus roumanicus",
+      "common_name": "Balkan Kirpisi",
+      "image_large": "https://inaturalist-open-data.s3.amazonaws.com/photos/742346130/large.jpg",
+      "image_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/742346130/medium.jpg",
+      "image_original": "https://inaturalist-open-data.s3.amazonaws.com/photos/742346130/original.jpg",
+      "observation_url": "https://www.inaturalist.org/observations/404253085"
+    },
+    {
+      "observation_id": "404253075",
+      "scientific_name": "Stevenia deceptoria",
+      "common_name": "",
+      "image_large": "https://inaturalist-open-data.s3.amazonaws.com/photos/742346100/large.jpg",
+      "image_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/742346100/medium.jpg",
+      "image_original": "https://inaturalist-open-data.s3.amazonaws.com/photos/742346100/original.jpg",
+      "observation_url": "https://www.inaturalist.org/observations/404253075"
+    },
+    {
+      "observation_id": "404253073",
+      "scientific_name": "Vespa orientalis",
+      "common_name": "Doğu Eşekarısı",
+      "image_large": "https://inaturalist-open-data.s3.amazonaws.com/photos/742346074/large.jpg",
+      "image_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/742346074/medium.jpg",
+      "image_original": "https://inaturalist-open-data.s3.amazonaws.com/photos/742346074/original.jpg",
+      "observation_url": "https://www.inaturalist.org/observations/404253073"
+    },
+    {
+      "observation_id": "404253150",
+      "scientific_name": "Xanthogramma dives",
+      "common_name": "",
+      "image_large": "https://inaturalist-open-data.s3.amazonaws.com/photos/742346410/large.jpg",
+      "image_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/742346410/medium.jpg",
+      "image_original": "https://inaturalist-open-data.s3.amazonaws.com/photos/742346410/original.jpg",
+      "observation_url": "https://www.inaturalist.org/observations/404253150"
+    }
+  ]
+}

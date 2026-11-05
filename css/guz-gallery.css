@@ -1,0 +1,17 @@
+/* Güz 2026 galerisi. Bolu galerisinin retro renkleri ve ışıklı kutu kullanılır. */
+.guz-gallery{margin:18px 0;border:3px outset var(--border-light,#eee);background:var(--panel-soft,#C4FFCE)}
+.guz-gallery>h2{margin:0;padding:12px 16px;background:var(--panel,#96FFAD);color:var(--text,#17251C);font-family:var(--font-display,serif)}
+.guz-gallery-intro,.guz-gallery-loading{margin:12px 16px;font-size:14px}
+.guz-gallery a,.guz-photo-dialog a{color:var(--link,#000080)}
+.guz-gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;padding:4px 16px 20px}
+.guz-photo-card{margin:0;min-width:0;border:2px outset var(--border-light,#eee);background:var(--surface,#FFFDCF)}
+.guz-photo-open{display:block;width:100%;padding:6px;border:0;background:transparent;cursor:zoom-in}
+.guz-photo-open:focus-visible{outline:3px solid #000080;outline-offset:-3px}
+.guz-photo-card img{display:block;width:100%;aspect-ratio:4/3;object-fit:contain}
+.guz-photo-card figcaption{display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:9px 12px 12px;font-size:13px}
+.guz-photo-card .guz-scientific{font:italic 18px var(--font-display,serif);overflow-wrap:anywhere}
+.guz-common{font-size:13px}
+.guz-photo-card figcaption a{margin-top:4px;font-size:12px}
+.guz-photo-dialog .photo-count{font-family:var(--font-body,serif)}
+@media(max-width:900px){.guz-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.guz-gallery-grid{grid-template-columns:1fr}.guz-photo-card img{aspect-ratio:3/2}.guz-photo-dialog nav button{font-size:12px;padding:6px 8px}}

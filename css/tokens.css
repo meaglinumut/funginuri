@@ -1,25 +1,32 @@
-/* BounMantar: mellow retro nature catalog, not neon. */
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap');
 :root {
   color-scheme: light;
-  --bg: #F4EFD8;
-  --header: #C9D8D2;
-  --panel: #D8E2C8;
-  --panel-soft: #E8EAD9;
-  --surface: #F8F6EC;
-  --button: #E9DFC8;
-  --active: #93A17A;
-  --text: #2F3327;
-  --text-muted: #5B6653;
-  --heading: #2F3327;
-  --accent-heading: #4D5B3F;
-  --link: #355C7D;
-  --accent: #B56A52;
-  --border-dark: #7F8574;
-  --border-light: #FFFDF6;
-  --font-display: 'DM Serif Display', Georgia, serif;
-  --font-body: 'Inter', Arial, sans-serif;
-  /* Taxon colors intentionally kept independent of the muted interface. */
+
+  /* Arayüz renkleri */
+  --bg: #FFFDCF;
+  --header: #96FFFA;
+  --panel: #96FFAD;
+  --panel-soft: #C4FFCE;
+  --surface: #FFFDCF;
+  --button: #FFFDCF;
+  --active: #BAFFCD;
+
+  /* Yazılar ve bağlantılar */
+  --text: #17251C;
+  --text-muted: #333333;
+  --heading: #17251C;
+  --accent-heading: #17251C;
+  --link: #000080;
+  --accent: #25864B;
+
+  /* Klasik kabartmalı kenarlıklar */
+  --border-dark: #999999;
+  --border-light: #EEEEEE;
+
+  /* Eski görünümdeki yazı tipleri */
+  --font-display: 'Times New Roman', Times, serif;
+  --font-body: Arial, sans-serif;
+
+  /* Grafiklerdeki canlı grubu renkleri */
   --unknown: #AAAAAA;
   --protozoa: #691776;
   --fungi: #FF1493;

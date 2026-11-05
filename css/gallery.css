@@ -6,3 +6,39 @@
 .trip-card{margin:0;min-width:0}.trip-card button{display:block;width:100%;padding:4px;background:var(--surface,#FFFDCF);border:2px outset var(--border-light,#eee);cursor:zoom-in}.trip-card img{display:block;width:100%;height:165px;object-fit:contain}.trip-card figcaption{font-size:13px;line-height:1.5;padding-top:6px}.trip-card a,.trip-cover a,.trip-credit a{color:var(--link,#000080)}
 .photo-dialog{width:min(1100px,96vw);max-height:95vh;padding:10px;background:var(--bg,#FFFDCF);color:var(--text,#17251C);border:3px outset var(--border-light,#eee)}.photo-dialog::backdrop{background:rgba(0,0,0,.8)}.photo-dialog header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}.photo-dialog h3{margin:0;font-size:17px}.photo-dialog button{background:var(--button,#FFFDCF);color:var(--text,#17251C);border:2px outset var(--border-light,#eee);padding:7px 12px;cursor:pointer}.photo-dialog figure{margin:0}.photo-dialog img{display:block;max-width:100%;width:100%;height:min(67vh,750px);object-fit:contain}.photo-dialog figcaption{padding:8px 0;font-size:13px}.photo-dialog nav{display:flex;align-items:center;justify-content:space-between;gap:8px}.photo-dialog a{color:var(--link,#000080)}
 @media(max-width:850px){.trip-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.trip-cover img{aspect-ratio:2.2}}@media(max-width:420px){.trip-grid{grid-template-columns:1fr}.trip-card img{height:220px}}
+/* Yatay fotoğraflar sayfa genişliğinde, kırpılmadan görünür. */
+.trip-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.trip-grid .trip-card {
+  grid-column: 1 / -1;
+  order: 0;
+}
+
+.trip-grid .trip-card img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* İki dikey fotoğraf galerinin sonunda yan yana görünür. */
+.trip-grid .trip-card:has(img[src*="IMG_20261029_161258"]),
+.trip-grid .trip-card:has(img[src*="IMG_20261029_162013"]) {
+  grid-column: auto;
+  order: 1;
+  align-self: start;
+}
+
+/* Açıklama silindiyse altında boşluk kalmaz. */
+.trip-card figcaption:empty {
+  display: none;
+}
+
+/* Küçük telefon ekranlarında dikey fotoğraflar da alt alta gelir. */
+@media (max-width: 480px) {
+  .trip-grid {
+    grid-template-columns: 1fr;
+  }
+}

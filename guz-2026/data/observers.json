@@ -8,7 +8,9 @@
     "location": {
       "estimated": 205,
       "excluded": 48
-    }
+    },
+    "map_observations": 205,
+    "preserved_original": 0
   },
   {
     "user": "zynxy",
@@ -22,7 +24,9 @@
       "gps_explicit": 17,
       "estimated": 1,
       "excluded": 2
-    }
+    },
+    "map_observations": 97,
+    "preserved_original": 0
   },
   {
     "user": "meaglinumut",
@@ -32,10 +36,11 @@
     "research": 38,
     "location": {
       "gps_explicit": 1,
-      "excluded": 4,
-      "gps_likely": 44,
-      "uncertain": 27
-    }
+      "uncertain": 31,
+      "gps_likely": 44
+    },
+    "map_observations": 49,
+    "preserved_original": 4
   },
   {
     "user": "luludia",
@@ -46,7 +51,9 @@
     "location": {
       "gps_likely": 54,
       "estimated": 1
-    }
+    },
+    "map_observations": 55,
+    "preserved_original": 0
   },
   {
     "user": "espressofizik",
@@ -56,7 +63,9 @@
     "research": 12,
     "location": {
       "gps_likely": 52
-    }
+    },
+    "map_observations": 52,
+    "preserved_original": 0
   },
   {
     "user": "irmdrk",
@@ -65,11 +74,12 @@
     "taxa": 46,
     "research": 13,
     "location": {
-      "excluded": 2,
-      "gps_likely": 30,
+      "gps_likely": 32,
       "uncertain": 9,
       "estimated": 5
-    }
+    },
+    "map_observations": 37,
+    "preserved_original": 2
   },
   {
     "user": "begim",
@@ -81,7 +91,9 @@
       "gps_likely": 39,
       "estimated": 2,
       "uncertain": 4
-    }
+    },
+    "map_observations": 41,
+    "preserved_original": 0
   },
   {
     "user": "didarl",
@@ -93,7 +105,9 @@
       "gps_likely": 35,
       "uncertain": 4,
       "estimated": 1
-    }
+    },
+    "map_observations": 36,
+    "preserved_original": 0
   },
   {
     "user": "talha1001",
@@ -105,7 +119,9 @@
       "estimated": 3,
       "gps_likely": 7,
       "uncertain": 30
-    }
+    },
+    "map_observations": 10,
+    "preserved_original": 0
   },
   {
     "user": "toprak_",
@@ -118,7 +134,9 @@
       "uncertain": 2,
       "estimated": 1,
       "excluded": 1
-    }
+    },
+    "map_observations": 32,
+    "preserved_original": 0
   },
   {
     "user": "caverdido",
@@ -129,7 +147,9 @@
     "location": {
       "gps_likely": 33,
       "estimated": 1
-    }
+    },
+    "map_observations": 34,
+    "preserved_original": 0
   },
   {
     "user": "begum26214",
@@ -139,7 +159,9 @@
     "research": 12,
     "location": {
       "gps_likely": 31
-    }
+    },
+    "map_observations": 31,
+    "preserved_original": 0
   },
   {
     "user": "serayaytekin",
@@ -148,9 +170,10 @@
     "taxa": 23,
     "research": 20,
     "location": {
-      "excluded": 1,
-      "gps_likely": 28
-    }
+      "gps_likely": 29
+    },
+    "map_observations": 29,
+    "preserved_original": 1
   },
   {
     "user": "alperuzun",
@@ -159,11 +182,12 @@
     "taxa": 27,
     "research": 11,
     "location": {
-      "excluded": 3,
-      "gps_likely": 22,
+      "gps_likely": 25,
       "estimated": 2,
       "uncertain": 1
-    }
+    },
+    "map_observations": 27,
+    "preserved_original": 3
   },
   {
     "user": "zehraaaa",
@@ -174,7 +198,9 @@
     "location": {
       "gps_likely": 24,
       "uncertain": 1
-    }
+    },
+    "map_observations": 24,
+    "preserved_original": 0
   },
   {
     "user": "gunes_bodur",
@@ -185,7 +211,9 @@
     "location": {
       "gps_explicit": 1,
       "gps_likely": 24
-    }
+    },
+    "map_observations": 25,
+    "preserved_original": 0
   },
   {
     "user": "defne77130",
@@ -194,11 +222,13 @@
     "taxa": 21,
     "research": 6,
     "location": {
-      "gps_explicit": 10,
+      "gps_explicit": 11,
       "estimated": 11,
       "uncertain": 1,
-      "excluded": 2
-    }
+      "excluded": 1
+    },
+    "map_observations": 22,
+    "preserved_original": 1
   },
   {
     "user": "sevval_kzlrmk",
@@ -207,11 +237,13 @@
     "taxa": 12,
     "research": 3,
     "location": {
-      "excluded": 1,
+      "uncertain": 1,
       "gps_likely": 11,
       "gps_explicit": 1,
       "estimated": 3
-    }
+    },
+    "map_observations": 16,
+    "preserved_original": 1
   },
   {
     "user": "azra48363",
@@ -223,7 +255,9 @@
       "uncertain": 10,
       "gps_likely": 2,
       "estimated": 4
-    }
+    },
+    "map_observations": 6,
+    "preserved_original": 0
   },
   {
     "user": "dalgiczurafa",
@@ -233,7 +267,9 @@
     "research": 5,
     "location": {
       "gps_likely": 15
-    }
+    },
+    "map_observations": 15,
+    "preserved_original": 0
   },
   {
     "user": "melih38692",
@@ -244,7 +280,9 @@
     "location": {
       "gps_likely": 9,
       "uncertain": 5
-    }
+    },
+    "map_observations": 9,
+    "preserved_original": 0
   },
   {
     "user": "demetentia",
@@ -254,7 +292,9 @@
     "research": 5,
     "location": {
       "gps_likely": 12
-    }
+    },
+    "map_observations": 12,
+    "preserved_original": 0
   },
   {
     "user": "duyguhhh",
@@ -263,10 +303,11 @@
     "taxa": 10,
     "research": 6,
     "location": {
-      "excluded": 1,
-      "gps_likely": 8,
+      "gps_likely": 9,
       "uncertain": 1
-    }
+    },
+    "map_observations": 9,
+    "preserved_original": 1
   },
   {
     "user": "maveytheslayer",
@@ -278,7 +319,9 @@
       "gps_explicit": 2,
       "estimated": 1,
       "gps_likely": 7
-    }
+    },
+    "map_observations": 10,
+    "preserved_original": 0
   },
   {
     "user": "yrnztrk",
@@ -288,7 +331,9 @@
     "research": 1,
     "location": {
       "gps_likely": 8
-    }
+    },
+    "map_observations": 8,
+    "preserved_original": 0
   },
   {
     "user": "periferik",
@@ -298,7 +343,9 @@
     "research": 0,
     "location": {
       "estimated": 2
-    }
+    },
+    "map_observations": 2,
+    "preserved_original": 0
   },
   {
     "user": "zeynepakten",
@@ -308,6 +355,8 @@
     "research": 0,
     "location": {
       "excluded": 1
-    }
+    },
+    "map_observations": 0,
+    "preserved_original": 0
   }
 ]

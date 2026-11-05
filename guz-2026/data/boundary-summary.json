@@ -5,14 +5,14 @@
   "before_cutoff": 0,
   "initial_outside": 53,
   "estimated_inside": 29,
-  "excluded_from_map": 66,
-  "outside_excluded": 24,
+  "excluded_from_map": 53,
+  "outside_excluded": 11,
   "retained_inside": 778,
   "static_records": 265,
   "static_estimated": 216,
   "static_excluded": 49,
-  "default_map_count": 880,
-  "gps_map_count": 637,
+  "default_map_count": 893,
+  "gps_map_count": 645,
   "estimated_map_count": 243,
   "static_observers": {
     "zeynepakten": {
@@ -43,5 +43,23 @@
     "static_reference_interpolation": 80,
     "static_reference_nearby": 89,
     "boundary_nearest_own": 1
-  }
+  },
+  "preserved_original": 13,
+  "preserved_without_gps_classification": 5,
+  "preserved_original_ids": [
+    "403791272",
+    "403791553",
+    "403792350",
+    "403792604",
+    "403792855",
+    "403793026",
+    "403793725",
+    "403798362",
+    "404030880",
+    "404030883",
+    "404030886",
+    "404030891",
+    "410532160"
+  ],
+  "preservation_note": "Metro çıkışındaki 13 kayıt, kullanıcı tarafından istenen özgün konum istisnası olarak KML kısıtından ayrı tutulur. Kaynak saat ve koordinatlar değiştirilmez."
 }

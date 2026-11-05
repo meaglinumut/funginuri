@@ -23,17 +23,17 @@
       "center_value": "2.792",
       "center_label": "Gözlem",
       "items": [
-        {
-          "label": "Tanımlama gerekli",
-          "count": 2192,
-          "color": "#B56A52"
-        },
-        {
-          "label": "Araştırma sınıfı",
-          "count": 600,
-          "color": "#93A17A"
-        }
-      ]
+  {
+    "label": "Araştırma sınıfı",
+    "count": 600,
+    "color": "#A8CC00"
+  },
+  {
+    "label": "Tanımlama gerekli",
+    "count": 2192,
+    "color": "#FFEC8B"
+  }
+]
     },
     {
       "title": "Canlı gruplarına göre gözlemler",

@@ -5,7 +5,7 @@
   try {
     const [DATA, CFG] = await Promise.all(['data/observations.json', 'data/config.json'].map(u => fetch(u).then(r => { if (!r.ok) throw Error(r.status); return r.json(); })));
     const gps = d => d.status === 'gps_explicit' || d.status === 'gps_likely';
-    const located = DATA.filter(d => Number.isFinite(d.lat) && Number.isFinite(d.lon));
+    const located = DATA.filter(d => Number.isFinite(d.lat) && Number.isFinite(d.lon) && d.map_visible !== false);
     for (const user of [...new Set(DATA.map(d => d.user))].sort()) $('observer').add(new Option(user, user));
     for (const [key, [label]] of Object.entries(CFG.groups)) if (DATA.some(d => d.group === key)) $('taxa').add(new Option(label, key));
     const initialUser = new URLSearchParams(location.search).get('observer');
@@ -19,9 +19,14 @@
     };
     let basemap = embedded; basemap.addTo(map);
     L.control.scale({imperial: false}).addTo(map);
+    if(CFG.boundary_url){
+      const boundary=await fetch(CFG.boundary_url).then(r=>{if(!r.ok)throw Error(r.status);return r.json();});
+      map.createPane('campusBoundary');map.getPane('campusBoundary').style.zIndex=410;map.getPane('campusBoundary').style.pointerEvents='none';
+      L.geoJSON(boundary,{pane:'campusBoundary',interactive:false,style:{color:'#fff5b0',weight:1.4,opacity:.8,dashArray:'6 5',fill:false}}).addTo(map);
+    }
     let view = 'heat', visible = [], filtered = [], scale = null, playing = false, timer = null;
     const originalBounds = L.latLngBounds(located.filter(d => gps(d) || d.status === 'estimated').map(d => [d.lat, d.lon]));
-    map.fitBounds(originalBounds.pad(.08));
+    map.fitBounds(CFG.fit_bounds || originalBounds.pad(.08));
     const colors = [[45,107,255], [20,223,242], [254,242,83], [255,145,16], [255,43,87]];
     function color(v) {const z = Math.min(.9999, Math.max(0,v))*4, i = Math.floor(z), f=z-i; return colors[i].map((x,k)=>Math.round(x+(colors[i+1][k]-x)*f));}
     function selectRows(time = true) {

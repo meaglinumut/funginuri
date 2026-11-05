@@ -2,7 +2,7 @@
   const $=id=>document.getElementById(id), fmt=n=>n.toLocaleString('tr-TR');
   const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   try {
-    const data=await fetch(document.body.dataset.statistics).then(r=>{if(!r.ok)throw Error(r.status);return r.json();}), s=data.summary;
+    const data=await fetch(document.body.dataset.statistics,{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error(r.status);return r.json();}), s=data.summary;
     $('metrics').innerHTML=[[s.observations,'Gözlem'],[s.species,'Tür'],[s.observers,'Gözlemci'],[s.quality.research,'Araştırma sınıfı kayıt']].map(([n,label])=>`<div class="metric"><strong>${fmt(n)}</strong><span>${label}</span></div>`).join('');
     function donut(id,title,center,label,items){
       const total=items.reduce((a,b)=>a+b.count,0);let pos=0;const gradient=items.filter(x=>x.count).map(x=>{const start=pos;pos+=x.count/total*100;return `${x.color} ${start}% ${pos}%`;}).join(',');

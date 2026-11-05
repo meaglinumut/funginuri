@@ -3,20 +3,20 @@
   const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const fmt = m => `${String(Math.floor(m / 60)).padStart(2, '0')}.${String(Math.floor(m % 60)).padStart(2, '0')}`;
   try {
-    const CFG=await fetch(document.body.dataset.mapConfig).then(r=>{if(!r.ok)throw Error(r.status);return r.json();});
-    const DATA=await fetch(CFG.observations_url).then(r=>{if(!r.ok)throw Error(r.status);return r.json();});
+    const CFG=await fetch(document.body.dataset.mapConfig,{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error(r.status);return r.json();});
+    const DATA=await fetch(CFG.observations_url,{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error(r.status);return r.json();});
     $('smooth').value=CFG.default_smoothing ?? 30;$('visibility').value=CFG.default_visibility ?? 2.5;
     $('timeRange').min=CFG.start;$('timeRange').max=CFG.end;$('timeRange').value=CFG.end;
     document.querySelector('.time-labels>span:first-child').textContent=fmt(CFG.start);
     document.querySelector('.time-labels>span:last-child').textContent=fmt(CFG.end);
     const gps = d => d.status === 'gps_explicit' || d.status === 'gps_likely';
-    const located = DATA.filter(d => Number.isFinite(d.lat) && Number.isFinite(d.lon));
+    const located = DATA.filter(d => Number.isFinite(d.lat) && Number.isFinite(d.lon) && d.map_visible !== false);
     for (const user of [...new Set(DATA.map(d => d.user))].sort()) $('observer').add(new Option(user, user));
     for (const [key, [label]] of Object.entries(CFG.groups)) if (DATA.some(d => d.group === key)) $('taxa').add(new Option(label, key));
     const initialUser = new URLSearchParams(location.search).get('observer');
     if ([...$('observer').options].some(o => o.value === initialUser)) $('observer').value = initialUser;
     const map = L.map('map', {minZoom: CFG.min_zoom ?? 13, maxZoom: CFG.max_zoom ?? 21, zoomSnap: .25, preferCanvas: true});
-    map.attributionControl.setPrefix('');
+    map.attributionControl.setPrefix('');if(CFG.max_bounds)map.setMaxBounds(L.latLngBounds(CFG.max_bounds).pad(.35));
     const embedded = L.imageOverlay(CFG.satellite, CFG.bounds, {attribution: 'Esri, Vantor, Earthstar Geographics, GIS User Community'});
     const layers = {
       embedded,
@@ -24,9 +24,14 @@
     };
     let basemap = embedded; basemap.addTo(map);
     L.control.scale({imperial: false}).addTo(map);
+    if(CFG.boundary_url){
+      const boundary=await fetch(CFG.boundary_url,{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error(r.status);return r.json();});
+      map.createPane('campusBoundary');map.getPane('campusBoundary').style.zIndex=410;map.getPane('campusBoundary').style.pointerEvents='none';
+      L.geoJSON(boundary,{pane:'campusBoundary',interactive:false,style:{color:'#fff5b0',weight:1.4,opacity:.8,dashArray:'6 5',fill:false}}).addTo(map);
+    }
     let view = 'heat', visible = [], filtered = [], scale = null, playing = false, timer = null;
     const originalBounds = L.latLngBounds(located.filter(d => gps(d) || d.status === 'estimated').map(d => [d.lat, d.lon]));
-    map.fitBounds(originalBounds.pad(.08));
+    map.fitBounds(CFG.fit_bounds || originalBounds.pad(.08));
     const colors = [[45,107,255], [20,223,242], [254,242,83], [255,145,16], [255,43,87]];
     function color(v) {const z = Math.min(.9999, Math.max(0,v))*4, i = Math.floor(z), f=z-i; return colors[i].map((x,k)=>Math.round(x+(colors[i+1][k]-x)*f));}
     function selectRows(time = true) {

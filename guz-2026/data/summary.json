@@ -8,10 +8,11 @@
     "research": 347
   },
   "location": {
-    "gps_likely": 619,
-    "uncertain": 198,
-    "gps_explicit": 37,
-    "estimated": 191
+    "excluded": 66,
+    "gps_likely": 605,
+    "uncertain": 99,
+    "gps_explicit": 32,
+    "estimated": 243
   },
   "static_users": [
     "kocoleoptera"
@@ -19,5 +20,6 @@
   "date": "2026-09-27",
   "time_zone": "Europe/Istanbul",
   "source": "observations-809258.csv",
-  "original_gps_verified": false
+  "original_gps_verified": false,
+  "map_observations": 880
 }

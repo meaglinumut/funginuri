@@ -6,8 +6,8 @@
     "taxa": 226,
     "research": 97,
     "location": {
-      "uncertain": 71,
-      "estimated": 182
+      "estimated": 205,
+      "excluded": 48
     }
   },
   {
@@ -17,9 +17,11 @@
     "taxa": 89,
     "research": 11,
     "location": {
-      "gps_likely": 81,
+      "gps_likely": 79,
       "uncertain": 4,
-      "gps_explicit": 18
+      "gps_explicit": 17,
+      "estimated": 1,
+      "excluded": 2
     }
   },
   {
@@ -30,8 +32,9 @@
     "research": 38,
     "location": {
       "gps_explicit": 1,
-      "uncertain": 31,
-      "gps_likely": 44
+      "excluded": 4,
+      "gps_likely": 44,
+      "uncertain": 27
     }
   },
   {
@@ -41,7 +44,8 @@
     "taxa": 48,
     "research": 13,
     "location": {
-      "gps_likely": 55
+      "gps_likely": 54,
+      "estimated": 1
     }
   },
   {
@@ -61,8 +65,10 @@
     "taxa": 46,
     "research": 13,
     "location": {
-      "gps_likely": 32,
-      "uncertain": 14
+      "excluded": 2,
+      "gps_likely": 30,
+      "uncertain": 9,
+      "estimated": 5
     }
   },
   {
@@ -73,7 +79,8 @@
     "research": 6,
     "location": {
       "gps_likely": 39,
-      "uncertain": 6
+      "estimated": 2,
+      "uncertain": 4
     }
   },
   {
@@ -84,7 +91,8 @@
     "research": 20,
     "location": {
       "gps_likely": 35,
-      "uncertain": 5
+      "uncertain": 4,
+      "estimated": 1
     }
   },
   {
@@ -94,9 +102,9 @@
     "taxa": 40,
     "research": 18,
     "location": {
-      "estimated": 1,
+      "estimated": 3,
       "gps_likely": 7,
-      "uncertain": 32
+      "uncertain": 30
     }
   },
   {
@@ -107,7 +115,9 @@
     "research": 4,
     "location": {
       "gps_likely": 31,
-      "uncertain": 4
+      "uncertain": 2,
+      "estimated": 1,
+      "excluded": 1
     }
   },
   {
@@ -118,7 +128,7 @@
     "research": 15,
     "location": {
       "gps_likely": 33,
-      "uncertain": 1
+      "estimated": 1
     }
   },
   {
@@ -138,7 +148,8 @@
     "taxa": 23,
     "research": 20,
     "location": {
-      "gps_likely": 29
+      "excluded": 1,
+      "gps_likely": 28
     }
   },
   {
@@ -148,8 +159,10 @@
     "taxa": 27,
     "research": 11,
     "location": {
-      "gps_likely": 26,
-      "uncertain": 2
+      "excluded": 3,
+      "gps_likely": 22,
+      "estimated": 2,
+      "uncertain": 1
     }
   },
   {
@@ -181,9 +194,10 @@
     "taxa": 21,
     "research": 6,
     "location": {
-      "gps_explicit": 14,
-      "uncertain": 2,
-      "estimated": 8
+      "gps_explicit": 10,
+      "estimated": 11,
+      "uncertain": 1,
+      "excluded": 2
     }
   },
   {
@@ -193,9 +207,10 @@
     "taxa": 12,
     "research": 3,
     "location": {
-      "uncertain": 4,
+      "excluded": 1,
       "gps_likely": 11,
-      "gps_explicit": 1
+      "gps_explicit": 1,
+      "estimated": 3
     }
   },
   {
@@ -205,8 +220,9 @@
     "taxa": 16,
     "research": 9,
     "location": {
-      "uncertain": 14,
-      "gps_likely": 2
+      "uncertain": 10,
+      "gps_likely": 2,
+      "estimated": 4
     }
   },
   {
@@ -247,7 +263,8 @@
     "taxa": 10,
     "research": 6,
     "location": {
-      "gps_likely": 9,
+      "excluded": 1,
+      "gps_likely": 8,
       "uncertain": 1
     }
   },
@@ -259,7 +276,8 @@
     "research": 3,
     "location": {
       "gps_explicit": 2,
-      "gps_likely": 8
+      "estimated": 1,
+      "gps_likely": 7
     }
   },
   {
@@ -279,7 +297,7 @@
     "taxa": 1,
     "research": 0,
     "location": {
-      "gps_likely": 2
+      "estimated": 2
     }
   },
   {
@@ -289,7 +307,7 @@
     "taxa": 1,
     "research": 0,
     "location": {
-      "uncertain": 1
+      "excluded": 1
     }
   }
 ]

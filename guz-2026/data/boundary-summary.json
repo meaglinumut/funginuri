@@ -1,0 +1,47 @@
+{
+  "cutoff_local": "09:40",
+  "timezone": "Europe/Istanbul",
+  "observations": 1045,
+  "before_cutoff": 0,
+  "initial_outside": 53,
+  "estimated_inside": 29,
+  "excluded_from_map": 66,
+  "outside_excluded": 24,
+  "retained_inside": 778,
+  "static_records": 265,
+  "static_estimated": 216,
+  "static_excluded": 49,
+  "default_map_count": 880,
+  "gps_map_count": 637,
+  "estimated_map_count": 243,
+  "static_observers": {
+    "zeynepakten": {
+      "excluded": 1,
+      "total": 1
+    },
+    "periferik": {
+      "static_group_consensus": 2,
+      "total": 2
+    },
+    "defne77130": {
+      "static_reference_interpolation": 5,
+      "total": 9,
+      "static_reference_nearby": 4
+    },
+    "kocoleoptera": {
+      "static_reference_interpolation": 75,
+      "total": 253,
+      "static_reference_nearby": 85,
+      "static_group_consensus": 45,
+      "excluded": 48
+    }
+  },
+  "methods": {
+    "boundary_own_interpolation": 16,
+    "boundary_group_consensus": 9,
+    "static_group_consensus": 47,
+    "static_reference_interpolation": 80,
+    "static_reference_nearby": 89,
+    "boundary_nearest_own": 1
+  }
+}

@@ -15,6 +15,17 @@
     for (const [key, [label]] of Object.entries(CFG.groups)) if (DATA.some(d => d.group === key)) $('taxa').add(new Option(label, key));
     const initialUser = new URLSearchParams(location.search).get('observer');
     if ([...$('observer').options].some(o => o.value === initialUser)) $('observer').value = initialUser;
+    const guideParams=new URLSearchParams(location.search);
+    const focusTaxa=new Set((guideParams.get('taxon')||'').split(',').filter(id=>/^\d+$/.test(id)&&DATA.some(d=>String(d.taxon)===id)));
+    const guideQuality=guideParams.get('quality');
+    if([...$('quality').options].some(o=>o.value===guideQuality))$('quality').value=guideQuality;
+    if(focusTaxa.size){
+      const sample=DATA.find(d=>focusTaxa.has(String(d.taxon))),notice=document.createElement('p');
+      notice.className='selection-summary';notice.id='guideTaxonFocus';notice.append(document.createTextNode('Canlı filtresi: '+(sample.species||sample.name)+' · '));
+      const clear=document.createElement('a');clear.href='./';clear.textContent='Bütün canlıları göster';notice.append(clear);
+      const entry=guideParams.get('entry');if(/^\d+$/.test(entry||'')){const back=document.createElement('a');back.href='canlilar.html#canli-'+entry;back.textContent='Canlı dosyasına dön';back.style.marginLeft='14px';notice.append(back);}
+      document.querySelector('.map-card').before(notice);
+    }
     const map = L.map('map', {minZoom: CFG.min_zoom ?? 13, maxZoom: CFG.max_zoom ?? 21, zoomSnap: .25, preferCanvas: true});
     map.attributionControl.setPrefix('');if(CFG.max_bounds)map.setMaxBounds(L.latLngBounds(CFG.max_bounds).pad(.35));
     const embedded = L.imageOverlay(CFG.satellite, CFG.bounds, {attribution: 'Esri, Vantor, Earthstar Geographics, GIS User Community'});
@@ -36,7 +47,7 @@
     function color(v) {const z = Math.min(.9999, Math.max(0,v))*4, i = Math.floor(z), f=z-i; return colors[i].map((x,k)=>Math.round(x+(colors[i+1][k]-x)*f));}
     function selectRows(time = true) {
       const source = $('source').value, user = $('observer').value, group = $('taxa').value, quality = $('quality').value, mode = $('timeMode').value, end = +$('timeRange').value;
-      return located.filter(d => (source === 'reliable' ? gps(d) || d.status === 'estimated' || d.preserved_original === true : source === 'gps' ? gps(d) : d.status === 'estimated') && (user === 'all' || d.user === user) && (group === 'all' || d.group === group) && (quality === 'all' || d.quality === quality) && (!time || mode === 'all' || (d.t !== null && d.t >= CFG.start && d.t <= end && (mode === 'cumulative' || d.t >= end - 30))));
+      return located.filter(d => (source === 'reliable' ? gps(d) || d.status === 'estimated' || d.preserved_original === true : source === 'gps' ? gps(d) : d.status === 'estimated') && (user === 'all' || d.user === user) && (group === 'all' || d.group === group) && (quality === 'all' || d.quality === quality) && (!focusTaxa.size || focusTaxa.has(String(d.taxon))) && (!time || mode === 'all' || (d.t !== null && d.t >= CFG.start && d.t <= end && (mode === 'cumulative' || d.t >= end - 30))));
     }
     const active = () => view === 'paths' ? visible.filter(gps) : visible;
     function density(rows, w, h) {
@@ -105,5 +116,6 @@
     $('fit').onclick=()=>{const rows=active();map.fitBounds(rows.length?L.latLngBounds(rows.map(d=>[d.lat,d.lon])).pad(.08):originalBounds.pad(.08));};
     document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});
     update(true);
+    if(focusTaxa.size&&visible.length)map.fitBounds(L.latLngBounds(visible.map(d=>[d.lat,d.lon])).pad(.2),{maxZoom:18});
   } catch(error) {console.error(error);$('map').textContent='Harita yüklenemedi. Sayfayı GitHub Pages üzerinden açın ve veri dosyalarının yüklendiğini kontrol edin.';}
 })();

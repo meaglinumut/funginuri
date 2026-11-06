@@ -1,1 +1,46 @@
-<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Araştırma sınıfı canlılar | Boğaziçi Tür Say Güz 2026</title><link rel="icon" href="../assets/bounmantar-logo.png"><link rel="stylesheet" href="../css/layout.css"><link rel="stylesheet" href="../css/retro-base.css"><link rel="stylesheet" href="../css/tokens.css"><link rel="stylesheet" href="../css/theme.css"><link rel="stylesheet" href="../css/navigation.css"><link rel="stylesheet" href="../vendor/leaflet.css"><link rel="stylesheet" href="../css/events.css?v=4"></head><body data-map-config="data/config.json" data-statistics="data/statistics.json" class="event-site" data-base="../"><div data-include="header"></div><main class="page-shell event-content"><div data-include="guz-2026-hero"></div><nav class="event-tabs" aria-label="Tür Say bölümleri"><a class="section-link" href="./">Gözlem haritası</a><a class="section-link" href="istatistikler.html">İstatistikler</a><a class="section-link" aria-current="page" href="canlilar.html">Araştırma sınıfı canlılar</a></nav><section class="empty-panel"><h2>Araştırma sınıfı canlılar</h2><p>Bu bölüm daha sonra hazırlanacak.</p></section></main><div data-include="footer"></div><script src="../js/common.js"></script></body></html>
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kampüsün canlı defteri | Boğaziçi Tür Say Güz 2026</title><link rel="icon" href="../assets/bounmantar-logo.png"><link rel="stylesheet" href="../css/layout.css"><link rel="stylesheet" href="../css/retro-base.css"><link rel="stylesheet" href="../css/tokens.css"><link rel="stylesheet" href="../css/theme.css"><link rel="stylesheet" href="../css/navigation.css"><link rel="stylesheet" href="../vendor/leaflet.css"><link rel="stylesheet" href="../css/events.css?v=4"><link rel="stylesheet" href="../css/guz-guide.css?v=1"></head><body data-map-config="data/config.json" data-statistics="data/statistics.json" class="event-site" data-base="../"><div data-include="header"></div><main class="page-shell event-content"><div data-include="guz-2026-hero"></div><nav class="event-tabs" aria-label="Tür Say bölümleri"><a class="section-link" href="./">Gözlem haritası</a><a class="section-link" href="istatistikler.html">İstatistikler</a><a class="section-link" aria-current="page" href="canlilar.html">Araştırma sınıfı canlılar</a></nav>
+<section class="guz-guide" aria-labelledby="guideTitle">
+  <header class="guide-intro">
+    <div class="guide-titlebar"><span>BOUNMANTAR / ARAZİ DEFTERİ</span><span>GÜZ 2026</span></div>
+    <div class="guide-intro-copy">
+      <p class="guide-kicker">ARAŞTIRMA SINIFI GÖZLEMLER</p>
+      <h2 id="guideTitle">Kampüsün canlı defteri</h2>
+      <p>Bir meşenin yaprağı, taşın altı, çürüyen bir dal… Aynı kampüsü paylaşan canlıları, gezide çektiğimiz fotoğrafların arkasındaki yaşamlarıyla tanıyın.</p>
+      <div class="guide-counts" id="guideCounts" aria-live="polite"><span>Canlı defteri yükleniyor…</span></div>
+      <details class="guide-about"><summary>Araştırma sınıfı ne demek?</summary>
+        <p>Bu defter, 27 Eylül 2026 Tür Say etkinliğinde kaydedilen ve verilen CSV’de araştırma sınıfında bulunan gözlemleri içerir. Araştırma sınıfı; tarih, konum ve fotoğraf ya da ses gibi temel koşulları sağlayan kayıtlarda topluluk tanımlamalarının yeterli uzlaşmaya ulaştığını belirtir. Genellikle tür düzeyinde, tanımlayıcıların üçte ikisinden fazlasının uzlaşısı gerekir. Daha ayrıntılı tanımlanamayacağı konusunda uzlaşılan bazı cins kayıtları da bu sınıfa girebilir. <a href="https://help.inaturalist.org/en/support/solutions/articles/151000169936" target="_blank" rel="noopener noreferrer">iNaturalist ölçütleri ↗</a></p>
+        <p>Uygun veri lisansına sahip araştırma sınıfı gözlemler, biyoçeşitlilik verilerini bir araya getiren GBIF ile paylaşılır. Bu sayfa kayıtların tek tek GBIF’e aktarılmış olduğunu doğrulamaz. Alt tür kayıtları burada bağlı oldukları tür başlığında birleştirilmiştir. <a href="https://help.inaturalist.org/en/support/solutions/articles/151000170346" target="_blank" rel="noopener noreferrer">GBIF paylaşım koşulları ↗</a></p>
+      </details>
+    </div>
+  </header>
+  <section class="guide-drawers" aria-label="Keşif çekmeceleri" id="guideDrawers"></section>
+  <div class="guide-workspace" id="guideWorkspace">
+    <aside class="guide-sidebar" aria-label="Canlı grubu seçimi">
+      <h3>Defterin dizini</h3><nav id="guideGroups" aria-label="Canlı grupları"></nav>
+      <label class="guide-mobile-group">Canlı grubu<select id="guideGroupMobile"><option value="">Bütün gruplar</option></select></label>
+      <p class="guide-side-note">Her satır bir canlı dosyasıdır. Özellikleri, fotoğrafları ve kaynakları açmak için satıra dokunun.</p>
+    </aside>
+    <div class="guide-main">
+      <form class="guide-tools" id="guideFilters" role="search">
+        <label class="guide-search">Defterde ara<input id="guideSearch" type="search" placeholder="Bilimsel ad, Türkçe ad, özellik…" autocomplete="off"></label>
+        <label>Ekolojik rol<select id="guideRole"><option value="">Bütün roller</option></select></label>
+        <label>Sıralama<select id="guideSort"><option value="count">Gözlem sayısı</option><option value="name">Bilimsel ad</option></select></label>
+        <label class="guide-single"><input id="guideSingle" type="checkbox">Tek kayıtlılar</label>
+        <button type="button" id="guideReset">Sıfırla</button>
+      </form>
+      <div class="guide-resultbar"><p id="guideStatus" role="status">Kayıtlar hazırlanıyor…</p><span id="guideActiveDrawer"></span></div>
+      <div id="guideEntries" aria-label="Canlı dosyaları"></div>
+      <div class="guide-empty" id="guideEmpty" hidden><h3>Bu aramada canlı bulunamadı.</h3><p>Başka bir ad veya özellik deneyin ya da filtreleri sıfırlayın.</p><button type="button" id="guideEmptyReset">Filtreleri sıfırla</button></div>
+      <nav class="guide-pages" aria-label="Canlı defteri sayfaları"><button type="button" id="guidePrev">◀ Önceki</button><span id="guidePage"></span><button type="button" id="guideNext">Sonraki ▶</button></nav>
+    </div>
+  </div>
+  <p class="guide-endnote">“Tek kayıtlılar” yalnızca bu veri dosyasında bir kez kaydedilen canlıları gösterir. Fotoğraflar ve gözlem sayıları bu gezinin kayıtlarından gelir; tanıtım metinleri her dosyanın altındaki kaynaklara dayanır.</p>
+  <noscript><p>Canlı dosyalarını göstermek için JavaScript’i etkinleştirin. <a href="data/arastirma_sinifi_kayitlari.csv">Araştırma sınıfı kayıtlarını CSV olarak açabilirsiniz.</a></p></noscript>
+</section>
+</main><div data-include="footer"></div><script src="../js/common.js"></script>
+<dialog id="guidePhotoDialog" class="guide-photo-dialog" aria-labelledby="guidePhotoTitle">
+  <header><h2 id="guidePhotoTitle">Fotoğraf</h2><button type="button" id="guidePhotoClose" aria-label="Fotoğrafı kapat">Kapat ×</button></header>
+  <figure><img id="guidePhotoImage" alt=""><figcaption id="guidePhotoCredit"></figcaption></figure>
+  <a id="guidePhotoSource" target="_blank" rel="noopener noreferrer">Fotoğrafın kaynağını aç ↗</a>
+</dialog>
+<script src="../js/guz-guide.js?v=1"></script></body></html>

@@ -17,7 +17,7 @@
     const photographer = gallery.photographer;
     const h2 = make('h2', '', 'Fotoğraf galerisi');
     const intro = make('p', 'guz-gallery-intro');
-    intro.append(document.createTextNode(photos.length + ' gözlemden seçilmiş kareler · Fotoğraflar: '));
+    intro.append(document.createTextNode('Fotoğraflar: '));
     const author = make('a', '', photographer.name + ' (@' + photographer.username + ')');
     author.href = photographer.url;
     author.target = '_blank';

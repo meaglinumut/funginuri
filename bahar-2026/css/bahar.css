@@ -8,9 +8,9 @@
 .bahar-guide-controls{display:flex;gap:12px;flex-wrap:wrap;background:var(--panel-soft);border:2px inset var(--border-light);padding:12px}
 .bahar-guide-controls label{display:flex;flex-direction:column;flex:1 1 150px;font-size:13px;gap:5px}
 .bahar-guide-controls input,.bahar-guide-controls select{width:100%;border:2px inset var(--border-light);background:var(--button);padding:7px;font:inherit}
-.bahar-taxon-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(225px,1fr));gap:12px;padding-top:10px}
+.bahar-taxon-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding-top:10px}
 .bahar-taxon{background:var(--panel-soft);border:2px outset var(--border-light);overflow:hidden;min-width:0}
-.bahar-taxon img{width:100%;height:158px;object-fit:cover;background:#dadccf;display:block}
+.bahar-taxon img{width:100%;aspect-ratio:5/4;height:auto;object-fit:cover;background:#dadccf;display:block}
 .bahar-taxon .info{padding:10px}
 .bahar-taxon h3{font-size:17px;line-height:1.25;margin:0 0 6px;overflow-wrap:anywhere}
 .bahar-taxon p{font-size:12px;margin:4px 0;color:var(--text-muted)}
@@ -19,3 +19,8 @@
 .bahar-guide-pagination button{padding:7px 12px;background:var(--button);border:2px outset var(--border-light);color:var(--text);cursor:pointer}
 .bahar-guide-pagination button:disabled{opacity:.45;cursor:default}
 @media(max-width:640px){.bahar-taxon-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.bahar-taxon img{height:120px}.bahar-guide{padding:11px}}
+/* Fotoğraf kredisi ve daha geniş canlı kartları. */
+.bahar-taxon .photo-credit{margin:0;padding:8px 10px;min-height:40px;box-sizing:border-box;background:var(--surface);border-bottom:1px solid var(--border-light);font-size:12px;line-height:1.45;color:var(--text-muted);overflow-wrap:anywhere}
+.bahar-taxon .photo-credit a{font-weight:600}
+@media(max-width:900px){.bahar-taxon-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.bahar-taxon-grid{grid-template-columns:1fr}.bahar-taxon img{height:auto;aspect-ratio:5/4}}

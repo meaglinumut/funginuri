@@ -1,0 +1,21 @@
+/* Bahar 2026, mevcut retro tema ve Güz arayüzü üzerine ek kurallar. */
+.bahar-page .quick-filters{gap:10px;flex-wrap:wrap}
+.bahar-page .quick-filters label{min-width:130px;flex:1}
+.bahar-page .event-hero{margin-bottom:12px}
+.bahar-disclaimer{font-size:13px;color:var(--text-muted);background:var(--surface);border:2px inset var(--border-light);padding:12px}
+.bahar-guide{background:var(--surface);border:2px outset var(--border-light);padding:18px;margin:18px 0}
+.bahar-guide h2{font-family:var(--font-display);font-size:28px}
+.bahar-guide-controls{display:flex;gap:12px;flex-wrap:wrap;background:var(--panel-soft);border:2px inset var(--border-light);padding:12px}
+.bahar-guide-controls label{display:flex;flex-direction:column;flex:1 1 150px;font-size:13px;gap:5px}
+.bahar-guide-controls input,.bahar-guide-controls select{width:100%;border:2px inset var(--border-light);background:var(--button);padding:7px;font:inherit}
+.bahar-taxon-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(225px,1fr));gap:12px;padding-top:10px}
+.bahar-taxon{background:var(--panel-soft);border:2px outset var(--border-light);overflow:hidden;min-width:0}
+.bahar-taxon img{width:100%;height:158px;object-fit:cover;background:#dadccf;display:block}
+.bahar-taxon .info{padding:10px}
+.bahar-taxon h3{font-size:17px;line-height:1.25;margin:0 0 6px;overflow-wrap:anywhere}
+.bahar-taxon p{font-size:12px;margin:4px 0;color:var(--text-muted)}
+.bahar-taxon a{color:#002fa7}
+.bahar-guide-pagination{display:flex;gap:12px;align-items:center;justify-content:center;padding:20px 0}
+.bahar-guide-pagination button{padding:7px 12px;background:var(--button);border:2px outset var(--border-light);color:var(--text);cursor:pointer}
+.bahar-guide-pagination button:disabled{opacity:.45;cursor:default}
+@media(max-width:640px){.bahar-taxon-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.bahar-taxon img{height:120px}.bahar-guide{padding:11px}}

@@ -1,0 +1,137 @@
+{
+  "title": "Boğaziçi Tür Say Bahar 2026",
+  "date": "23–24 Mayıs 2026",
+  "start": 580,
+  "end": 1360,
+  "observations_manifest": "data/observations-manifest.json",
+  "boundary_url": "data/campus-boundary.geojson",
+  "groups": {
+    "Plantae": [
+      "Bitkiler",
+      "#A8CC09"
+    ],
+    "Fungi": [
+      "Mantarlar",
+      "#FF1493"
+    ],
+    "Insecta": [
+      "Böcekler",
+      "#FF6300"
+    ],
+    "Arachnida": [
+      "Örümceğimsiler",
+      "#FF8D00"
+    ],
+    "Mollusca": [
+      "Yumuşakçalar",
+      "#FF4500"
+    ],
+    "Animalia": [
+      "Diğer hayvanlar",
+      "#1E90FF"
+    ],
+    "Mammalia": [
+      "Memeliler",
+      "#2BCEFF"
+    ],
+    "Reptilia": [
+      "Sürüngenler",
+      "#1978D5"
+    ],
+    "Aves": [
+      "Kuşlar",
+      "#1565B3"
+    ],
+    "Amphibia": [
+      "İki yaşamlılar",
+      "#35B7A7"
+    ],
+    "Actinopterygii": [
+      "Balıklar",
+      "#2496CF"
+    ],
+    "Unidentified": [
+      "Tanımlanmamış",
+      "#AAAAAA"
+    ]
+  },
+  "statuses": {
+    "gps_explicit": [
+      "CSV’de GPS işaretli",
+      "#087f8c"
+    ],
+    "gps_likely": [
+      "GPS adayı",
+      "#3e9c69"
+    ],
+    "estimated": [
+      "Tahmini konum",
+      "#e8a132"
+    ],
+    "unlocated": [
+      "Gizli / konumsuz",
+      "#999999"
+    ]
+  },
+  "default_smoothing": 30,
+  "default_visibility": 2.5,
+  "min_zoom": 10,
+  "max_zoom": 21,
+  "total_observations": 2378,
+  "coverage_origin": [
+    41.083,
+    29.048
+  ],
+  "fit_bounds": [
+    [
+      41.0789,
+      29.043
+    ],
+    [
+      41.0882,
+      29.059
+    ]
+  ],
+  "campus_bounds": {
+    "guney": [
+      [
+        41.0794,
+        29.0454
+      ],
+      [
+        41.0875,
+        29.0567
+      ]
+    ],
+    "kilyos": [
+      [
+        41.2332,
+        28.9938
+      ],
+      [
+        41.2489,
+        29.0168
+      ]
+    ],
+    "all": [
+      [
+        41.078,
+        28.992
+      ],
+      [
+        41.249,
+        29.06
+      ]
+    ]
+  },
+  "max_bounds": [
+    [
+      41.068,
+      28.974
+    ],
+    [
+      41.26,
+      29.077
+    ]
+  ]
+}

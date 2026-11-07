@@ -1,0 +1,31 @@
+{
+  "observations": 2378,
+  "observers": 34,
+  "species": 403,
+  "taxa": 847,
+  "quality": {
+    "research": 746,
+    "needs_id": 1632
+  },
+  "location": {
+    "gps_likely": 1647,
+    "gps_explicit": 219,
+    "estimated": 461,
+    "unlocated": 51
+  },
+  "date": "23–24 Mayıs 2026",
+  "time_zone": "Europe/Istanbul",
+  "source": "observations-810391.csv",
+  "original_gps_verified": false,
+  "map_visible": 2327,
+  "campuses": {
+    "guney": {
+      "observations": 1152,
+      "map_visible": 1132
+    },
+    "kilyos": {
+      "observations": 1226,
+      "map_visible": 1195
+    }
+  }
+}

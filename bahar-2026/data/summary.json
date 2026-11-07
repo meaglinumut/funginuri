@@ -27,5 +27,8 @@
       "observations": 1226,
       "map_visible": 1195
     }
-  }
+  },
+  "project_species_count": 536,
+  "project_species_count_source": "iNaturalist proje ekranı, 7 Kasım 2026",
+  "species_count_definition": "taxon_species_name distinct"
 }

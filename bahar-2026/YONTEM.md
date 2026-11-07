@@ -17,3 +17,8 @@ Bu çalışmada 1866 GPS adayı, 461 yaklaşık, 51 gizli bulunmaktadır. 2327 k
 **Sınırlar:** KML içindeki kaynak koordinatlar ilgili poligona atanır, çünkü farklı günlerde her iki kampüste de kayıt bulunabilir. KML dışındaki kayıtlarda günün etkinlik kampüsü varsayılır. Yakın saatli referanslar aynı gözlemci ya da grup tarafından desteklenir. Kestirimler ilgili KML poligonu içinde tutulur. Tarih ve konum çelişkileri ortadan kaldırılmaz; denetim CSV'sinde incelenebilir.
 
 **Kaynak:** Siteye yalnızca görselleştirme verisi yüklenir; asıl CSV ve KML dosyaları değişmez. `source-audit.csv` her gözlemin kaynaktan yeni konuma dönüşümünü belgeler.
+## Tür/takson sayımı
+
+iNaturalist proje sayfasında 7 Kasım 2026 tarihinde 536 **Tür** gösterilmiştir. iNaturalist bu toplam için *leaf count* yöntemini kullanır: tür altı taksonlar üst türe indirgenir, mevcut daha alt taksonların üst atası olan taksonlar ikinci kez sayılmaz ve cins gibi türün üstündeki bazı tanımlar da yaprak takson olabilir. Bu sayı yalnızca CSV'deki tür düzeyindeki teşhisleri ifade etmez.
+
+Kaynak CSV'nin `taxon_species_name` sütununda 403 farklı tür adı vardır; 1.348 gözlemde bu sütun dolu, 1.030 gözlemde boş bırakılmıştır. CSV'de 847 farklı `taxon_id` mevcuttur; bunların hepsi ayrı tür değildir. Projenin 536 sayısı proje ekranından alınmış sabit bir anlık değerdir, CSV'den bağımsız olarak tam taksonomi ağacı çözülüp yeniden hesaplanmış değildir. İstatistiklerdeki canlı grubu tür dağılımları, gözlemci başına tür sayıları ve birikim eğrileri 403 türlük CSV ölçüsünü kullanır. Daha sonra projede teşhisler değişirse proje sayısı da değişebilir.

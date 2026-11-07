@@ -1,7 +1,7 @@
 /* Beykoz Doğa Koleji: bağımsız, aynı retro etkinlik düzeni. Kulüp logosu ve genel menü yoktur. */
 .beykoz-page {background:var(--bg);color:var(--text)}
 .beykoz-site-header{background:var(--header);border-bottom:3px outset var(--border-light);padding:22px 0 19px}
-.beykoz-site-header .page-shell{padding-top:0;padding-bottom:0;min-height:0;height:auto}
+.beykoz-site-header .beykoz-header-inner{max-width:1360px;margin:0 auto;padding:0 16px;min-height:0;height:auto}
 .beykoz-site-header .eyebrow{margin:0 0 6px;font-size:12px;font-weight:700;letter-spacing:.09em}
 .beykoz-site-header h1{font:clamp(34px,4.5vw,55px)/1.1 var(--font-display);margin:0 0 3px;color:var(--text)}
 .beykoz-site-header p:last-child{font:23px var(--font-display);margin:0}
@@ -39,3 +39,6 @@
 .beykoz-guide-pagination button:disabled{opacity:.45;cursor:default}
 @media(max-width:900px){.beykoz-taxon-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.beykoz-taxon-grid{grid-template-columns:1fr}.beykoz-guide{padding:11px}.beykoz-page .quick-filters{display:grid;grid-template-columns:1fr 1fr}.beykoz-page .quick-filters label:last-child{grid-column:1/-1}.beykoz-page .quick-filters label{min-width:0}.beykoz-page #map{height:470px}}
+/* Beykoz başlığı, genel .page-shell yüksekliğini hiçbir zaman miras almaz. */
+.beykoz-page .beykoz-site-header{display:block;min-height:0;height:auto;max-height:none}
+@media(max-width:720px){.beykoz-page .beykoz-site-header{padding:14px 0 12px}.beykoz-page .beykoz-header-inner{padding-left:12px;padding-right:12px}}

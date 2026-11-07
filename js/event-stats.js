@@ -25,6 +25,6 @@
     function observers(){const search=$('observerSearch').value.trim().toLocaleLowerCase('tr-TR'), key=$('ranking').value;const rows=data.observers.filter(d=>d.user.toLocaleLowerCase('tr-TR').includes(search)).sort((a,b)=>b[key]-a[key]||a.user.localeCompare(b.user));
       $('observerRows').innerHTML=rows.map(d=>`<tr><td><a href="./?observer=${encodeURIComponent(d.user)}">${esc(d.user)}</a></td><td>${fmt(d.observations)}</td><td>${fmt(d.species)}</td><td>${fmt(d.taxa)}</td><td>${fmt(d.research)}</td><td>${fmt((d.location.gps_explicit||0)+(d.location.gps_likely||0))}</td><td>${fmt(d.location.estimated||0)}</td><td>${fmt(d.map_observations===undefined?(d.location.uncertain||0)+(d.location.unlocated||0)+(d.location.excluded||0):d.observations-d.map_observations)}</td></tr>`).join('')||'<tr><td colspan="8">Gözlemci bulunamadı.</td></tr>';
     }
-    if(data.definition_note)document.querySelector('.stat-note').textContent=data.definition_note+' '+(data.time_note||'');$('ranking').onchange=observers;$('observerSearch').oninput=observers;observers();
+    if(data.definition_note && document.querySelector('.stat-note'))document.querySelector('.stat-note').textContent=data.definition_note+' '+(data.time_note||'');$('ranking').onchange=observers;$('observerSearch').oninput=observers;observers();
   }catch(error){console.error(error);$('metrics').textContent='İstatistik verileri yüklenemedi. Dosyaların GitHub’a yüklendiğini kontrol edin.';}
 })();

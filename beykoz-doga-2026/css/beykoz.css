@@ -1,0 +1,41 @@
+/* Beykoz Doğa Koleji: bağımsız, aynı retro etkinlik düzeni. Kulüp logosu ve genel menü yoktur. */
+.beykoz-page {background:var(--bg);color:var(--text)}
+.beykoz-site-header{background:var(--header);border-bottom:3px outset var(--border-light);padding:22px 0 19px}
+.beykoz-site-header .page-shell{padding-top:0;padding-bottom:0}
+.beykoz-site-header .eyebrow{margin:0 0 6px;font-size:12px;font-weight:700;letter-spacing:.09em}
+.beykoz-site-header h1{font:clamp(34px,4.5vw,55px)/1.1 var(--font-display);margin:0 0 3px;color:var(--text)}
+.beykoz-site-header p:last-child{font:23px var(--font-display);margin:0}
+.beykoz-footer{text-align:center;margin:30px auto 0;padding:16px;background:var(--header);border-top:2px outset var(--border-light);color:var(--text-muted);font-size:13px}
+.beykoz-page .event-content{padding-top:20px}
+.beykoz-page .event-tabs{margin-bottom:15px}
+.beykoz-page .event-totals{display:flex;flex-wrap:wrap;gap:10px 24px;margin-bottom:17px;padding:12px 15px;background:var(--panel-soft);border:2px outset var(--border-light)}
+.beykoz-page .event-totals b{font:25px var(--font-display)}
+.beykoz-page .map-modes{display:flex;flex-wrap:wrap;gap:5px}
+.beykoz-page .quick-filters{display:flex;flex-wrap:wrap;gap:14px;padding:11px;background:var(--panel-soft);border-bottom:2px ridge var(--border-light)}
+.beykoz-page .quick-filters label{display:flex;flex-direction:column;gap:5px;flex:1;min-width:160px;font-size:12px}
+.beykoz-page .quick-filters select{max-width:350px;min-width:0;width:100%;border:2px inset var(--border-light);background:var(--button);color:var(--text);font:13px var(--font-body);padding:6px 8px}
+.beykoz-page #map{height:clamp(370px,61vh,690px);width:100%;background:#e1e2d9}
+.beykoz-page .map-wrap{position:relative}
+.beykoz-page .map-legend{position:absolute;bottom:16px;left:16px;z-index:500}
+.beykoz-page .map-count{z-index:450}
+.beykoz-page .selection-summary{margin:10px 0 14px}
+.beykoz-guide{background:var(--surface);border:2px outset var(--border-light);padding:18px;margin:18px 0}
+.beykoz-guide h2{font-family:var(--font-display);font-size:28px;margin:0 0 14px}
+.beykoz-guide-controls{display:flex;gap:12px;flex-wrap:wrap;background:var(--panel-soft);border:2px inset var(--border-light);padding:12px}
+.beykoz-guide-controls label{display:flex;flex-direction:column;flex:1 1 175px;gap:5px;font-size:13px}
+.beykoz-guide-controls input,.beykoz-guide-controls select{width:100%;box-sizing:border-box;border:2px inset var(--border-light);background:var(--button);padding:7px;font:inherit}
+.beykoz-taxon-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding-top:10px}
+.beykoz-taxon{background:var(--panel-soft);border:2px outset var(--border-light);overflow:hidden;min-width:0}
+.beykoz-taxon img{display:block;width:100%;height:auto;aspect-ratio:5/4;object-fit:cover;background:#dadccf}
+.beykoz-taxon .info{padding:11px}
+.beykoz-taxon h3{font:600 30px/1.14 var(--font-display);margin:0 0 11px;color:var(--text);overflow-wrap:anywhere}
+.beykoz-taxon .common-name{font:600 17px/1.3 var(--font-body);margin:3px 0 9px;color:var(--text)}
+.beykoz-taxon .meta{font-size:12px;margin:4px 0;color:var(--text-muted)}
+.beykoz-taxon a{color:#002fa7}
+.beykoz-taxon .photo-credit{margin:0;padding:4px 10px;background:var(--surface);font-size:10px;line-height:1.3;color:var(--text-muted);opacity:.7;overflow-wrap:anywhere}
+.beykoz-taxon .photo-credit a{color:inherit;font-weight:400;text-decoration:underline;text-underline-offset:2px}
+.beykoz-guide-pagination{display:flex;gap:12px;align-items:center;justify-content:center;padding:20px 0}
+.beykoz-guide-pagination button{padding:7px 12px;background:var(--button);border:2px outset var(--border-light);color:var(--text);cursor:pointer}
+.beykoz-guide-pagination button:disabled{opacity:.45;cursor:default}
+@media(max-width:900px){.beykoz-taxon-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.beykoz-taxon-grid{grid-template-columns:1fr}.beykoz-guide{padding:11px}.beykoz-page .quick-filters{display:grid;grid-template-columns:1fr 1fr}.beykoz-page .quick-filters label:last-child{grid-column:1/-1}.beykoz-page .quick-filters label{min-width:0}.beykoz-page #map{height:470px}}

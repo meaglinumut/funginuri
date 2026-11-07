@@ -1,0 +1,19 @@
+{
+  "observations": 185,
+  "observers": 10,
+  "species": 62,
+  "taxa": 104,
+  "quality": {
+    "research": 72,
+    "needs_id": 113
+  },
+  "location": {
+    "gps_explicit": 5,
+    "gps_likely": 138,
+    "estimated": 42
+  },
+  "date": "14 Mayıs 2026",
+  "source": "observations-810454.csv",
+  "map_visible": 185,
+  "gps_verified_by_exif": false
+}

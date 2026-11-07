@@ -1,0 +1,105 @@
+{
+  "title": "Beykoz Doğa Koleji Tür Say 2026",
+  "date": "14 Mayıs 2026",
+  "start": 572,
+  "end": 761,
+  "observations_url": "data/observations.json",
+  "boundary_url": "data/campus-boundary.geojson",
+  "groups": {
+    "Plantae": [
+      "Bitkiler",
+      "#A8CC09"
+    ],
+    "Fungi": [
+      "Mantarlar",
+      "#FF1493"
+    ],
+    "Insecta": [
+      "Böcekler",
+      "#FF6300"
+    ],
+    "Arachnida": [
+      "Örümceğimsiler",
+      "#FF8D00"
+    ],
+    "Mollusca": [
+      "Yumuşakçalar",
+      "#FF4500"
+    ],
+    "Animalia": [
+      "Diğer hayvanlar",
+      "#1E90FF"
+    ],
+    "Mammalia": [
+      "Memeliler",
+      "#2BCEFF"
+    ],
+    "Reptilia": [
+      "Sürüngenler",
+      "#1978D5"
+    ],
+    "Aves": [
+      "Kuşlar",
+      "#1565B3"
+    ],
+    "Unidentified": [
+      "Tanımlanmamış",
+      "#AAAAAA"
+    ],
+    "Protozoa": [
+      "Protozoa",
+      "#AAAABB"
+    ],
+    "Chromista": [
+      "Chromista",
+      "#AAAABB"
+    ]
+  },
+  "statuses": {
+    "gps_explicit": [
+      "GPS işaretli (aday)",
+      "#087f8c"
+    ],
+    "gps_likely": [
+      "GPS adayı",
+      "#3e9c69"
+    ],
+    "estimated": [
+      "Yaklaşık konum",
+      "#e8a132"
+    ],
+    "unlocated": [
+      "Konumsuz",
+      "#999999"
+    ]
+  },
+  "default_smoothing": 30,
+  "default_visibility": 2.5,
+  "min_zoom": 14,
+  "max_zoom": 21,
+  "total_observations": 185,
+  "coverage_origin": [
+    41.156266583131554,
+    29.122420536895966
+  ],
+  "fit_bounds": [
+    [
+      41.15064756854988,
+      29.11930112222997
+    ],
+    [
+      41.16188559771324,
+      29.125539951561958
+    ]
+  ],
+  "max_bounds": [
+    [
+      41.13904756854988,
+      29.10780112222997
+    ],
+    [
+      41.17348559771324,
+      29.13703995156196
+    ]
+  ]
+}

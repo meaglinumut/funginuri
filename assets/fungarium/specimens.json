@@ -1,0 +1,1819 @@
+[
+  {
+    "id": "2023001",
+    "name": "Ganoderma lucidum",
+    "commonName": "reishi",
+    "observation": "19527599",
+    "date": "2024-12-30",
+    "coordinates": [
+      41.04729,
+      29.01436
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/343494843/original.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Polyporales",
+      "family": "Polyporaceae",
+      "genus": "Ganoderma",
+      "species": "Ganoderma lucidum"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024001",
+    "name": "Lyophyllum decastes",
+    "commonName": "Fried Chicken Mushroom",
+    "observation": "204715779",
+    "date": "2024-03-31",
+    "coordinates": [
+      41.084985298,
+      29.0487960353
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/361881836/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Lyophyllaceae",
+      "genus": "Lyophyllum",
+      "species": "Lyophyllum decastes"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024002",
+    "name": "Cyclocybe cylindracea",
+    "commonName": "Poplar Fieldcap",
+    "observation": "204627415",
+    "date": "2024-03-30",
+    "coordinates": [
+      41.0850853709,
+      29.0525943786
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/361711412/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Tubariaceae",
+      "genus": "Cyclocybe",
+      "species": "Cyclocybe cylindracea"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024003",
+    "name": "Coprinellus domesticus",
+    "commonName": "Firerug Inkcap",
+    "observation": "207582094",
+    "date": "2024-04-16",
+    "coordinates": [
+      41.0848555556,
+      29.0486861111
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/367195955/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Psathyrellaceae",
+      "genus": "Coprinellus",
+      "species": "Coprinellus domesticus"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024004",
+    "name": "Clathrus ruber",
+    "commonName": "red-cage fungus",
+    "observation": "207581841",
+    "date": "2024-04-16",
+    "coordinates": [
+      41.0863583333,
+      29.0476277778
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/367195548/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Phallales",
+      "family": "Clathraceae",
+      "genus": "Clathrus",
+      "species": "Clathrus ruber"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024005",
+    "name": "Galerina",
+    "commonName": "Moss Bells",
+    "observation": "206237356",
+    "date": "2024-04-09",
+    "coordinates": [
+      38.4774611111,
+      28.1530444444
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/364751765/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Hymenogastraceae",
+      "genus": "Galerina",
+      "species": "Unknown"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024006",
+    "name": "Pyronemataceae",
+    "commonName": "",
+    "observation": "206238698",
+    "date": "2024-04-09",
+    "coordinates": [
+      38.4887,
+      28.1482888889
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/364753965/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Ascomycota",
+      "class": "Pezizomycetes",
+      "order": "Pezizales",
+      "family": "Pyronemataceae",
+      "genus": "Unknown",
+      "species": "Unknown"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024007",
+    "name": "Helvella solitaria",
+    "commonName": "",
+    "observation": "206043563",
+    "date": "2024-04-08",
+    "coordinates": [
+      38.5163972222,
+      28.1965527778
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/364392409/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Ascomycota",
+      "class": "Pezizomycetes",
+      "order": "Pezizales",
+      "family": "Helvellaceae",
+      "genus": "Helvella",
+      "species": "Helvella solitaria"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024008",
+    "name": "Evernia prunastri",
+    "commonName": "Oakmoss",
+    "observation": "207582440",
+    "date": "2024-04-16",
+    "coordinates": [
+      41.0851916667,
+      29.0487472222
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/367196563/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Ascomycota",
+      "class": "Lecanoromycetes",
+      "order": "Lecanorales",
+      "family": "Parmeliaceae",
+      "genus": "Evernia",
+      "species": "Evernia prunastri"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024010",
+    "name": "Ramalina",
+    "commonName": "bushy lichens",
+    "observation": "208503725",
+    "date": "2024-04-21",
+    "coordinates": [
+      41.1687422149,
+      29.0065562725
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/368914040/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Ascomycota",
+      "class": "Lecanoromycetes",
+      "order": "Lecanorales",
+      "family": "Ramalinaceae",
+      "genus": "Ramalina",
+      "species": "Unknown"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024013",
+    "name": "Myxarium nucleatum",
+    "commonName": "Crystal Brain Fungus",
+    "observation": "203325148",
+    "date": "2024-03-21",
+    "coordinates": [
+      41.0855083333,
+      29.0526083333
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/359223096/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Auriculariales",
+      "family": "Hyaloriaceae",
+      "genus": "Myxarium",
+      "species": "Myxarium nucleatum"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024016",
+    "name": "Gymnopus brassicolens",
+    "commonName": "Cabbage Parachute",
+    "observation": "208497832",
+    "date": "2024-04-21",
+    "coordinates": [
+      41.0864361111,
+      29.0589
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/368904491/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Omphalotaceae",
+      "genus": "Gymnopus",
+      "species": "Gymnopus brassicolens"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024017",
+    "name": "Chlorophyllum brunneum",
+    "commonName": "Shaggy Parasol",
+    "observation": "208500868",
+    "date": "2024-04-21",
+    "coordinates": [
+      41.0866083333,
+      29.0495805556
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/370305551/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Agaricaceae",
+      "genus": "Chlorophyllum",
+      "species": "Chlorophyllum brunneum"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024019",
+    "name": "Exidia truncata",
+    "commonName": "",
+    "observation": "208548295",
+    "date": "2024-04-21",
+    "coordinates": [
+      41.1723722222,
+      28.99125
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/368995452/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Auriculariales",
+      "family": "Auriculariaceae",
+      "genus": "Exidia",
+      "species": "Exidia truncata"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024020",
+    "name": "Hypholoma fasciculare",
+    "commonName": "Sulphur Tuft",
+    "observation": "209274508",
+    "date": "2024-04-24",
+    "coordinates": [
+      41.0858232776,
+      29.0515473112
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/370346010/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Strophariaceae",
+      "genus": "Hypholoma",
+      "species": "Hypholoma fasciculare"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024024",
+    "name": "Battarrea phalloides",
+    "commonName": "Sandy Stilt-puffball",
+    "observation": "210523976",
+    "date": "2024-04-27",
+    "coordinates": [
+      41.083075,
+      29.0505583333
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/372354295/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Battarreaceae",
+      "genus": "Battarrea",
+      "species": "Battarrea phalloides"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024025",
+    "name": "Stereum ostrea",
+    "commonName": "False Turkey-Tail",
+    "observation": "212910516",
+    "date": "2024-05-02",
+    "coordinates": [
+      41.0863805556,
+      29.0549
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/376251671/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Russulales",
+      "family": "Stereaceae",
+      "genus": "Stereum",
+      "species": "Stereum ostrea"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024026",
+    "name": "Xanthoria parietina",
+    "commonName": "Common Sunburst Lichen",
+    "observation": "212739468",
+    "date": "2024-05-01",
+    "coordinates": [
+      41.0831777778,
+      29.0526888889
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/375949321/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Ascomycota",
+      "class": "Lecanoromycetes",
+      "order": "Teloschistales",
+      "family": "Teloschistaceae",
+      "genus": "Xanthoria",
+      "species": "Xanthoria parietina"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024027",
+    "name": "Mycena filopes",
+    "commonName": "Iodine Bonnet",
+    "observation": "212743182",
+    "date": "2024-04-30",
+    "coordinates": [
+      41.0849729152,
+      29.0513669327
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/375956380/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Mycenaceae",
+      "genus": "Mycena",
+      "species": "Mycena filopes"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024028",
+    "name": "Marasmius",
+    "commonName": "pinwheels and parachute mushrooms",
+    "observation": "212739064",
+    "date": "2024-05-01",
+    "coordinates": [
+      41.0841972222,
+      29.0535111111
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/375948826/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Marasmiaceae",
+      "genus": "Marasmius",
+      "species": "Unknown"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024029",
+    "name": "Marasmiellus candidus",
+    "commonName": "Fairy Parachutes",
+    "observation": "212736321",
+    "date": "2024-05-01",
+    "coordinates": [
+      41.0863805556,
+      29.0549
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/375944869/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Marasmiaceae",
+      "genus": "Unknown",
+      "species": "Marasmiellus candidus"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024030",
+    "name": "Parasola auricoma",
+    "commonName": "goldenhaired inkcap",
+    "observation": "212733761",
+    "date": "2024-05-01",
+    "coordinates": [
+      41.08575,
+      29.0527277778
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/376914269/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Psathyrellaceae",
+      "genus": "Parasola",
+      "species": "Parasola auricoma"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024031",
+    "name": "Agaricales",
+    "commonName": "Common Gilled Mushrooms and Allies",
+    "observation": "212911978",
+    "date": "2024-05-02",
+    "coordinates": [
+      41.0847611111,
+      29.0519361111
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/376253984/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Unknown",
+      "genus": "Unknown",
+      "species": "Unknown"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024032",
+    "name": "Strobilurus",
+    "commonName": "",
+    "observation": "212828513",
+    "date": "2024-05-02",
+    "coordinates": [
+      41.0856222222,
+      29.0475444444
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/376109714/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Physalacriaceae",
+      "genus": "Strobilurus",
+      "species": "Unknown"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024033",
+    "name": "Pluteus",
+    "commonName": "Deer Mushrooms",
+    "observation": "212734481",
+    "date": "2024-05-01",
+    "coordinates": [
+      41.0853666667,
+      29.052475
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/375941416/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Pluteaceae",
+      "genus": "Pluteus",
+      "species": "Unknown"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024034",
+    "name": "Pluteus",
+    "commonName": "Deer Mushrooms",
+    "observation": "212738324",
+    "date": "2024-05-01",
+    "coordinates": [
+      41.0841888889,
+      29.0535416667
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/375947895/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Pluteaceae",
+      "genus": "Pluteus",
+      "species": "Unknown"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024035",
+    "name": "Candolleomyces",
+    "commonName": "",
+    "observation": "213230882",
+    "date": "2024-05-02",
+    "coordinates": [
+      41.0657694444,
+      29.0814444444
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/376828347/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Psathyrellaceae",
+      "genus": "Candolleomyces",
+      "species": "Unknown"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024036",
+    "name": "Coprinellus",
+    "commonName": "",
+    "observation": "212912196",
+    "date": "2024-05-02",
+    "coordinates": [
+      41.0858103896,
+      29.0515808389
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/376254449/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Psathyrellaceae",
+      "genus": "Coprinellus",
+      "species": "Unknown"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024037",
+    "name": "Phallus impudicus",
+    "commonName": "common stinkhorn",
+    "observation": "212733855",
+    "date": "2024-05-01",
+    "coordinates": [
+      41.0863805556,
+      29.0549
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/375939914/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Phallales",
+      "family": "Phallaceae",
+      "genus": "Phallus",
+      "species": "Phallus impudicus"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024038",
+    "name": "Pluteus cervinus",
+    "commonName": "Deer Mushroom",
+    "observation": "212740633",
+    "date": "2024-04-30",
+    "coordinates": [
+      41.0863805556,
+      29.0549
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/375951232/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Pluteaceae",
+      "genus": "Pluteus",
+      "species": "Pluteus cervinus"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024040",
+    "name": "Coprinopsis",
+    "commonName": "Inkcaps",
+    "observation": "212828656",
+    "date": "2024-05-02",
+    "coordinates": [
+      41.0851861111,
+      29.0487444444
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/376110096/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Psathyrellaceae",
+      "genus": "Coprinopsis",
+      "species": "Unknown"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024041",
+    "name": "Nolanidea",
+    "commonName": "",
+    "observation": "212734149",
+    "date": "2024-05-01",
+    "coordinates": [
+      41.0855305556,
+      29.0528472222
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/376913176/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Entolomataceae",
+      "genus": "Entoloma",
+      "species": "Unknown"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024042",
+    "name": "Coprinopsis uliginicola",
+    "commonName": "",
+    "observation": "212912887",
+    "date": "2024-05-02",
+    "coordinates": [
+      41.0864583333,
+      29.0472638889
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/376255787/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Psathyrellaceae",
+      "genus": "Coprinopsis",
+      "species": "Coprinopsis uliginicola"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024043",
+    "name": "Mycena renati",
+    "commonName": "beautiful bonnet",
+    "observation": "212828725",
+    "date": "2024-05-02",
+    "coordinates": [
+      41.0847444444,
+      29.0518555556
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/376110230/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Mycenaceae",
+      "genus": "Mycena",
+      "species": "Mycena renati"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024044",
+    "name": "Astraeus",
+    "commonName": "Barometer Earthstars",
+    "observation": "213710024",
+    "date": "2024-05-05",
+    "coordinates": [
+      41.1643111111,
+      28.9279333333
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/377698264/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Boletales",
+      "family": "Astraeaceae",
+      "genus": "Astraeus",
+      "species": "Unknown"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024045",
+    "name": "Boletus reticulatus",
+    "commonName": "Summer Bolete",
+    "observation": "213701936",
+    "date": "2024-05-05",
+    "coordinates": [
+      41.1982333333,
+      28.9899972222
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/377683453/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Boletales",
+      "family": "Boletaceae",
+      "genus": "Boletus",
+      "species": "Boletus reticulatus"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024046",
+    "name": "Russula",
+    "commonName": "brittlegills",
+    "observation": "213701744",
+    "date": "2024-05-05",
+    "coordinates": [
+      41.1987277778,
+      28.9904166667
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/377683094/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Russulales",
+      "family": "Russulaceae",
+      "genus": "Russula",
+      "species": "Unknown"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024047",
+    "name": "Pluteus leoninus",
+    "commonName": "lion shield",
+    "observation": "213702499",
+    "date": "2024-05-05",
+    "coordinates": [
+      41.19825,
+      28.990075
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/377684862/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Pluteaceae",
+      "genus": "Pluteus",
+      "species": "Pluteus leoninus"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024048",
+    "name": "Collybiopsis",
+    "commonName": "Parachutes",
+    "observation": "213708250",
+    "date": "2024-05-05",
+    "coordinates": [
+      41.1979000743,
+      28.9900000021
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/377695483/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Omphalotaceae",
+      "genus": "Collybiopsis",
+      "species": "Unknown"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024049",
+    "name": "Gymnopus",
+    "commonName": "",
+    "observation": "213711327",
+    "date": "2024-05-05",
+    "coordinates": [
+      41.1811361111,
+      28.9803694444
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/377700795/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Omphalotaceae",
+      "genus": "Gymnopus",
+      "species": "Unknown"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024050",
+    "name": "Lentinus",
+    "commonName": "woodcaps and sawgills",
+    "observation": "213710388",
+    "date": "2024-05-05",
+    "coordinates": [
+      41.1643111111,
+      28.9279333333
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/377698958/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Polyporales",
+      "family": "Polyporaceae",
+      "genus": "Lentinus",
+      "species": "Unknown"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024051",
+    "name": "Puellarinae",
+    "commonName": "",
+    "observation": "213716516",
+    "date": "2024-05-05",
+    "coordinates": [
+      41.1792611111,
+      28.9882555556
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/377709644/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Russulales",
+      "family": "Russulaceae",
+      "genus": "Russula",
+      "species": "Unknown"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024052",
+    "name": "Megacollybia",
+    "commonName": "",
+    "observation": "213710713",
+    "date": "2024-05-05",
+    "coordinates": [
+      41.1648777778,
+      28.929025
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/377699636/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Porotheleaceae",
+      "genus": "Megacollybia",
+      "species": "Unknown"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024053",
+    "name": "Amanita",
+    "commonName": "amanita mushrooms",
+    "observation": "213682553",
+    "date": "2024-05-05",
+    "coordinates": [
+      41.1976333333,
+      28.9893333333
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/377650412/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Amanitaceae",
+      "genus": "Amanita",
+      "species": "Unknown"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024054",
+    "name": "Panaeolus foenisecii",
+    "commonName": "Mower's Mushroom",
+    "observation": "214211993",
+    "date": "2024-05-06",
+    "coordinates": [
+      41.0851972222,
+      29.0457583333
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/378608739/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Galeropsidaceae",
+      "genus": "Panaeolus",
+      "species": "Panaeolus foenisecii"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024056",
+    "name": "Fomitopsis quercina",
+    "commonName": "Oak mazegill",
+    "observation": "213168748",
+    "date": "2024-05-03",
+    "coordinates": [
+      41.0469555556,
+      29.0164638889
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/376719309/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Polyporales",
+      "family": "Fomitopsidaceae",
+      "genus": "Fomitopsis",
+      "species": "Fomitopsis quercina"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024057",
+    "name": "Gymnopus dryophilus",
+    "commonName": "Oak-loving Gymnopus",
+    "observation": "213171135",
+    "date": "2024-05-03",
+    "coordinates": [
+      41.0473388889,
+      29.0144777778
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/376723625/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Omphalotaceae",
+      "genus": "Gymnopus",
+      "species": "Gymnopus dryophilus"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024058",
+    "name": "Schizophyllum commune",
+    "commonName": "splitgill mushroom",
+    "observation": "213168161",
+    "date": "2024-05-03",
+    "coordinates": [
+      41.0442166667,
+      29.0166888889
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/376718132/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Schizophyllaceae",
+      "genus": "Schizophyllum",
+      "species": "Schizophyllum commune"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024059",
+    "name": "Russula",
+    "commonName": "brittlegills",
+    "observation": "213716799",
+    "date": "2024-05-05",
+    "coordinates": [
+      41.1797027778,
+      28.98875
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/377710182/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Russulales",
+      "family": "Russulaceae",
+      "genus": "Russula",
+      "species": "Unknown"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024060",
+    "name": "Flammulaster",
+    "commonName": "",
+    "observation": "213711682",
+    "date": "2024-05-05",
+    "coordinates": [
+      41.1643111111,
+      28.9279333333
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/377701280/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Tubariaceae",
+      "genus": "Flammulaster",
+      "species": "Unknown"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024061",
+    "name": "Collybiopsis ramealis",
+    "commonName": "Twig Parachute",
+    "observation": "213718744",
+    "date": "2024-05-05",
+    "coordinates": [
+      41.1818138889,
+      28.9915861111
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/377713726/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Omphalotaceae",
+      "genus": "Collybiopsis",
+      "species": "Collybiopsis ramealis"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024062",
+    "name": "Collybiopsis ramealis",
+    "commonName": "Twig Parachute",
+    "observation": "213717670",
+    "date": "2024-05-05",
+    "coordinates": [
+      41.1818138889,
+      28.9915861111
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/377711726/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Omphalotaceae",
+      "genus": "Collybiopsis",
+      "species": "Collybiopsis ramealis"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024063",
+    "name": "Agaricineae",
+    "commonName": "",
+    "observation": "213712474",
+    "date": "2024-05-05",
+    "coordinates": [
+      41.1809361111,
+      28.9810944444
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/377702632/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Unknown",
+      "genus": "Unknown",
+      "species": "Unknown"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024064",
+    "name": "Lentinus arcularius",
+    "commonName": "Spring Polypore",
+    "observation": "213717248",
+    "date": "2024-05-05",
+    "coordinates": [
+      41.1792611111,
+      28.9882555556
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/377710960/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Polyporales",
+      "family": "Polyporaceae",
+      "genus": "Lentinus",
+      "species": "Lentinus arcularius"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024065",
+    "name": "Bolbitius",
+    "commonName": "",
+    "observation": "213707528",
+    "date": "2024-05-05",
+    "coordinates": [
+      41.1980777778,
+      28.9896305556
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/377694210/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Bolbitiaceae",
+      "genus": "Bolbitius",
+      "species": "Unknown"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024066",
+    "name": "Clavulina coralloides",
+    "commonName": "White Coral Fungus",
+    "observation": "213718120",
+    "date": "2024-05-05",
+    "coordinates": [
+      41.1818138889,
+      28.9915861111
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/377712549/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Cantharellales",
+      "family": "Hydnaceae",
+      "genus": "Clavulina",
+      "species": "Clavulina coralloides"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024067",
+    "name": "Mycena haematopus",
+    "commonName": "Bleeding Fairy Helmet",
+    "observation": "215007190",
+    "date": "2024-05-11",
+    "coordinates": [
+      41.0866694444,
+      29.0549
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/380092248/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Mycenaceae",
+      "genus": "Mycena",
+      "species": "Mycena haematopus"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024068",
+    "name": "Russula",
+    "commonName": "brittlegills",
+    "observation": "213171732",
+    "date": "2024-05-03",
+    "coordinates": [
+      41.0474833333,
+      29.0154444444
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/376724872/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Russulales",
+      "family": "Russulaceae",
+      "genus": "Russula",
+      "species": "Unknown"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024069",
+    "name": "Mycena acicula",
+    "commonName": "orange bonnet",
+    "observation": "215278937",
+    "date": "2024-05-12",
+    "coordinates": [
+      41.0818478339,
+      29.0498866886
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/380595737/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Mycenaceae",
+      "genus": "Mycena",
+      "species": "Mycena acicula"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024070",
+    "name": "Mycena tenerrima",
+    "commonName": "frosty bonnet",
+    "observation": "215608399",
+    "date": "2024-05-12",
+    "coordinates": [
+      41.0817480087,
+      29.0497331321
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/381214678/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Mycenaceae",
+      "genus": "Mycena",
+      "species": "Mycena tenerrima"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024071",
+    "name": "Lachnella alboviolascens",
+    "commonName": "",
+    "observation": "215304956",
+    "date": "2024-05-12",
+    "coordinates": [
+      41.0817998167,
+      29.0499068052
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/380641619/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Niaceae",
+      "genus": "Lachnella",
+      "species": "Lachnella alboviolascens"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024072",
+    "name": "Moellerodiscus lentus",
+    "commonName": "",
+    "observation": "215299949",
+    "date": "2024-05-12",
+    "coordinates": [
+      41.0818384832,
+      29.0499014407
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/380632527/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Ascomycota",
+      "class": "Leotiomycetes",
+      "order": "Helotiales",
+      "family": "Rutstroemiaceae",
+      "genus": "Moellerodiscus",
+      "species": "Moellerodiscus lentus"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024073",
+    "name": "Helvella solitaria",
+    "commonName": "",
+    "observation": "216624829",
+    "date": "45430",
+    "coordinates": [
+      40.9568444444,
+      31.4470833333
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/383125756/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Ascomycota",
+      "class": "Pezizomycetes",
+      "order": "Pezizales",
+      "family": "Helvellaceae",
+      "genus": "Helvella",
+      "species": "Helvella solitaria"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024074",
+    "name": "Hymenoscyphus",
+    "commonName": "",
+    "observation": "216625908",
+    "date": "45430",
+    "coordinates": [
+      40.9568444444,
+      31.4470833333
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/383127544/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Ascomycota",
+      "class": "Leotiomycetes",
+      "order": "Helotiales",
+      "family": "Helotiaceae",
+      "genus": "Hymenoscyphus",
+      "species": "Unknown"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024075",
+    "name": "Lachnum",
+    "commonName": "",
+    "observation": "216761649",
+    "date": "45430",
+    "coordinates": [
+      40.9385519771,
+      31.3963847235
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/383389574/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Ascomycota",
+      "class": "Leotiomycetes",
+      "order": "Helotiales",
+      "family": "Lachnaceae",
+      "genus": "Lachnum",
+      "species": "Unknown"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024076",
+    "name": "Scutellinia",
+    "commonName": "Eyelash cups",
+    "observation": "216625438",
+    "date": "45430",
+    "coordinates": [
+      40.9568444444,
+      31.4470833333
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/383126608/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Ascomycota",
+      "class": "Pezizomycetes",
+      "order": "Pezizales",
+      "family": "Pyronemataceae",
+      "genus": "Scutellinia",
+      "species": "Unknown"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024077",
+    "name": "Cheilymenia",
+    "commonName": "",
+    "observation": "216761143",
+    "date": "45430",
+    "coordinates": [
+      40.9402352005,
+      31.3982049376
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/383388626/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Ascomycota",
+      "class": "Pezizomycetes",
+      "order": "Pezizales",
+      "family": "Pyronemataceae",
+      "genus": "Cheilymenia",
+      "species": "Unknown"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024078",
+    "name": "Panaeolus",
+    "commonName": "Mottlegills",
+    "observation": "229523561",
+    "date": "45442",
+    "coordinates": [
+      40.9920909269,
+      28.6644465476
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/407426193/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Galeropsidaceae",
+      "genus": "Panaeolus",
+      "species": "Unknown"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024079",
+    "name": "Mycetinis alliaceus",
+    "commonName": "garlic parachute",
+    "observation": "222069178",
+    "date": "45454",
+    "coordinates": [
+      41.7374166602,
+      33.0098303407
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/393327888/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Omphalotaceae",
+      "genus": "Mycetinis",
+      "species": "Mycetinis alliaceus"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024080",
+    "name": "Xylaria filiformis",
+    "commonName": "",
+    "observation": "222111289",
+    "date": "45452",
+    "coordinates": [
+      41.7379880785,
+      33.0100472644
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/393406823/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Ascomycota",
+      "class": "Sordariomycetes",
+      "order": "Xylariales",
+      "family": "Xylariaceae",
+      "genus": "Xylaria",
+      "species": "Xylaria filiformis"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024081",
+    "name": "Laricinae",
+    "commonName": "",
+    "observation": "222136385",
+    "date": "45452",
+    "coordinates": [
+      41.7399055556,
+      33.0175222222
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/393456949/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Russulales",
+      "family": "Russulaceae",
+      "genus": "Russula",
+      "species": "Unknown"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024082",
+    "name": "Sarcosphaera coronaria",
+    "commonName": "pink crown",
+    "observation": "222099084",
+    "date": "45453",
+    "coordinates": [
+      41.7345027778,
+      33.0039388889
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/393384041/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Ascomycota",
+      "class": "Pezizomycetes",
+      "order": "Pezizales",
+      "family": "Pezizaceae",
+      "genus": "Sarcosphaera",
+      "species": "Sarcosphaera coronaria"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024083",
+    "name": "Tarzettaceae",
+    "commonName": "",
+    "observation": "222171014",
+    "date": "45455",
+    "coordinates": [
+      41.7403655142,
+      33.0212535337
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/393524035/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Ascomycota",
+      "class": "Pezizomycetes",
+      "order": "Pezizales",
+      "family": "Tarzettaceae",
+      "genus": "Unknown",
+      "species": "Unknown"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024084",
+    "name": "Mycena galericulata",
+    "commonName": "common bonnet",
+    "observation": "222152699",
+    "date": "45451",
+    "coordinates": [
+      41.7386666667,
+      33.0099722222
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/393487888/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Mycenaceae",
+      "genus": "Mycena",
+      "species": "Mycena galericulata"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024085",
+    "name": "Oudemansiella mucida",
+    "commonName": "porcelain mushroom",
+    "observation": "222099950",
+    "date": "45453",
+    "coordinates": [
+      41.7344058723,
+      33.0010518059
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/393385940/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Physalacriaceae",
+      "genus": "Oudemansiella",
+      "species": "Oudemansiella mucida"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024086",
+    "name": "Tarzettaceae",
+    "commonName": "",
+    "observation": "222098804",
+    "date": "45453",
+    "coordinates": [
+      41.7349333333,
+      33.0041833333
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/393383515/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Ascomycota",
+      "class": "Pezizomycetes",
+      "order": "Pezizales",
+      "family": "Tarzettaceae",
+      "genus": "Unknown",
+      "species": "Unknown"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024087",
+    "name": "Geopyxis foetida",
+    "commonName": "",
+    "observation": "230085126",
+    "date": "45452",
+    "coordinates": [
+      41.7396059852,
+      33.0171360075
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/408499768/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Ascomycota",
+      "class": "Pezizomycetes",
+      "order": "Pezizales",
+      "family": "Tarzettaceae",
+      "genus": "Geopyxis",
+      "species": "Geopyxis foetida"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024088",
+    "name": "Mycena tenerrima",
+    "commonName": "frosty bonnet",
+    "observation": "222209425",
+    "date": "45453",
+    "coordinates": [
+      41.740369517,
+      33.0211308226
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/393598292/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Basidiomycota",
+      "class": "Agaricomycetes",
+      "order": "Agaricales",
+      "family": "Mycenaceae",
+      "genus": "Mycena",
+      "species": "Mycena tenerrima"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  },
+  {
+    "id": "2024089",
+    "name": "Lachnum",
+    "commonName": "",
+    "observation": "222111127",
+    "date": "45452",
+    "coordinates": [
+      41.7389300069,
+      33.0096724257
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/393406488/medium.jpeg",
+    "taxonomy": {
+      "phylum": "Ascomycota",
+      "class": "Leotiomycetes",
+      "order": "Helotiales",
+      "family": "Lachnaceae",
+      "genus": "Lachnum",
+      "species": "Unknown"
+    },
+    "description": "",
+    "macro": "",
+    "micro": ""
+  }
+]

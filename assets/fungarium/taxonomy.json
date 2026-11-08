@@ -1,0 +1,1037 @@
+[
+  {
+    "rank": "phylum",
+    "name": "Ascomycota",
+    "children": [
+      {
+        "rank": "class",
+        "name": "Lecanoromycetes",
+        "children": [
+          {
+            "rank": "order",
+            "name": "Lecanorales",
+            "children": [
+              {
+                "rank": "family",
+                "name": "Parmeliaceae",
+                "children": [
+                  {
+                    "rank": "genus",
+                    "name": "Evernia",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "E. prunastri",
+                        "id": "2024008"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rank": "family",
+                "name": "Ramalinaceae",
+                "children": [
+                  {
+                    "rank": "genus",
+                    "name": "Ramalina",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "R. sp.",
+                        "id": "2024010"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rank": "order",
+            "name": "Teloschistales",
+            "children": [
+              {
+                "rank": "family",
+                "name": "Teloschistaceae",
+                "children": [
+                  {
+                    "rank": "genus",
+                    "name": "Xanthoria",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "X. parietina",
+                        "id": "2024026"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rank": "class",
+        "name": "Leotiomycetes",
+        "children": [
+          {
+            "rank": "order",
+            "name": "Helotiales",
+            "children": [
+              {
+                "rank": "family",
+                "name": "Helotiaceae",
+                "children": [
+                  {
+                    "rank": "genus",
+                    "name": "Hymenoscyphus",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "H. sp.",
+                        "id": "2024074"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rank": "family",
+                "name": "Lachnaceae",
+                "children": [
+                  {
+                    "rank": "genus",
+                    "name": "Lachnum",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "L. sp.",
+                        "id": "2024075"
+                      },
+                      {
+                        "rank": "species",
+                        "name": "L. sp.",
+                        "id": "2024089"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rank": "family",
+                "name": "Rutstroemiaceae",
+                "children": [
+                  {
+                    "rank": "genus",
+                    "name": "Moellerodiscus",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "M. lentus",
+                        "id": "2024072"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rank": "class",
+        "name": "Pezizomycetes",
+        "children": [
+          {
+            "rank": "order",
+            "name": "Pezizales",
+            "children": [
+              {
+                "rank": "family",
+                "name": "Helvellaceae",
+                "children": [
+                  {
+                    "rank": "genus",
+                    "name": "Helvella",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "H. solitaria",
+                        "id": "2024007"
+                      },
+                      {
+                        "rank": "species",
+                        "name": "H. solitaria",
+                        "id": "2024073"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rank": "family",
+                "name": "Pezizaceae",
+                "children": [
+                  {
+                    "rank": "genus",
+                    "name": "Sarcosphaera",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "S. coronaria",
+                        "id": "2024082"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rank": "family",
+                "name": "Pyronemataceae",
+                "children": [
+                  {
+                    "rank": "genus",
+                    "name": "Cheilymenia",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "C. sp.",
+                        "id": "2024077"
+                      }
+                    ]
+                  },
+                  {
+                    "rank": "genus",
+                    "name": "Geopyxis",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "G. foetida",
+                        "id": "2024006"
+                      },
+                      {
+                        "rank": "species",
+                        "name": "G. foetida",
+                        "id": "2024087"
+                      }
+                    ]
+                  },
+                  {
+                    "rank": "genus",
+                    "name": "Scutellinia",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "S. sp.",
+                        "id": "2024076"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rank": "class",
+        "name": "Sordariomycetes",
+        "children": [
+          {
+            "rank": "order",
+            "name": "Xylariales",
+            "children": [
+              {
+                "rank": "family",
+                "name": "Xylariaceae",
+                "children": [
+                  {
+                    "rank": "genus",
+                    "name": "Xylaria",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "X. filiformis",
+                        "id": "2024080"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "rank": "phylum",
+    "name": "Basidiomycota",
+    "children": [
+      {
+        "rank": "class",
+        "name": "Agaricomycetes",
+        "children": [
+          {
+            "rank": "order",
+            "name": "Agaricales",
+            "children": [
+              {
+                "rank": "family",
+                "name": "Agaricaceae",
+                "children": [
+                  {
+                    "rank": "genus",
+                    "name": "Chlorophyllum",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "C. brunneum",
+                        "id": "2024017"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rank": "family",
+                "name": "Amanitaceae",
+                "children": [
+                  {
+                    "rank": "genus",
+                    "name": "Amanita",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "A. sp.",
+                        "id": "2024053"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rank": "family",
+                "name": "Battarreaceae",
+                "children": [
+                  {
+                    "rank": "genus",
+                    "name": "Battarrea",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "B. phalloides",
+                        "id": "2024024"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rank": "family",
+                "name": "Bolbitiaceae",
+                "children": [
+                  {
+                    "rank": "genus",
+                    "name": "Bolbitius",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "B. sp.",
+                        "id": "2024065"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rank": "family",
+                "name": "Entolomataceae",
+                "children": [
+                  {
+                    "rank": "genus",
+                    "name": "Entoloma",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "E. (sect.Nolanidea)sp.",
+                        "id": "2024041"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rank": "family",
+                "name": "Galeropsidaceae",
+                "children": [
+                  {
+                    "rank": "genus",
+                    "name": "Panaeolus",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "P. foenisecii",
+                        "id": "2024054"
+                      },
+                      {
+                        "rank": "species",
+                        "name": "P. sp.",
+                        "id": "2024078"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rank": "family",
+                "name": "Hymenogastraceae",
+                "children": [
+                  {
+                    "rank": "genus",
+                    "name": "Galerina",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "G. sp.",
+                        "id": "2024005"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rank": "family",
+                "name": "Lyophyllaceae",
+                "children": [
+                  {
+                    "rank": "genus",
+                    "name": "Lyophyllum",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "L. decastes",
+                        "id": "2024001"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rank": "family",
+                "name": "Marasmiaceae",
+                "children": [
+                  {
+                    "rank": "genus",
+                    "name": "Marasmiellus",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "M. candidus",
+                        "id": "2024029"
+                      }
+                    ]
+                  },
+                  {
+                    "rank": "genus",
+                    "name": "Marasmius",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "M. sp.",
+                        "id": "2024028"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rank": "family",
+                "name": "Mycenaceae",
+                "children": [
+                  {
+                    "rank": "genus",
+                    "name": "Mycena",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "M. filopes",
+                        "id": "2024027"
+                      },
+                      {
+                        "rank": "species",
+                        "name": "M. renati",
+                        "id": "2024043"
+                      },
+                      {
+                        "rank": "species",
+                        "name": "M. haematopus",
+                        "id": "2024067"
+                      },
+                      {
+                        "rank": "species",
+                        "name": "M. acicula",
+                        "id": "2024069"
+                      },
+                      {
+                        "rank": "species",
+                        "name": "M. tenerrima",
+                        "id": "2024070"
+                      },
+                      {
+                        "rank": "species",
+                        "name": "M. galericulata",
+                        "id": "2024084"
+                      },
+                      {
+                        "rank": "species",
+                        "name": "M. tenerrima",
+                        "id": "2024088"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rank": "family",
+                "name": "Niaceae",
+                "children": [
+                  {
+                    "rank": "genus",
+                    "name": "Lachnella",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "L. alboviolascens",
+                        "id": "2024071"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rank": "family",
+                "name": "Omphalotaceae",
+                "children": [
+                  {
+                    "rank": "genus",
+                    "name": "Collybiopsis",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "C. sp.",
+                        "id": "2024048"
+                      },
+                      {
+                        "rank": "species",
+                        "name": "C. ramealis",
+                        "id": "2024061"
+                      },
+                      {
+                        "rank": "species",
+                        "name": "C. ramealis",
+                        "id": "2024062"
+                      }
+                    ]
+                  },
+                  {
+                    "rank": "genus",
+                    "name": "Gymnopus",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "G. brassicolens",
+                        "id": "2024016"
+                      },
+                      {
+                        "rank": "species",
+                        "name": "G. sp.",
+                        "id": "2024049"
+                      },
+                      {
+                        "rank": "species",
+                        "name": "G. dryophilus",
+                        "id": "2024057"
+                      }
+                    ]
+                  },
+                  {
+                    "rank": "genus",
+                    "name": "Mycetinis",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "M. alliaceus",
+                        "id": "2024079"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rank": "family",
+                "name": "Physalacriaceae",
+                "children": [
+                  {
+                    "rank": "genus",
+                    "name": "Oudemansiella",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "O. mucida",
+                        "id": "2024085"
+                      }
+                    ]
+                  },
+                  {
+                    "rank": "genus",
+                    "name": "Strobilurus",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "S. sp.",
+                        "id": "2024032"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rank": "family",
+                "name": "Pluteaceae",
+                "children": [
+                  {
+                    "rank": "genus",
+                    "name": "Pluteus",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "P. sp.",
+                        "id": "2024033"
+                      },
+                      {
+                        "rank": "species",
+                        "name": "P. sp.",
+                        "id": "2024034"
+                      },
+                      {
+                        "rank": "species",
+                        "name": "P. cervinus",
+                        "id": "2024038"
+                      },
+                      {
+                        "rank": "species",
+                        "name": "P. leoninus",
+                        "id": "2024047"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rank": "family",
+                "name": "Porotheleaceae",
+                "children": [
+                  {
+                    "rank": "genus",
+                    "name": "Megacollybia",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "M. sp.",
+                        "id": "2024052"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rank": "family",
+                "name": "Psathyrellaceae",
+                "children": [
+                  {
+                    "rank": "genus",
+                    "name": "Candolleomyces",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "C. sp.",
+                        "id": "2024035"
+                      }
+                    ]
+                  },
+                  {
+                    "rank": "genus",
+                    "name": "Coprinellus",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "C. domesticus",
+                        "id": "2024003"
+                      },
+                      {
+                        "rank": "species",
+                        "name": "C. sp.",
+                        "id": "2024036"
+                      }
+                    ]
+                  },
+                  {
+                    "rank": "genus",
+                    "name": "Coprinopsis",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "C. sp.",
+                        "id": "2024040"
+                      },
+                      {
+                        "rank": "species",
+                        "name": "C. uliginicola",
+                        "id": "2024042"
+                      }
+                    ]
+                  },
+                  {
+                    "rank": "genus",
+                    "name": "Parasola",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "P. auricoma",
+                        "id": "2024030"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rank": "family",
+                "name": "Schizophyllaceae",
+                "children": [
+                  {
+                    "rank": "genus",
+                    "name": "Schizophyllum",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "S. commune",
+                        "id": "2024058"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rank": "family",
+                "name": "Strophariaceae",
+                "children": [
+                  {
+                    "rank": "genus",
+                    "name": "Hypholoma",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "H. fasciculare",
+                        "id": "2024020"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rank": "family",
+                "name": "Tubariaceae",
+                "children": [
+                  {
+                    "rank": "genus",
+                    "name": "Cyclocybe",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "C. cylindracea",
+                        "id": "2024002"
+                      }
+                    ]
+                  },
+                  {
+                    "rank": "genus",
+                    "name": "Flammulaster",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "F. sp.",
+                        "id": "2024060"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rank": "order",
+            "name": "Auriculariales",
+            "children": [
+              {
+                "rank": "family",
+                "name": "Auriculariaceae",
+                "children": [
+                  {
+                    "rank": "genus",
+                    "name": "Exidia",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "E. truncata",
+                        "id": "2024019"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rank": "family",
+                "name": "Hyaloriaceae",
+                "children": [
+                  {
+                    "rank": "genus",
+                    "name": "Myxarium",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "M. nucleatum",
+                        "id": "2024013"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rank": "order",
+            "name": "Boletales",
+            "children": [
+              {
+                "rank": "family",
+                "name": "Astraeaceae",
+                "children": [
+                  {
+                    "rank": "genus",
+                    "name": "Astraeus",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "A. sp.",
+                        "id": "2024044"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rank": "family",
+                "name": "Boletaceae",
+                "children": [
+                  {
+                    "rank": "genus",
+                    "name": "Boletus",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "B. reticulatus",
+                        "id": "2024045"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rank": "order",
+            "name": "Cantharellales",
+            "children": [
+              {
+                "rank": "family",
+                "name": "Hydnaceae",
+                "children": [
+                  {
+                    "rank": "genus",
+                    "name": "Clavulina",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "C. coralloides",
+                        "id": "2024066"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rank": "order",
+            "name": "Phallales",
+            "children": [
+              {
+                "rank": "family",
+                "name": "Clathraceae",
+                "children": [
+                  {
+                    "rank": "genus",
+                    "name": "Clathrus",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "C. ruber",
+                        "id": "2024004"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rank": "family",
+                "name": "Phallaceae",
+                "children": [
+                  {
+                    "rank": "genus",
+                    "name": "Phallus",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "P. impudicus",
+                        "id": "2024037"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rank": "order",
+            "name": "Polyporales",
+            "children": [
+              {
+                "rank": "family",
+                "name": "Fomitopsidaceae",
+                "children": [
+                  {
+                    "rank": "genus",
+                    "name": "Fomitopsis",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "F. quercina",
+                        "id": "2024056"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rank": "family",
+                "name": "Polyporaceae",
+                "children": [
+                  {
+                    "rank": "genus",
+                    "name": "Ganoderma",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "G. lucidum",
+                        "id": "2023001"
+                      }
+                    ]
+                  },
+                  {
+                    "rank": "genus",
+                    "name": "Lentinus",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "L. sp.",
+                        "id": "2024050"
+                      },
+                      {
+                        "rank": "species",
+                        "name": "L. arcularius",
+                        "id": "2024064"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rank": "order",
+            "name": "Russulales",
+            "children": [
+              {
+                "rank": "family",
+                "name": "Russulaceae",
+                "children": [
+                  {
+                    "rank": "genus",
+                    "name": "Russula",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "R. sp.",
+                        "id": "2024046"
+                      },
+                      {
+                        "rank": "species",
+                        "name": "R. sp.",
+                        "id": "2024051"
+                      },
+                      {
+                        "rank": "species",
+                        "name": "R. sp.",
+                        "id": "2024059"
+                      },
+                      {
+                        "rank": "species",
+                        "name": "R. sp.",
+                        "id": "2024068"
+                      },
+                      {
+                        "rank": "species",
+                        "name": "R. sp.",
+                        "id": "2024081"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rank": "family",
+                "name": "Stereaceae",
+                "children": [
+                  {
+                    "rank": "genus",
+                    "name": "Stereum",
+                    "children": [
+                      {
+                        "rank": "species",
+                        "name": "S. ostrea",
+                        "id": "2024025"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

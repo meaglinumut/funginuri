@@ -2,5 +2,6 @@ const fixedPalettes={"menekse": {"id": "menekse", "name": "Menekşe & Kayısı",
 const page=document.body.dataset.page;
 const name=(page==='bounmantar'||page==='tursaylar')?'klasik':(page==='inaturalist'||page.startsWith('gozlem-'))?'elektrik':'menekse';
 const palette=fixedPalettes[name];document.documentElement.dataset.palette=name;for(const[key,value]of Object.entries(palette.colors))document.documentElement.style.setProperty('--'+key,value);
-for(const a of document.querySelectorAll('.main-nav [data-page-link]')){if(a.dataset.pageLink===page){a.classList.add('active');a.setAttribute('aria-current','page');}}
+for(const a of document.querySelectorAll('.main-nav a')){a.classList.remove('active');a.removeAttribute('aria-current');if(a.dataset.pageLink===page){a.classList.add('active');a.setAttribute('aria-current','page');}}
+for(const a of document.querySelectorAll('.nav-dropdown-menu a'))a.removeAttribute('target');
 const dd=document.getElementById('tursay-dropdown');dd?.classList.toggle('active',page==='tursaylar');document.addEventListener('click',e=>{if(dd?.open&&!dd.contains(e.target))dd.open=false});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&dd)dd.open=false});

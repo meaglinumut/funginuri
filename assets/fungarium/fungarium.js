@@ -1,19 +1,16 @@
 (()=>{'use strict';
 const $=id=>document.getElementById(id), escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const rankNames={phylum:'Bölüm',class:'Sınıf',order:'Takım',family:'Familya',genus:'Cins',species:'Takson'};
-let records=[],tree=[],filtered=[],layout='cards',current=null,map=null,lastFocus=null;
-const dialog=$('fgDetail'),params=new URLSearchParams(location.search);
-try{layout=params.get('gorunum')||localStorage.getItem('fungarium-layout')||'cards'}catch(e){}
-if(!['cards','classic'].includes(layout))layout='cards';
+let records=[],tree=[],filtered=[],current=null,map=null,lastFocus=null;
+const dialog=$('fgDetail');
 const date=value=>{const parts=value.split('-');return parts.length===3?`${parts[2]}.${parts[1]}.${parts[0]}`:value};
 const obs=r=>`https://www.inaturalist.org/observations/${encodeURIComponent(r.observation)}`;
 const name=r=>escape(r.name), taxLabel=x=>x==='Unknown'?'Belirlenmemiş':escape(x);
-function setLayout(value){layout=value;document.querySelectorAll('[data-layout]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.layout===layout)));$('fgCards').hidden=layout!=='cards';$('fgClassic').hidden=layout!=='classic';try{localStorage.setItem('fungarium-layout',layout)}catch(e){} }
 function reset(){ $('fgFilters').reset();render() }
 function recordLink(r,label){return `<a class="fg-tree-record" href="#ornek-${r.id}"><i>${escape(label||r.name)}</i><span>${r.id} ↗</span></a>`}
 function renderTree(){
  const ids=new Set(filtered.map(r=>r.id)),seen=new Set();
- function branch(nodes,depth=0){return nodes.map(n=>{if(n.id){const r=records.find(r=>r.id===n.id);if(!r||!ids.has(n.id))return '';seen.add(n.id);return `<li>${recordLink(r,n.name)}</li>`}const children=branch(n.children||[],depth+1);if(!children)return '';const open=depth<2||$('fgSearch').value.trim()?' open':'';return `<li><details class="${escape(n.rank)}"${open}><summary>${escape(n.name)}</summary><ul class="fg-tree-list">${children}</ul></details></li>`}).join('')}
+ function branch(nodes,depth=0){return nodes.map(n=>{if(n.id){const r=records.find(r=>r.id===n.id);if(!r||!ids.has(n.id))return '';seen.add(n.id);return `<li>${recordLink(r,n.name)}</li>`}const children=branch(n.children||[],depth+1);if(!children)return '';const open=' open';return `<li><details class="${escape(n.rank)}"${open}><summary>${escape(n.name)}</summary><ul class="fg-tree-list">${children}</ul></details></li>`}).join('')}
  const body=branch(tree);const missing=filtered.filter(r=>!seen.has(r.id));
  $('fgTree').innerHTML=`<ul class="fg-tree-list">${body}</ul>`+(missing.length?`<section class="fg-tree-extra"><h3>Arşiv dizininde yer almayan örnekler</h3><ul class="fg-tree-list">${missing.map(r=>`<li>${recordLink(r)}</li>`).join('')}</ul></section>`:'');
 }
@@ -23,8 +20,7 @@ function render(){
  const sort=$('fgSort').value;filtered.sort((a,b)=>sort==='name'?a.name.localeCompare(b.name,'tr')||a.id.localeCompare(b.id):sort==='date'?b.date.localeCompare(a.date)||a.id.localeCompare(b.id):a.id.localeCompare(b.id));
  $('fgCount').textContent=`${filtered.length} / ${records.length} örnek · ${new Set(filtered.map(r=>r.name)).size} farklı takson`;
  $('fgEmpty').hidden=filtered.length>0;
- $('fgCards').innerHTML=filtered.map(r=>`<article class="fg-card"><div class="fg-card-head"><span>FUNG. ${r.id}</span><span>${date(r.date)}</span></div><a class="fg-card-image" href="#ornek-${r.id}" aria-label="${name(r)} · ${r.id}"><img loading="lazy" src="${escape(r.photo)}" alt="${name(r)} örneğinin saha fotoğrafı"><span class="fg-photo-fallback">Fotoğraf yüklenemedi<br>Örnek kaydını açın ↗</span></a><div class="fg-card-copy"><h2><a href="#ornek-${r.id}"><i>${name(r)}</i></a></h2><p class="fg-family">${taxLabel(r.taxonomy.family)} · ${taxLabel(r.taxonomy.phylum)}</p><div class="fg-card-foot"><span>Örnek no. ${r.id}</span><a href="#ornek-${r.id}">Kaydı aç →</a></div></div></article>`).join('');
- renderTree();setLayout(layout);
+ renderTree();
 }
 function closeDetail(){if(dialog.open)dialog.close();if(location.hash.startsWith('#ornek-'))history.replaceState(null,'',location.pathname+location.search);current=null;if(map){map.remove();map=null}if(lastFocus&&document.contains(lastFocus))lastFocus.focus()}
 function openDetail(id){
@@ -45,9 +41,7 @@ function move(delta){if(!current)return;const group=filtered.some(x=>x.id===curr
 $('fgClose').addEventListener('click',closeDetail);dialog.addEventListener('cancel',e=>{e.preventDefault();closeDetail()});dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)closeDetail()}});
 $('fgPrev').addEventListener('click',()=>move(-1));$('fgNext').addEventListener('click',()=>move(1));
 $('fgFilters').addEventListener('submit',e=>e.preventDefault());$('fgFilters').addEventListener('input',render);$('fgFilters').addEventListener('change',render);$('fgFilters').addEventListener('reset',e=>{e.preventDefault();$('fgSearch').value='';$('fgPhylum').value='all';$('fgFamily').value='all';$('fgSort').value='id';render()});$('fgClear').addEventListener('click',reset);
-document.querySelectorAll('[data-layout]').forEach(b=>b.addEventListener('click',()=>setLayout(b.dataset.layout)));
 window.addEventListener('hashchange',syncHash);
-$('fgCards').addEventListener('error',e=>{if(e.target.tagName==='IMG')e.target.parentElement.classList.add('failed')},true);
 Promise.all([fetch('./assets/fungarium/specimens.json').then(r=>{if(!r.ok)throw Error('data');return r.json()}),fetch('./assets/fungarium/taxonomy.json').then(r=>{if(!r.ok)throw Error('tree');return r.json()})]).then(([data,hierarchy])=>{records=data;tree=hierarchy;
  $('fgTotals').innerHTML=`<div><strong>${records.length}</strong><span>örnek kaydı</span></div><div><strong>${new Set(records.map(r=>r.name)).size}</strong><span>farklı takson</span></div><div><strong>${new Set(records.map(r=>r.taxonomy.family)).size}</strong><span>familya</span></div>`;
  for(const [id,key]of [['fgPhylum','phylum'],['fgFamily','family']]){const select=$(id);[...new Set(records.map(r=>r.taxonomy[key]))].sort((a,b)=>a.localeCompare(b)).forEach(v=>{const opt=document.createElement('option');opt.value=v;opt.textContent=v;select.append(opt)})}

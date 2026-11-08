@@ -5,3 +5,6 @@ const palette=fixedPalettes[name];document.documentElement.dataset.palette=name;
 for(const a of document.querySelectorAll('.main-nav a')){a.classList.remove('active');a.removeAttribute('aria-current');if(a.dataset.pageLink===page){a.classList.add('active');a.setAttribute('aria-current','page');}}
 for(const a of document.querySelectorAll('.nav-dropdown-menu a'))a.removeAttribute('target');
 const dd=document.getElementById('tursay-dropdown');dd?.classList.toggle('active',page==='tursaylar');document.addEventListener('click',e=>{if(dd?.open&&!dd.contains(e.target))dd.open=false});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&dd)dd.open=false});
+
+// Site içi bağlantılar her zaman aynı sekmede açılır.
+const rootPath=new URL('../../',document.currentScript.src).pathname;function sameTab(a){try{const u=new URL(a.href,location.href);if(u.origin===location.origin&&u.pathname.startsWith(rootPath))a.removeAttribute('target')}catch(error){}}for(const a of document.querySelectorAll('a[href]'))sameTab(a);document.addEventListener('click',e=>{const a=e.target.closest('a[href]');if(a)sameTab(a)},true);

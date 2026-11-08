@@ -3,8 +3,8 @@
     "id": "2023001",
     "name": "Ganoderma lucidum",
     "commonName": "reishi",
-    "observation": "19527599",
-    "date": "2024-12-30",
+    "observation": "195275997",
+    "date": "2023-12-30",
     "coordinates": [
       41.04729,
       29.01436
@@ -20,7 +20,11 @@
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "research",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024001",
@@ -43,7 +47,11 @@
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "research",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024002",
@@ -66,7 +74,11 @@
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024003",
@@ -89,7 +101,11 @@
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024004",
@@ -112,7 +128,11 @@
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "research",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024005",
@@ -130,16 +150,19 @@
       "class": "Agaricomycetes",
       "order": "Agaricales",
       "family": "Hymenogastraceae",
-      "genus": "Galerina",
-      "species": "Unknown"
+      "genus": "Galerina"
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "genus",
+    "microscopy": false
   },
   {
     "id": "2024006",
-    "name": "Pyronemataceae",
+    "name": "Geopyxis foetida",
     "commonName": "",
     "observation": "206238698",
     "date": "2024-04-09",
@@ -152,13 +175,17 @@
       "phylum": "Ascomycota",
       "class": "Pezizomycetes",
       "order": "Pezizales",
-      "family": "Pyronemataceae",
-      "genus": "Unknown",
-      "species": "Unknown"
+      "family": "Tarzettaceae",
+      "genus": "Geopyxis",
+      "species": "Geopyxis foetida"
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "research",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024007",
@@ -181,7 +208,11 @@
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024008",
@@ -204,7 +235,11 @@
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024010",
@@ -222,12 +257,15 @@
       "class": "Lecanoromycetes",
       "order": "Lecanorales",
       "family": "Ramalinaceae",
-      "genus": "Ramalina",
-      "species": "Unknown"
+      "genus": "Ramalina"
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "genus",
+    "microscopy": false
   },
   {
     "id": "2024013",
@@ -250,7 +288,11 @@
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024016",
@@ -273,7 +315,11 @@
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024017",
@@ -296,7 +342,11 @@
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "research",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024019",
@@ -319,7 +369,11 @@
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "research",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024020",
@@ -342,7 +396,11 @@
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024024",
@@ -365,11 +423,15 @@
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "research",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024025",
-    "name": "Stereum ostrea",
+    "name": "Stereum subtomentosum",
     "commonName": "False Turkey-Tail",
     "observation": "212910516",
     "date": "2024-05-02",
@@ -384,11 +446,15 @@
       "order": "Russulales",
       "family": "Stereaceae",
       "genus": "Stereum",
-      "species": "Stereum ostrea"
+      "species": "Stereum subtomentosum"
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "research",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024026",
@@ -411,7 +477,11 @@
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "research",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024027",
@@ -434,7 +504,11 @@
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024028",
@@ -452,12 +526,15 @@
       "class": "Agaricomycetes",
       "order": "Agaricales",
       "family": "Marasmiaceae",
-      "genus": "Marasmius",
-      "species": "Unknown"
+      "genus": "Marasmius"
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "genus",
+    "microscopy": false
   },
   {
     "id": "2024029",
@@ -474,13 +551,16 @@
       "phylum": "Basidiomycota",
       "class": "Agaricomycetes",
       "order": "Agaricales",
-      "family": "Marasmiaceae",
-      "genus": "Unknown",
+      "family": "Campanellaceae",
       "species": "Marasmiellus candidus"
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024030",
@@ -503,7 +583,11 @@
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024031",
@@ -519,14 +603,15 @@
     "taxonomy": {
       "phylum": "Basidiomycota",
       "class": "Agaricomycetes",
-      "order": "Agaricales",
-      "family": "Unknown",
-      "genus": "Unknown",
-      "species": "Unknown"
+      "order": "Agaricales"
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "other",
+    "microscopy": false
   },
   {
     "id": "2024032",
@@ -544,12 +629,15 @@
       "class": "Agaricomycetes",
       "order": "Agaricales",
       "family": "Physalacriaceae",
-      "genus": "Strobilurus",
-      "species": "Unknown"
+      "genus": "Strobilurus"
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "genus",
+    "microscopy": false
   },
   {
     "id": "2024033",
@@ -567,12 +655,15 @@
       "class": "Agaricomycetes",
       "order": "Agaricales",
       "family": "Pluteaceae",
-      "genus": "Pluteus",
-      "species": "Unknown"
+      "genus": "Pluteus"
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "genus",
+    "microscopy": false
   },
   {
     "id": "2024034",
@@ -590,12 +681,15 @@
       "class": "Agaricomycetes",
       "order": "Agaricales",
       "family": "Pluteaceae",
-      "genus": "Pluteus",
-      "species": "Unknown"
+      "genus": "Pluteus"
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "genus",
+    "microscopy": false
   },
   {
     "id": "2024035",
@@ -613,12 +707,15 @@
       "class": "Agaricomycetes",
       "order": "Agaricales",
       "family": "Psathyrellaceae",
-      "genus": "Candolleomyces",
-      "species": "Unknown"
+      "genus": "Candolleomyces"
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "genus",
+    "microscopy": false
   },
   {
     "id": "2024036",
@@ -636,12 +733,15 @@
       "class": "Agaricomycetes",
       "order": "Agaricales",
       "family": "Psathyrellaceae",
-      "genus": "Coprinellus",
-      "species": "Unknown"
+      "genus": "Coprinellus"
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "genus",
+    "microscopy": false
   },
   {
     "id": "2024037",
@@ -664,7 +764,11 @@
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "research",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024038",
@@ -687,7 +791,11 @@
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024040",
@@ -705,12 +813,15 @@
       "class": "Agaricomycetes",
       "order": "Agaricales",
       "family": "Psathyrellaceae",
-      "genus": "Coprinopsis",
-      "species": "Unknown"
+      "genus": "Coprinopsis"
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "genus",
+    "microscopy": false
   },
   {
     "id": "2024041",
@@ -728,12 +839,15 @@
       "class": "Agaricomycetes",
       "order": "Agaricales",
       "family": "Entolomataceae",
-      "genus": "Entoloma",
-      "species": "Unknown"
+      "genus": "Entoloma"
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "other",
+    "microscopy": false
   },
   {
     "id": "2024042",
@@ -756,7 +870,11 @@
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024043",
@@ -779,7 +897,11 @@
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "research",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024044",
@@ -796,13 +918,16 @@
       "phylum": "Basidiomycota",
       "class": "Agaricomycetes",
       "order": "Boletales",
-      "family": "Astraeaceae",
-      "genus": "Astraeus",
-      "species": "Unknown"
+      "family": "Diplocystidaceae",
+      "genus": "Astraeus"
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "genus",
+    "microscopy": false
   },
   {
     "id": "2024045",
@@ -825,7 +950,11 @@
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "research",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024046",
@@ -843,12 +972,15 @@
       "class": "Agaricomycetes",
       "order": "Russulales",
       "family": "Russulaceae",
-      "genus": "Russula",
-      "species": "Unknown"
+      "genus": "Russula"
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "genus",
+    "microscopy": false
   },
   {
     "id": "2024047",
@@ -871,7 +1003,11 @@
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "research",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024048",
@@ -889,12 +1025,15 @@
       "class": "Agaricomycetes",
       "order": "Agaricales",
       "family": "Omphalotaceae",
-      "genus": "Collybiopsis",
-      "species": "Unknown"
+      "genus": "Collybiopsis"
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "genus",
+    "microscopy": false
   },
   {
     "id": "2024049",
@@ -912,12 +1051,15 @@
       "class": "Agaricomycetes",
       "order": "Agaricales",
       "family": "Omphalotaceae",
-      "genus": "Gymnopus",
-      "species": "Unknown"
+      "genus": "Gymnopus"
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "genus",
+    "microscopy": false
   },
   {
     "id": "2024050",
@@ -935,12 +1077,15 @@
       "class": "Agaricomycetes",
       "order": "Polyporales",
       "family": "Polyporaceae",
-      "genus": "Lentinus",
-      "species": "Unknown"
+      "genus": "Lentinus"
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "genus",
+    "microscopy": false
   },
   {
     "id": "2024051",
@@ -958,12 +1103,15 @@
       "class": "Agaricomycetes",
       "order": "Russulales",
       "family": "Russulaceae",
-      "genus": "Russula",
-      "species": "Unknown"
+      "genus": "Russula"
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "other",
+    "microscopy": false
   },
   {
     "id": "2024052",
@@ -981,12 +1129,15 @@
       "class": "Agaricomycetes",
       "order": "Agaricales",
       "family": "Porotheleaceae",
-      "genus": "Megacollybia",
-      "species": "Unknown"
+      "genus": "Megacollybia"
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "genus",
+    "microscopy": false
   },
   {
     "id": "2024053",
@@ -1004,12 +1155,15 @@
       "class": "Agaricomycetes",
       "order": "Agaricales",
       "family": "Amanitaceae",
-      "genus": "Amanita",
-      "species": "Unknown"
+      "genus": "Amanita"
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "genus",
+    "microscopy": false
   },
   {
     "id": "2024054",
@@ -1032,7 +1186,11 @@
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024056",
@@ -1055,7 +1213,11 @@
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "research",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024057",
@@ -1078,7 +1240,11 @@
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024058",
@@ -1101,7 +1267,11 @@
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "research",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024059",
@@ -1119,12 +1289,15 @@
       "class": "Agaricomycetes",
       "order": "Russulales",
       "family": "Russulaceae",
-      "genus": "Russula",
-      "species": "Unknown"
+      "genus": "Russula"
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "genus",
+    "microscopy": false
   },
   {
     "id": "2024060",
@@ -1142,12 +1315,15 @@
       "class": "Agaricomycetes",
       "order": "Agaricales",
       "family": "Tubariaceae",
-      "genus": "Flammulaster",
-      "species": "Unknown"
+      "genus": "Flammulaster"
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "genus",
+    "microscopy": false
   },
   {
     "id": "2024061",
@@ -1170,7 +1346,11 @@
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "research",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024062",
@@ -1193,7 +1373,11 @@
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024063",
@@ -1209,14 +1393,15 @@
     "taxonomy": {
       "phylum": "Basidiomycota",
       "class": "Agaricomycetes",
-      "order": "Agaricales",
-      "family": "Unknown",
-      "genus": "Unknown",
-      "species": "Unknown"
+      "order": "Agaricales"
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "other",
+    "microscopy": false
   },
   {
     "id": "2024064",
@@ -1239,7 +1424,11 @@
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024065",
@@ -1257,12 +1446,15 @@
       "class": "Agaricomycetes",
       "order": "Agaricales",
       "family": "Bolbitiaceae",
-      "genus": "Bolbitius",
-      "species": "Unknown"
+      "genus": "Bolbitius"
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "genus",
+    "microscopy": false
   },
   {
     "id": "2024066",
@@ -1285,7 +1477,11 @@
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024067",
@@ -1308,7 +1504,11 @@
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "research",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024068",
@@ -1326,16 +1526,19 @@
       "class": "Agaricomycetes",
       "order": "Russulales",
       "family": "Russulaceae",
-      "genus": "Russula",
-      "species": "Unknown"
+      "genus": "Russula"
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "genus",
+    "microscopy": false
   },
   {
     "id": "2024069",
-    "name": "Mycena acicula",
+    "name": "Pruinomycena acicula",
     "commonName": "orange bonnet",
     "observation": "215278937",
     "date": "2024-05-12",
@@ -1348,13 +1551,17 @@
       "phylum": "Basidiomycota",
       "class": "Agaricomycetes",
       "order": "Agaricales",
-      "family": "Mycenaceae",
-      "genus": "Mycena",
-      "species": "Mycena acicula"
+      "family": "Hemimycenaceae",
+      "genus": "Pruinomycena",
+      "species": "Pruinomycena acicula"
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "research",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024070",
@@ -1377,7 +1584,11 @@
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024071",
@@ -1394,13 +1605,17 @@
       "phylum": "Basidiomycota",
       "class": "Agaricomycetes",
       "order": "Agaricales",
-      "family": "Niaceae",
+      "family": "Cyphellopsidaceae",
       "genus": "Lachnella",
       "species": "Lachnella alboviolascens"
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024072",
@@ -1423,14 +1638,18 @@
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "research",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024073",
     "name": "Helvella solitaria",
     "commonName": "",
     "observation": "216624829",
-    "date": "45430",
+    "date": "2024-05-18",
     "coordinates": [
       40.9568444444,
       31.4470833333
@@ -1446,14 +1665,18 @@
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "research",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024074",
     "name": "Hymenoscyphus",
     "commonName": "",
     "observation": "216625908",
-    "date": "45430",
+    "date": "2024-05-18",
     "coordinates": [
       40.9568444444,
       31.4470833333
@@ -1464,19 +1687,22 @@
       "class": "Leotiomycetes",
       "order": "Helotiales",
       "family": "Helotiaceae",
-      "genus": "Hymenoscyphus",
-      "species": "Unknown"
+      "genus": "Hymenoscyphus"
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "genus",
+    "microscopy": false
   },
   {
     "id": "2024075",
     "name": "Lachnum",
     "commonName": "",
     "observation": "216761649",
-    "date": "45430",
+    "date": "2024-05-18",
     "coordinates": [
       40.9385519771,
       31.3963847235
@@ -1487,19 +1713,22 @@
       "class": "Leotiomycetes",
       "order": "Helotiales",
       "family": "Lachnaceae",
-      "genus": "Lachnum",
-      "species": "Unknown"
+      "genus": "Lachnum"
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "genus",
+    "microscopy": false
   },
   {
     "id": "2024076",
     "name": "Scutellinia",
     "commonName": "Eyelash cups",
     "observation": "216625438",
-    "date": "45430",
+    "date": "2024-05-18",
     "coordinates": [
       40.9568444444,
       31.4470833333
@@ -1510,19 +1739,22 @@
       "class": "Pezizomycetes",
       "order": "Pezizales",
       "family": "Pyronemataceae",
-      "genus": "Scutellinia",
-      "species": "Unknown"
+      "genus": "Scutellinia"
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "genus",
+    "microscopy": false
   },
   {
     "id": "2024077",
     "name": "Cheilymenia",
     "commonName": "",
     "observation": "216761143",
-    "date": "45430",
+    "date": "2024-05-18",
     "coordinates": [
       40.9402352005,
       31.3982049376
@@ -1533,19 +1765,22 @@
       "class": "Pezizomycetes",
       "order": "Pezizales",
       "family": "Pyronemataceae",
-      "genus": "Cheilymenia",
-      "species": "Unknown"
+      "genus": "Cheilymenia"
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "genus",
+    "microscopy": false
   },
   {
     "id": "2024078",
     "name": "Panaeolus",
     "commonName": "Mottlegills",
     "observation": "229523561",
-    "date": "45442",
+    "date": "2024-05-30",
     "coordinates": [
       40.9920909269,
       28.6644465476
@@ -1556,19 +1791,22 @@
       "class": "Agaricomycetes",
       "order": "Agaricales",
       "family": "Galeropsidaceae",
-      "genus": "Panaeolus",
-      "species": "Unknown"
+      "genus": "Panaeolus"
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "genus",
+    "microscopy": false
   },
   {
     "id": "2024079",
     "name": "Mycetinis alliaceus",
     "commonName": "garlic parachute",
     "observation": "222069178",
-    "date": "45454",
+    "date": "2024-06-11",
     "coordinates": [
       41.7374166602,
       33.0098303407
@@ -1584,14 +1822,18 @@
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024080",
     "name": "Xylaria filiformis",
     "commonName": "",
     "observation": "222111289",
-    "date": "45452",
+    "date": "2024-06-09",
     "coordinates": [
       41.7379880785,
       33.0100472644
@@ -1607,14 +1849,18 @@
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024081",
     "name": "Laricinae",
     "commonName": "",
     "observation": "222136385",
-    "date": "45452",
+    "date": "2024-06-09",
     "coordinates": [
       41.7399055556,
       33.0175222222
@@ -1625,19 +1871,22 @@
       "class": "Agaricomycetes",
       "order": "Russulales",
       "family": "Russulaceae",
-      "genus": "Russula",
-      "species": "Unknown"
+      "genus": "Russula"
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "other",
+    "microscopy": false
   },
   {
     "id": "2024082",
     "name": "Sarcosphaera coronaria",
     "commonName": "pink crown",
     "observation": "222099084",
-    "date": "45453",
+    "date": "2024-06-10",
     "coordinates": [
       41.7345027778,
       33.0039388889
@@ -1653,14 +1902,18 @@
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024083",
     "name": "Tarzettaceae",
     "commonName": "",
     "observation": "222171014",
-    "date": "45455",
+    "date": "2024-06-12",
     "coordinates": [
       41.7403655142,
       33.0212535337
@@ -1670,20 +1923,22 @@
       "phylum": "Ascomycota",
       "class": "Pezizomycetes",
       "order": "Pezizales",
-      "family": "Tarzettaceae",
-      "genus": "Unknown",
-      "species": "Unknown"
+      "family": "Tarzettaceae"
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "other",
+    "microscopy": false
   },
   {
     "id": "2024084",
     "name": "Mycena galericulata",
     "commonName": "common bonnet",
     "observation": "222152699",
-    "date": "45451",
+    "date": "2024-06-08",
     "coordinates": [
       41.7386666667,
       33.0099722222
@@ -1699,14 +1954,18 @@
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024085",
     "name": "Oudemansiella mucida",
     "commonName": "porcelain mushroom",
     "observation": "222099950",
-    "date": "45453",
+    "date": "2024-06-10",
     "coordinates": [
       41.7344058723,
       33.0010518059
@@ -1722,14 +1981,18 @@
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024086",
     "name": "Tarzettaceae",
     "commonName": "",
     "observation": "222098804",
-    "date": "45453",
+    "date": "2024-06-10",
     "coordinates": [
       41.7349333333,
       33.0041833333
@@ -1739,20 +2002,22 @@
       "phylum": "Ascomycota",
       "class": "Pezizomycetes",
       "order": "Pezizales",
-      "family": "Tarzettaceae",
-      "genus": "Unknown",
-      "species": "Unknown"
+      "family": "Tarzettaceae"
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "other",
+    "microscopy": false
   },
   {
     "id": "2024087",
     "name": "Geopyxis foetida",
     "commonName": "",
     "observation": "230085126",
-    "date": "45452",
+    "date": "2024-06-09",
     "coordinates": [
       41.7396059852,
       33.0171360075
@@ -1768,14 +2033,18 @@
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "research",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024088",
     "name": "Mycena tenerrima",
     "commonName": "frosty bonnet",
     "observation": "222209425",
-    "date": "45453",
+    "date": "2024-06-10",
     "coordinates": [
       41.740369517,
       33.0211308226
@@ -1791,14 +2060,18 @@
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "species",
+    "microscopy": false
   },
   {
     "id": "2024089",
     "name": "Lachnum",
     "commonName": "",
     "observation": "222111127",
-    "date": "45452",
+    "date": "2024-06-09",
     "coordinates": [
       41.7389300069,
       33.0096724257
@@ -1809,11 +2082,14 @@
       "class": "Leotiomycetes",
       "order": "Helotiales",
       "family": "Lachnaceae",
-      "genus": "Lachnum",
-      "species": "Unknown"
+      "genus": "Lachnum"
     },
     "description": "",
     "macro": "",
-    "micro": ""
+    "micro": "",
+    "collected": true,
+    "quality": "needs_id",
+    "rank": "genus",
+    "microscopy": false
   }
 ]

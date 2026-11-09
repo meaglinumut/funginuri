@@ -63,13 +63,13 @@
   }
 
   const navArtwork = {
-    anasayfa: 'plate-01.webp',
-    tursaylar: 'plate-57.webp',
-    bounmantar: 'plate-36.webp',
+    anasayfa: 'nav/ana-sayfa.png',
+    tursaylar: 'nav/tursaylar.png',
+    bounmantar: 'nav/bounmantar.png',
     inaturalist: 'plate-70.webp',
-    fungarium: 'plate-13.webp',
-    mikroskopi: 'plate-38.webp',
-    hakkimda: 'plate-65.webp',
+    fungarium: 'nav/fungarium.png',
+    mikroskopi: 'nav/mikroskopi.png',
+    hakkimda: 'nav/hakkimda.png',
   };
 
   function decorateNavigation(scope) {

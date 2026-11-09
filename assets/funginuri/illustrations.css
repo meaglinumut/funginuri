@@ -135,3 +135,145 @@
 }
 
 .beykoz-footer .fn-footer-brand { margin-inline-end: 14px; }
+
+
+/* Funginuri upper navigation: original watercolor PNG cutouts rise from behind each button. */
+.site-header,
+#funginuriHeader {
+  position: relative;
+  z-index: 30;
+  overflow: visible;
+}
+.site-header .main-nav,
+#funginuriHeader .fn-nav {
+  display: flex;
+  flex: 1 1 760px;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  width: min(100%, 1030px);
+  max-width: 1030px;
+  min-width: 0;
+  gap: clamp(8px, .9vw, 15px);
+  padding: 119px 0 8px;
+  margin-left: auto;
+  overflow: visible;
+}
+.site-header .main-nav > a,
+.site-header .main-nav > .nav-dropdown,
+#funginuriHeader .fn-nav > a,
+#funginuriHeader .fn-nav > .fn-dropdown {
+  flex: 1 1 0;
+  min-width: 0;
+}
+.site-header .main-nav > a,
+.site-header .main-nav > .nav-dropdown > summary,
+#funginuriHeader .fn-nav > a,
+#funginuriHeader .fn-nav > .fn-dropdown > summary {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 59px;
+  margin: 0;
+  padding: 12px 7px;
+  border: 3px outset #eee;
+  border-radius: 0;
+  box-shadow: 2px 3px 0 #96859a;
+  white-space: nowrap;
+  text-align: center;
+  font: clamp(15px, 1.25vw, 19px)/1.1 'Times New Roman', Times, serif;
+  cursor: pointer;
+}
+.site-header .main-nav .fn-nav-with-icon > .fn-nav-mushroom,
+#funginuriHeader .fn-nav .fn-nav-with-icon > .fn-nav-mushroom {
+  position: absolute;
+  z-index: -1;
+  display: block;
+  left: 50%;
+  bottom: calc(100% - 8px);
+  width: min(110%, 155px);
+  max-width: none;
+  height: 126px;
+  flex: none;
+  object-fit: contain;
+  object-position: center bottom;
+  transform: translateX(-50%);
+  filter: drop-shadow(1px 2px 1px rgb(60 41 21 / .13));
+  pointer-events: none;
+  user-select: none;
+  transition: transform .18s ease;
+}
+.site-header .main-nav .fn-nav-with-icon:hover > .fn-nav-mushroom,
+.site-header .main-nav .fn-nav-with-icon:focus-visible > .fn-nav-mushroom,
+#funginuriHeader .fn-nav .fn-nav-with-icon:hover > .fn-nav-mushroom,
+#funginuriHeader .fn-nav .fn-nav-with-icon:focus-visible > .fn-nav-mushroom {
+  transform: translateX(-50%) translateY(-4px);
+}
+.site-header .main-nav > .nav-dropdown[open],
+#funginuriHeader .fn-nav > .fn-dropdown[open] {
+  z-index: 80;
+}
+@media (max-width: 1050px) {
+  .site-header .main-nav,
+  #funginuriHeader .fn-nav {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 10px;
+    row-gap: 114px;
+    flex: none;
+    width: 100%;
+    max-width: none;
+    margin: 110px 0 0;
+    padding: 0 0 12px;
+    align-items: end;
+  }
+  .site-header .main-nav > a,
+  .site-header .main-nav > .nav-dropdown > summary,
+  #funginuriHeader .fn-nav > a,
+  #funginuriHeader .fn-nav > .fn-dropdown > summary {
+    min-height: 57px;
+    height: 57px;
+    white-space: normal;
+    font-size: 17px;
+  }
+  .site-header .main-nav .fn-nav-with-icon > .fn-nav-mushroom,
+  #funginuriHeader .fn-nav .fn-nav-with-icon > .fn-nav-mushroom {
+    width: min(92%, 145px);
+    height: 110px;
+  }
+}
+@media (max-width: 550px) {
+  .site-header .main-nav,
+  #funginuriHeader .fn-nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 8px;
+    row-gap: 98px;
+    margin-top: 104px;
+  }
+  .site-header .main-nav > a,
+  .site-header .main-nav > .nav-dropdown > summary,
+  #funginuriHeader .fn-nav > a,
+  #funginuriHeader .fn-nav > .fn-dropdown > summary {
+    min-height: 56px;
+    height: 56px;
+    padding: 8px 4px;
+    font-size: 16px;
+  }
+  .site-header .main-nav .fn-nav-with-icon > .fn-nav-mushroom,
+  #funginuriHeader .fn-nav .fn-nav-with-icon > .fn-nav-mushroom {
+    width: min(88%, 130px);
+    height: 103px;
+  }
+  .site-header .nav-dropdown-menu,
+  #funginuriHeader .fn-menu {
+    left: auto;
+    right: 0;
+    width: min(290px, calc(100vw - 40px));
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-header .main-nav .fn-nav-mushroom,
+  #funginuriHeader .fn-nav .fn-nav-mushroom { transition: none; }
+}

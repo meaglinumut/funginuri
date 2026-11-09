@@ -280,13 +280,25 @@
 /* Biraz daha büyük Funginuri marka mantarı. */
 .site-header .funginuri-logo,
 #funginuriHeader .fn-logo {
-  width: 70px;
-  height: 96px;
+  width: 77px;
+  height: 106px;
 }
 @media (max-width: 720px) {
   .site-header .funginuri-logo,
   #funginuriHeader .fn-logo {
-    width: 55px;
-    height: 79px;
+    width: 61px;
+    height: 87px;
+  }
+}
+
+/* Hafifçe büyütülmüş Funginuri kelime logosu. */
+.site-header .brand-wordmark strong,
+#funginuriHeader .fn-wordmark strong {
+  font-size: 43px;
+}
+@media (max-width: 720px) {
+  .site-header .brand-wordmark strong,
+  #funginuriHeader .fn-wordmark strong {
+    font-size: 40px;
   }
 }

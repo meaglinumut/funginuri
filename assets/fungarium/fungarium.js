@@ -20,7 +20,10 @@ function singleChild(node,rank){
 function hasSideLabel(node){
  if(node.rank==='genus')return node.records.length>=5;
  if(node.rank==='family')return !singleChild(node,'genus');
- if(node.rank==='order')return ![...node.children.values()].some(family=>family.rank==='family'&&singleChild(family,'genus'));
+ if(node.rank==='order'){
+  const family=singleChild(node,'family');
+  return !(family&&singleChild(family,'genus'));
+ }
  if(node.rank==='class'){
   const order=singleChild(node,'order');
   const family=order&&singleChild(order,'family');

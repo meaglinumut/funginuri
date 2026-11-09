@@ -1,7 +1,7 @@
 .fungi-gallery{margin:0;background:var(--surface);border:3px outset var(--border-light)}
 .fungi-slide{margin:0}
-.fungi-photo{display:block;height:clamp(230px,52vw,480px);background:#302737}
-.fungi-photo img{display:block;width:100%;height:100%;object-fit:contain}
+.fungi-photo{display:block;width:100%;height:clamp(260px,55vw,620px);overflow:hidden;background:#302737}
+.fungi-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
 .fungi-gallery figcaption{display:grid;gap:4px;padding:15px 20px;background:var(--panel-soft);border-top:2px ridge var(--border-light)}
 .fungi-species{width:fit-content;font:clamp(23px,3.5vw,34px)/1.12 var(--font-display)}
 .fungi-place{margin:0;font-size:14px}

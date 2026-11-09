@@ -1,0 +1,130 @@
+.fn-decor-layout {
+  margin-inline: auto;
+}
+
+.fn-decor-rail {
+  display: none;
+}
+
+@media (min-width: 1100px) {
+  .fn-decor-layout {
+    display: grid;
+    grid-template-columns: clamp(90px, 9vw, 154px) minmax(0, 1fr) clamp(90px, 9vw, 154px);
+    gap: clamp(8px, 1vw, 17px);
+    max-width: 1640px;
+    padding-inline: 10px;
+  }
+
+  .fn-decor-layout > main {
+    width: 100%;
+    min-width: 0;
+    margin-inline: auto;
+  }
+
+  .fn-decor-rail {
+    display: block;
+    position: relative;
+    min-height: 0;
+    overflow: hidden;
+    container-type: size;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .fn-decor-rail-inner {
+    position: absolute;
+    inset: min(var(--fn-rail-top, 24px), 7cqh) 5px min(24px, 7cqh);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: min(var(--fn-rail-gap, 16px), 3cqh);
+  }
+
+  .fn-decor-rail img {
+    width: var(--fn-art-width, 90%);
+    height: min(148px, 14cqh);
+    object-fit: contain;
+    transform: rotate(var(--fn-art-tilt, 0deg));
+    filter: drop-shadow(1px 2px 1px #3c291522);
+  }
+
+  .fn-decor-rail img:nth-child(4) {
+    margin-top: auto;
+  }
+}
+
+.fn-bottom-illustrations {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  gap: clamp(5px, 2vw, 24px);
+  max-width: 740px;
+  padding: 9px 15px 22px;
+  margin: 0 auto;
+  pointer-events: none;
+  user-select: none;
+}
+
+.fn-bottom-illustrations img {
+  display: block;
+  width: min(16%, 106px);
+  height: clamp(48px, 9vw, 98px);
+  min-width: 0;
+  object-fit: contain;
+  object-position: center bottom;
+  transform: rotate(var(--fn-art-tilt, 0deg));
+}
+
+.main-nav > .fn-nav-with-icon,
+.main-nav > details > .fn-nav-with-icon,
+#funginuriHeader .fn-nav > .fn-nav-with-icon,
+#funginuriHeader .fn-nav > details > .fn-nav-with-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.fn-nav-with-icon > .fn-nav-mushroom {
+  display: block;
+  flex: 0 0 auto;
+  width: 18px;
+  height: 22px;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.fn-footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.fn-footer-brand > img {
+  width: 36px;
+  height: 49px;
+  object-fit: contain;
+}
+
+.fn-footer-brand > strong {
+  font: 26px var(--font-display, Georgia, serif);
+}
+
+@media (max-width: 720px) {
+  .main-nav > .fn-nav-with-icon,
+  .main-nav > details > .fn-nav-with-icon,
+  #funginuriHeader .fn-nav > .fn-nav-with-icon,
+  #funginuriHeader .fn-nav > details > .fn-nav-with-icon {
+    gap: 3px;
+    flex-wrap: wrap;
+  }
+
+  .fn-nav-with-icon > .fn-nav-mushroom {
+    width: 14px;
+    height: 17px;
+  }
+}
+
+.beykoz-footer .fn-footer-brand { margin-inline-end: 14px; }

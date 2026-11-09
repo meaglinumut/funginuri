@@ -341,7 +341,37 @@ function renderGrowth(records, summary) {
   }));
 }
 
+function renderDonut(id, total, label, items) {
+  const donut = element('div',null,'event-donut');
+  donut.setAttribute('role','img');
+  donut.setAttribute('aria-label',format(total) + ' ' + label);
+  let end = 0;
+  const key = element('ul',null,'chart-key');
+  const stops = [];
+  for (const [name,value,color] of items) {
+    if (!value) continue;
+    const start = end;
+    end += value;
+    stops.push(color + ' ' + (start/total*100) + '% ' + (end/total*100) + '%');
+    const swatch = element('i');
+    swatch.style.backgroundColor = color;
+    const item = element('li');
+    item.append(swatch,element('span',name),element('b',format(value)));
+    key.append(item);
+  }
+  donut.style.background = stops.length > 1 ? 'conic-gradient(' + stops.join(', ') + ')' : items.find(item => item[1])?.[2] || 'var(--border-light)';
+  const center = element('div');
+  center.append(element('strong',format(total)),element('span',label));
+  donut.append(center);
+  byId(id).replaceChildren(donut,key);
+}
+
 function initStats(records, campuses, campus, summary) {
+  const groupColors = {
+    Plantae:'#A8CC00', Fungi:'#FF128F', Insecta:'#FF6B00', Arachnida:'#FF9800',
+    Mollusca:'#13BEE8', Aves:'#296BBF', Mammalia:'#7C398D', Reptilia:'#258675',
+    Animalia:'#93613F', Chromista:'#51BDA3', Protozoa:'#5E519C', Unidentified:'#8D918F'
+  };
   const metrics = [
     ['total','Gözlem sayısı'],['species','Tür sayısı'],['observers','Gözlemci sayısı'],
     ['research','Araştırma sınıfı'],['needsId','Tanılama gerekli']
@@ -358,9 +388,9 @@ function initStats(records, campuses, campus, summary) {
   function update() {
     const scoped = inScope(records,campus.value);
     const data = counts(scoped);
-    const cards = metrics.map(([key,label]) => {
-      const metric = element('span');
-      metric.append(element('b',format(data[key])),element('span',label));
+    const cards = metrics.slice(0,4).map(([key,label]) => {
+      const metric = element('div',null,'metric');
+      metric.append(element('strong',format(data[key])),element('span',label));
       return metric;
     });
     byId('statsMetrics').replaceChildren(...cards);
@@ -368,12 +398,23 @@ function initStats(records, campuses, campus, summary) {
       ? dateLabel(scoped[0].day) + ' – ' + dateLabel(scoped.at(-1).day)
       : 'Bu kapsamda kayıt yok.';
     renderGrowth(scoped,summary);
-    renderBars('qualityBars',[['Araştırma sınıfı',data.research],['Tanılama gerekli',data.needsId]]);
+    renderDonut('atlasQualityChart',data.total,'gözlem',[
+      ['Araştırma sınıfı',data.research,'#A8CC00'],
+      ['Tanılama gerekli',data.needsId,'#FFEC8B'],
+      ['Diğer',data.total-data.research-data.needsId,'#AAA']
+    ]);
+    const uniqueSpecies = new Map();
+    for (const {taxon} of scoped) {
+      if (taxon.species) uniqueSpecies.set(taxon.species,taxon.group);
+    }
+    const speciesGroups = tally(uniqueSpecies.values(),group => group);
+    renderDonut('atlasGroupChart',data.species,'tür',speciesGroups
+      .sort((a,b) => b[1]-a[1])
+      .map(([group,value]) => [labels[group] || group,value,groupColors[group] || '#888']));
     const observers = tally(scoped,o => o.user).sort((a,b) => b[1]-a[1] || a[0].localeCompare(b[0],'tr'));
     renderBars('observerBars',observers.slice(0,12));
     byId('moreObservers').hidden = observers.length <= 12;
     renderBars('otherObserverBars',observers.slice(12));
-    renderBars('groupBars',tally(scoped,o => labels[o.taxon.group] || o.taxon.group).sort((a,b) => b[1]-a[1]));
     renderBars('speciesBars',tally(scoped,o => o.taxon.species).sort((a,b) => b[1]-a[1]).slice(0,15));
     for (const [id,row] of rows) row.toggleAttribute('data-selected',campus.value === id);
   }

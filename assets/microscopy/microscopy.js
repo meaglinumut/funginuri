@@ -7,22 +7,16 @@
   const variant = (url, size) => String(url || '').replace(/\/(?:square|thumb|small|medium|large|original)\.(jpg|jpeg|png|webp)(?:\?|$)/i, (_, ext) => '/' + size + '.' + ext);
   const imageForId = id => `https://inaturalist-open-data.s3.amazonaws.com/photos/${id}/medium.jpeg`;
   const linkForId = id => `https://www.inaturalist.org/photos/${id}`;
-  const rankText = {species:'Tür',genus:'Cins',class:'Sınıf',higher:'Üst takson'};
   const currentPhotos = new Map();
   const foundOverrides = new Map();
   let records=[], wantedPhotoIds=[], active={id:null,index:0}, lastFocused=null;
-  let filtered=[];
   try {
     const resp=await fetch('./assets/microscopy/observations.json',{cache:'no-cache'});
     if (!resp.ok) throw new Error('Veri dosyası: '+resp.status);
     const payload=await resp.json();
     records=payload.observations||[];
     wantedPhotoIds=payload.requestedPhotoIds||[];
-    $('microTotal').textContent=String(records.length);
-    $('microFamilies').textContent=String(new Set(records.map(x=>x.family).filter(Boolean)).size);
-    for (const division of [...new Set(records.map(x=>x.phylum).filter(Boolean))].sort()) {
-      $('microDivision').add(new Option(division,division));
-    }
+    records.sort((a,b)=>(b.observedOn||'').localeCompare(a.observedOn||''));
     render();
     loadPublicPhotos();
   } catch (error) {
@@ -81,43 +75,26 @@
     return `<img class="${esc(cls)}" src="${esc(pic.url)}" alt="${alt}" loading="lazy" decoding="async" data-fallback="${esc(fallback)}" data-photo-id="${esc(pic.id||'')}">`;
   }
 
-  function filteredRecords() {
-    const q=$('microSearch').value.trim().toLocaleLowerCase('tr-TR');
-    const div=$('microDivision').value;
-    const rows=records.filter(r=>(div==='all'||r.phylum===div)&&(!q||[r.name,r.genus,r.family,r.commonName,r.phylum].some(v=>String(v||'').toLocaleLowerCase('tr-TR').includes(q))));
-    const order=$('microSort').value;
-    rows.sort(order==='name' ? (a,b)=>a.name.localeCompare(b.name,'tr') : order==='oldest' ? (a,b)=>a.observedOn.localeCompare(b.observedOn) : (a,b)=>b.observedOn.localeCompare(a.observedOn));
-    return rows;
-  }
-
   function render(){
-    filtered=filteredRecords();
-    $('microResult').innerHTML=`<strong>${filtered.length}</strong> / ${records.length} mikroskopi kaydı gösteriliyor`;
-    $('microCards').innerHTML=filtered.map(r=>{
+    $('microCards').innerHTML=records.map(r=>{
       const photos=picturesFor(r), first=photos[0], phy=esc(r.phylum||'Fungi'), name=esc(r.name);
       const leaf=r.species?`<i>${name}</i>`:name;
-      const title=first?`<button type="button" class="micro-cover" data-image-open="${r.id}" data-image-index="0" aria-label="${name} görsellerini aç">${imageTag(first,r)}<span class="micro-open-label">Görsellere bak</span></button>`:'<div class="micro-cover">Görsel yok</div>';
+      const title=first?`<button type="button" class="micro-cover" data-image-open="${r.id}" data-image-index="0" aria-label="${name} görsellerini aç">${imageTag(first,r)}</button>`:'<div class="micro-cover">Görsel yok</div>';
       const thumbs=photos.slice(1,4).map((p,i)=>`<button type="button" class="micro-thumb" data-image-open="${r.id}" data-image-index="${i+1}" aria-label="${name} görsel ${i+2}">${imageTag(p,r)}</button>`).join('');
       const strip=photos.length>1?`<div class="micro-photo-strip">${thumbs}${photos.length>4?`<span class="micro-more-photos">+${photos.length-4} görsel</span>`:''}</div>`:'';
-      const photoCredit=first?`<div class="micro-credit">Fotoğraf: <a href="${esc(first.external)}" target="_blank" rel="noopener">${first.attribution?esc(first.attribution):'iNaturalist kaynağı'}</a>${first.license?' · '+esc(first.license.toUpperCase()):''}</div>`:'';
-      const speciesTag=r.species?'Tür düzeyinde':r.rank==='genus'?'Cins düzeyinde':'Tür düzeyinde değil';
       const notes=r.notes?`<div class="micro-record-note"><p>${esc(r.notes.length>225?r.notes.slice(0,222)+'…':r.notes).replace(/\n/g,' ')}</p></div>`:'';
       const heroLink=first ? `<button type="button" class="micro-action" data-image-open="${r.id}" data-image-index="0">${photos.length>1?photos.length+' fotoğrafı incele':'Fotoğrafı büyüt'}</button>` : '';
       const extras=r.suggestedCoverId?`<a class="micro-link" href="${linkForId(r.suggestedCoverId)}" target="_blank" rel="noopener">Seçilen fotoğraf ↗</a>`:'';
       return `<article class="micro-card" data-observation="${r.id}">
         <div class="micro-photo-wrap">${title}${strip}</div>
-        ${photoCredit}
         <div class="micro-info"><div class="micro-taxonomy">${phy}${r.className?' / '+esc(r.className):''}</div>
         <h2>${leaf}</h2>${r.commonName?`<p class="micro-common">${esc(r.commonName)}</p>`:''}
-        <div class="micro-tags"><span>${speciesTag}</span>${r.family?`<span>${esc(r.family)}</span>`:''}${r.genus?`<span>${esc(r.genus)}</span>`:''}</div>
         <div class="micro-record-note"><p>${prettyDate(r.observedOn)}${r.place?' · '+esc(r.place.split(',')[0]):''}</p></div>
         ${notes}
         <div class="micro-foot">${heroLink}<a class="micro-link" href="${esc(r.observationUrl)}" target="_blank" rel="noopener">iNaturalist gözlemi ↗</a>${extras}</div>
         </div></article>`;
-    }).join('') || '<p class="micro-empty">Bu filtrelere uygun kayıt bulunamadı.</p>';
+    }).join('') || '<p class="micro-empty">Mikroskopi kaydı bulunamadı.</p>';
   }
-
-  for (const id of ['microSearch','microDivision','microSort']) $(id).addEventListener(id==='microSearch'?'input':'change',render);
 
   function openViewer(observationId,index,trigger) {
     const r=records.find(x=>x.id===Number(observationId));

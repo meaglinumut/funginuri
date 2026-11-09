@@ -31,3 +31,63 @@
 /* Örnek penceresinde yalnızca fotoğraf, kayıt bilgileri ve sınıflandırma. */
 .fg-detail-photo{display:flex;align-items:flex-start;justify-content:center}.fg-detail-photo>a{width:100%}.fg-taxonomy ol{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.fg-taxonomy li{padding:18px 12px;text-align:center;border:1px solid #ddd;border-radius:0;min-width:0}.fg-taxonomy small{font:bold 14px Arial,sans-serif;margin-bottom:13px}.fg-taxonomy span{font:18px/1.3 Arial,sans-serif;overflow-wrap:anywhere}.fg-taxonomy .fg-rank-phylum{background:#f00;color:#fff}.fg-taxonomy .fg-rank-class{background:#ffa500;color:#000}.fg-taxonomy .fg-rank-order{background:#ff0;color:#000}.fg-taxonomy .fg-rank-family{background:#008000;color:#fff}.fg-taxonomy .fg-rank-genus{background:#00f;color:#fff}.fg-taxonomy .fg-rank-species{background:#4b0082;color:#fff}
 @media(max-width:650px){.fg-resultbar{flex-direction:column;gap:8px}.fg-tree-actions{gap:6px}.fg-tree-actions strong{width:100%;margin:0 0 4px}.fg-tree-record{align-items:flex-start}.fg-tree-record .fg-record-name{gap:6px}.fg-tree-record .fg-record-name>i{font-size:14px}.fg-tree-record .fg-badge{font-size:9px;padding:2px 4px}.fg-tree-record .fg-record-meta{font-size:9px}.fg-taxonomy ol{grid-template-columns:repeat(2,minmax(0,1fr))}.fg-taxonomy span{font-size:15px}}
+
+/* Filters and labels belong to the archive tree, not the specimen dialog. */
+.fg-record-filters {
+  flex: 1 0 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  min-width: 0;
+  margin: 0;
+  padding: 7px 10px 9px;
+  border: 1px solid #b49aaf;
+  font: 12px Arial, sans-serif;
+}
+.fg-record-filters label {
+  flex-direction: row;
+  align-items: center;
+  min-width: 0;
+}
+.fg-record-filters input[type="checkbox"] {
+  width: auto;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  accent-color: #785195;
+}
+.fg-tree-list details[data-fg-depth] {
+  position: relative;
+}
+.fg-side-label {
+  position: absolute;
+  inset: 35px auto 6px 3px;
+  width: 14px;
+  height: calc(100% - 41px);
+  fill: #624662;
+  opacity: .72;
+  font: 9px monospace;
+  letter-spacing: .3px;
+  pointer-events: none;
+}
+.fg-tree-list details.fg-record-group {
+  background: #e1d4f0;
+}
+.fg-tree-list .fg-record-group > summary span {
+  color: #624662;
+  font: 11px Arial, sans-serif;
+  white-space: nowrap;
+}
+.fg-tree-list .fg-record-group > .fg-tree-list {
+  margin-left: 12px;
+}
+@media (max-width: 650px) {
+  .fg-record-filters {
+    grid-column: 1 / -1;
+  }
+  .fg-side-label {
+    left: 0;
+    width: 11px;
+    font-size: 8px;
+  }
+}

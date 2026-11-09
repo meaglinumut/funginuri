@@ -122,12 +122,12 @@
   background: var(--radial-paper);
   color: var(--choice-ink, #342046);
 }
-.fg-diagram [data-rank="phylum"] { --radial-rank-color: var(--fg-color-phylum); }
-.fg-diagram [data-rank="class"] { --radial-rank-color: var(--fg-color-class); }
-.fg-diagram [data-rank="order"] { --radial-rank-color: var(--fg-color-order); }
-.fg-diagram [data-rank="family"] { --radial-rank-color: var(--fg-color-family); }
-.fg-diagram [data-rank="genus"] { --radial-rank-color: var(--fg-color-genus); }
-.fg-diagram [data-rank="species"] { --radial-rank-color: var(--fg-color-species); }
+.fg-diagram [data-rank="phylum"] { --radial-rank-color: var(--fg-color-phylum); --radial-ring: #ff8aa9; }
+.fg-diagram [data-rank="class"] { --radial-rank-color: var(--fg-color-class); --radial-ring: #ffb65e; }
+.fg-diagram [data-rank="order"] { --radial-rank-color: var(--fg-color-order); --radial-ring: #ffe35f; }
+.fg-diagram [data-rank="family"] { --radial-rank-color: var(--fg-color-family); --radial-ring: #85e768; }
+.fg-diagram [data-rank="genus"] { --radial-rank-color: var(--fg-color-genus); --radial-ring: #62c8ff; }
+.fg-diagram [data-rank="species"] { --radial-rank-color: var(--fg-color-species); --radial-ring: #c1a0ff; }
 .fg-diagram-heading {
   display: flex;
   align-items: start;
@@ -154,14 +154,14 @@
   cursor: default;
 }
 .fg-diagram-heading button,
-.fg-radial-pagination button {
+.fg-radial-zoom button {
   padding: 6px 11px;
   border: 2px outset #eee;
   background: var(--radial-soft);
   font: inherit;
 }
 .fg-diagram-heading button:hover:not(:disabled),
-.fg-radial-pagination button:hover:not(:disabled) {
+.fg-radial-zoom button:hover:not(:disabled) {
   background: var(--radial-apricot);
 }
 .fg-radial-breadcrumbs ol,
@@ -201,16 +201,64 @@ button.fg-radial-crumb:hover {
   border-color: var(--radial-ink);
   font-weight: bold;
 }
-.fg-radial-wheel,
-.fg-radial-leaf {
+.fg-radial-controls,
+.fg-radial-zoom,
+.fg-radial-jump {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.fg-radial-controls {
+  justify-content: space-between;
+  gap: 9px 14px;
+  font-size: 13px;
+}
+.fg-radial-jump { max-width: 100%; }
+.fg-radial-jump select {
+  max-width: min(100%, 240px);
+  padding: 5px;
   border: 1px solid var(--radial-line);
-  background-color: #fff8e9;
+  background: #fff9ec;
+  color: inherit;
+  font: inherit;
+}
+.fg-radial-zoom-level {
+  min-width: 42px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+.fg-radial-help {
+  margin: 8px 0;
+  font-size: 12px;
+}
+.fg-radial-viewport,
+.fg-radial-leaf {
+  border: 1px solid #336247;
+  background: radial-gradient(ellipse at center,#295040,#18352c 75%);
+}
+.fg-radial-viewport {
+  height: clamp(470px, 58vw, 650px);
+  overflow: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: #71b880 #18352c;
+  cursor: grab;
+}
+.fg-radial-viewport.is-panning {
+  cursor: grabbing;
+  user-select: none;
+}
+.fg-radial-map-content {
+  position: relative;
+  min-width: 100%;
+  min-height: 100%;
+  overflow: hidden;
 }
 .fg-radial-wheel {
-  position: relative;
-  min-height: 560px;
-  height: clamp(560px, 51vw, 640px);
-  background-image: radial-gradient(ellipse at center, #eee0f4 0, #fff8e9 62%);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(var(--radial-scale, 1));
 }
 .fg-radial-links {
   position: absolute;
@@ -221,33 +269,37 @@ button.fg-radial-crumb:hover {
 }
 .fg-radial-links path {
   fill: none;
-  stroke: var(--radial-line);
-  stroke-width: 1.5;
-  vector-effect: non-scaling-stroke;
+  stroke: #70de7c;
+  stroke-width: 7;
+  stroke-linecap: round;
 }
 .fg-radial-center,
 .fg-radial-node {
   display: grid;
   justify-items: center;
-  align-content: center;
-  gap: 3px;
+  align-content: start;
+  gap: 2px;
+  width: 148px;
   min-width: 0;
-  padding: 7px 5px;
+  padding: 0;
+  border: 0;
+  background: transparent;
   text-align: center;
   overflow-wrap: anywhere;
 }
 .fg-radial-center {
-  width: clamp(110px, 20%, 184px);
-  min-height: 164px;
-  border: 1px solid var(--radial-ink);
-  border-radius: 16px;
-  background: var(--radial-rank-color);
-  box-shadow: 0 0 0 5px #e7d6ed;
+  --radial-disc: 126px;
+  width: 168px;
+}
+.fg-radial-node {
+  --radial-disc: 102px;
+  left: var(--node-x);
+  top: var(--node-y);
 }
 .fg-radial-wheel .fg-radial-center,
 .fg-radial-node {
   position: absolute;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, calc(-.5 * var(--radial-disc)));
 }
 .fg-radial-wheel .fg-radial-center {
   left: 50%;
@@ -258,55 +310,58 @@ button.fg-radial-crumb:hover {
   place-items: center;
   padding: 15px;
 }
+.fg-radial-label {
+  display: grid;
+  gap: 3px;
+  justify-items: center;
+  max-width: 100%;
+  padding: 4px 8px;
+  border: 1px solid var(--radial-ring, #d8b8ff);
+  border-radius: 13px;
+  background: #fffffff0;
+  color: #163525;
+}
 .fg-radial-center h3,
 .fg-radial-node strong {
   margin: 0;
-  font-family: var(--font-display, Georgia, serif);
-  line-height: 1.06;
+  font: bold 16px/1.05 var(--font-display, Georgia, serif);
 }
-.fg-radial-center h3 {
-  font-size: clamp(16px, 2.4vw, 25px);
+.fg-radial-center h3 { font-size: 21px; }
+.fg-radial-node[data-rank="genus"] strong,
+.fg-radial-node[data-rank="species"] strong {
+  font-style: italic;
 }
-.fg-radial-center h3:focus {
-  outline: 2px solid var(--radial-ink);
+.fg-radial-label small {
+  font: 10px/1.1 var(--font-body, Arial, sans-serif);
+}
+.fg-radial-center h3:focus-visible,
+.fg-radial-viewport:focus-visible {
+  outline: 2px solid #70de7c;
   outline-offset: 3px;
 }
-.fg-radial-node {
-  left: var(--node-x);
-  top: var(--node-y);
-  width: min(24%, 152px);
-  min-height: 130px;
-  border: 1px solid var(--radial-line);
-  border-radius: 8px;
-  background: var(--radial-rank-color);
+.fg-radial-node:hover .fg-radial-label,
+.fg-radial-node:focus-visible .fg-radial-label {
+  background: #fff;
 }
-.fg-radial-node:hover,
-.fg-radial-node:focus-visible {
-  border-color: var(--radial-ink);
-  box-shadow: 0 0 0 2px var(--radial-line);
-}
-.fg-radial-node strong {
-  font-size: clamp(11px, 1.5vw, 17px);
-}
-.fg-radial-center small,
-.fg-radial-node small {
-  font: bold 10px/1.1 var(--font-body, Arial, sans-serif);
-  text-transform: uppercase;
-  letter-spacing: .04em;
-}
-.fg-radial-center > span:not(.fg-radial-photo),
-.fg-radial-node > span:not(.fg-radial-photo) {
-  font: 10px/1.1 var(--font-body, Arial, sans-serif);
+.fg-radial-node:focus-visible .fg-radial-photo {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
 }
 .fg-radial-photo {
   display: grid;
   place-items: center;
-  width: min(100%, 78px);
-  aspect-ratio: 1;
   overflow: hidden;
-  border-radius: 6px;
-  background: #efdfec;
+  background: #e6edd9;
 }
+.fg-radial-center .fg-radial-photo,
+.fg-radial-node .fg-radial-photo {
+  width: var(--radial-disc);
+  height: var(--radial-disc);
+  border: 5px solid var(--radial-ring, #d8b8ff);
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #18352c;
+}
+.fg-radial-center .fg-radial-photo { border-width: 6px; }
 .fg-radial-photo:empty::before,
 .fg-radial-photo:has(img[hidden])::before {
   content: '◇';
@@ -318,17 +373,10 @@ button.fg-radial-crumb:hover {
   height: 100%;
   object-fit: contain;
 }
-.fg-radial-center .fg-radial-photo {
-  width: min(100%, 104px);
-}
-.fg-radial-pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 10px;
-  font-size: 12px;
+.fg-radial-center .fg-radial-photo img,
+.fg-radial-node .fg-radial-photo img {
+  object-fit: cover;
+  pointer-events: none;
 }
 .fg-radial-credits {
   margin-top: 11px;
@@ -385,10 +433,5 @@ button.fg-radial-crumb:hover {
 }
 @media (max-width: 650px) {
   .fg-diagram-heading h2 { font-size: 25px; }
-  .fg-radial-wheel { height: 480px; min-height: 0; }
-  .fg-radial-node { width: 27%; min-height: 100px; }
-  .fg-radial-center { width: min(30%, 145px); min-height: 122px; }
-  .fg-radial-node .fg-radial-photo { width: min(100%, 56px); }
-  .fg-radial-center .fg-radial-photo { width: min(100%, 74px); }
-  .fg-radial-center small, .fg-radial-node small { font-size: 9px; }
+  .fg-radial-viewport { height: 440px; }
 }

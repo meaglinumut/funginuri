@@ -2,7 +2,7 @@
 const $=id=>document.getElementById(id),escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const rankNames={phylum:'Bölüm',class:'Sınıf',order:'Takım',family:'Familya',genus:'Cins',species:'Takson'};
 const hierarchy=['phylum','class','order','family','genus'];
-let records=[],filtered=[],lastFocus=null;
+let records=[],filtered=[],lastFocus=null,collectionReady=false;
 let view=new URLSearchParams(location.search).get('gorunum')==='agac'?'tree':'list';
 let taxonomy=null,lastListTaxonomy=null;
 const groupThreshold=2;
@@ -90,8 +90,7 @@ function renderList(root){
 }
 const radialRankNames={...rankNames,kingdom:'Âlem',species:'Tür'};
 const radialContainer=$('fgDiagramTree');
-const compactWheel=window.matchMedia('(max-width: 650px)');
-let radialPath=[],radialPage=0,radialChildren=[],taxonPhotos={};
+let radialPath=[],radialChildren=[],taxonPhotos={},radialMap=null;
 let previousQuery='';
 const countText=count=>count.toLocaleString('tr-TR')+' kayıt';
 const taxonKey=node=>node.rank+':'+node.name;
@@ -175,22 +174,101 @@ function radialGallery(records,heading){
  }).join('')}</ul></section>`;
 }
 
+function radialLayout(count){
+ const spacing=196;
+ const radius=count>1?spacing/(2*Math.sin(Math.PI/count)):0;
+ const radiusX=Math.max(216,radius*1.12);
+ const radiusY=Math.max(165,radius);
+ const width=Math.ceil(2*(radiusX+84));
+ const height=Math.ceil(2*(radiusY+94));
+ const positions=Array.from({length:count},(_,index)=>{
+  const angle=2*Math.PI*index/count-Math.PI/2;
+  return [width/2+radiusX*Math.cos(angle),height/2+radiusY*Math.sin(angle)];
+ });
+ return {width,height,positions};
+}
+
+function setRadialZoom(map,scale,reset=false,anchor=null){
+ const {viewport,content,wheel}=map;
+ const old=map.scale;
+ const anchorX=anchor?.x??viewport.clientWidth/2;
+ const anchorY=anchor?.y??viewport.clientHeight/2;
+ const x=reset?0:(viewport.scrollLeft+anchorX-content.clientWidth/2)/old;
+ const y=reset?0:(viewport.scrollTop+anchorY-content.clientHeight/2)/old;
+ map.scale=Math.max(map.fit,Math.min(2,scale));
+ const width=Number(wheel.dataset.width);
+ const height=Number(wheel.dataset.height);
+ content.style.width=Math.round(width*map.scale)+'px';
+ content.style.height=Math.round(height*map.scale)+'px';
+ wheel.style.setProperty('--radial-scale',map.scale);
+ viewport.scrollLeft=content.clientWidth/2+x*map.scale-anchorX;
+ viewport.scrollTop=content.clientHeight/2+y*map.scale-anchorY;
+ map.zoomOut.disabled=map.scale<=map.fit+0.001;
+ map.zoomIn.disabled=map.scale>=2;
+ map.level.textContent=Math.round(map.scale*100)+'%';
+}
+
+const radialResize=new ResizeObserver(()=>{
+ if(!radialMap)return;
+ const {viewport,wheel}=radialMap;
+ if(!viewport.clientWidth||!viewport.clientHeight)return;
+ const wasFit=radialMap.scale<=radialMap.fit+0.001;
+ radialMap.fit=Math.min(1,viewport.clientWidth/Number(wheel.dataset.width),viewport.clientHeight/Number(wheel.dataset.height));
+ setRadialZoom(radialMap,wasFit?radialMap.fit:radialMap.scale,wasFit);
+});
+
+function connectRadialMap(){
+ const viewport=radialContainer.querySelector('.fg-radial-viewport');
+ if(!viewport)return;
+ const content=viewport.firstElementChild;
+ const wheel=content.firstElementChild;
+ const fit=Math.min(1,viewport.clientWidth/Number(wheel.dataset.width),viewport.clientHeight/Number(wheel.dataset.height));
+ const map={
+  viewport,content,wheel,fit,scale:1,
+  zoomOut:radialContainer.querySelector('[data-radial-zoom="out"]'),
+  zoomIn:radialContainer.querySelector('[data-radial-zoom="in"]'),
+  level:radialContainer.querySelector('.fg-radial-zoom-level')
+ };
+ radialMap=map;
+ setRadialZoom(map,fit,true);
+ radialResize.observe(viewport);
+ let drag=null;
+ viewport.addEventListener('pointerdown',event=>{
+  if(event.pointerType!=='mouse'||event.button!==0||event.target.closest('button'))return;
+  if(viewport.scrollWidth<=viewport.clientWidth&&viewport.scrollHeight<=viewport.clientHeight)return;
+  drag={id:event.pointerId,x:event.clientX+viewport.scrollLeft,y:event.clientY+viewport.scrollTop};
+  viewport.setPointerCapture(event.pointerId);
+  viewport.classList.add('is-panning');
+ });
+ viewport.addEventListener('pointermove',event=>{
+  if(drag?.id!==event.pointerId)return;
+  viewport.scrollLeft=drag.x-event.clientX;
+  viewport.scrollTop=drag.y-event.clientY;
+ });
+ viewport.addEventListener('lostpointercapture',()=>{
+  drag=null;
+  viewport.classList.remove('is-panning');
+ });
+ viewport.addEventListener('dblclick',event=>{
+  if(event.target.closest('button'))return;
+  const bounds=viewport.getBoundingClientRect();
+  setRadialZoom(map,map.scale*1.4,false,{
+   x:event.clientX-bounds.left-viewport.clientLeft,
+   y:event.clientY-bounds.top-viewport.clientTop
+  });
+ });
+}
+
 function renderDiagram(root){
+ radialResize.disconnect();
+ radialMap=null;
  const lineage=getRadialLineage(root);
  const center=lineage.at(-1);
- radialChildren=diagramChildren(center);
- const pageSize=compactWheel.matches?6:8;
- const pages=Math.max(1,Math.ceil(radialChildren.length/pageSize));
- radialPage=Math.min(radialPage,pages-1);
- const start=radialPage*pageSize;
- const children=radialChildren.slice(start,start+pageSize);
+ const children=diagramChildren(center);
+ radialChildren=children;
+ const {width,height,positions}=radialLayout(children.length);
  const credits=[];
  const rootPhoto=radialPhoto(center,credits,center.rank==='species');
- const positions=children.map((node,index)=>{
-  const angle=2*Math.PI*index/children.length-Math.PI/2;
-  const radiusX=compactWheel.matches?33:36;
-  return [50+radiusX*Math.cos(angle),50+37*Math.sin(angle)];
- });
  const breadcrumb=lineage.map((node,index)=>{
   const label=radialLabel(node);
   const item=index===lineage.length-1
@@ -200,39 +278,59 @@ function renderDiagram(root){
  }).join('');
  const centerLabel=`<div class="fg-radial-center" data-rank="${center.rank}">
   ${radialImage(rootPhoto)}
-  <small>${radialRankNames[center.rank]}</small>
-  <h3 id="fgRadialFocus" tabindex="-1">${radialLabel(center)}</h3>
-  <span>${countText(center.count)}</span>
+  <div class="fg-radial-label">
+   <h3 id="fgRadialFocus" tabindex="-1">${radialLabel(center)}</h3>
+   <small>${radialRankNames[center.rank]} · ${countText(center.count)}</small>
+  </div>
  </div>`;
- const wheel=children.length?`<div class="fg-radial-wheel">
-  <svg class="fg-radial-links" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-   ${positions.map(([x,y])=>`<path d="M50 50 L${x} ${y}"/>`).join('')}
-  </svg>
-  ${centerLabel}
-  ${children.map((node,index)=>{
-   const [x,y]=positions[index];
-   return `<button type="button" class="fg-radial-node" data-rank="${node.rank}" data-radial-child="${start+index}" style="--node-x:${x}%;--node-y:${y}%">
-    ${radialImage(radialPhoto(node,credits))}
-    <small>${radialRankNames[node.rank]}</small><strong>${radialLabel(node)}</strong><span>${countText(node.count)}</span>
-   </button>`;
-  }).join('')}
+ const wheel=children.length?`<div class="fg-radial-controls">
+  <span>${children.length.toLocaleString('tr-TR')} alt dal</span>
+  <div class="fg-radial-jump">
+   <label for="fgRadialJump">Dal seç</label>
+   <select id="fgRadialJump" data-radial-jump>
+    <option value="">Takson seç…</option>
+    ${children.map((node,index)=>`<option value="${index}">${radialLabel(node)} · ${radialRankNames[node.rank]}</option>`).join('')}
+   </select>
+  </div>
+  <div class="fg-radial-zoom" role="group" aria-label="Harita yakınlaştırma">
+   <button type="button" data-radial-zoom="out" aria-label="Uzaklaştır">−</button>
+   <output class="fg-radial-zoom-level"></output>
+   <button type="button" data-radial-zoom="in" aria-label="Yakınlaştır">+</button>
+   <button type="button" data-radial-zoom="fit">Tümünü göster</button>
+  </div>
+ </div>
+ <p id="fgRadialHelp" class="fg-radial-help">Boş alana çift tıklayarak o noktaya yakınlaş. Yakınlaştırınca haritayı sürükleyebilir veya kaydırabilirsin.</p>
+ <div class="fg-radial-viewport" tabindex="0" role="region" aria-label="Takson haritası" aria-describedby="fgRadialHelp">
+  <div class="fg-radial-map-content">
+   <div class="fg-radial-wheel" data-width="${width}" data-height="${height}" style="width:${width}px;height:${height}px">
+    <svg class="fg-radial-links" viewBox="0 0 ${width} ${height}" aria-hidden="true">
+     ${positions.map(([x,y])=>`<path d="M${width/2} ${height/2} L${x} ${y}"/>`).join('')}
+    </svg>
+    ${centerLabel}
+    ${children.map((node,index)=>{
+     const [x,y]=positions[index];
+     return `<button type="button" class="fg-radial-node" data-rank="${node.rank}" data-radial-child="${index}" style="--node-x:${x}px;--node-y:${y}px">
+      ${radialImage(radialPhoto(node,credits),true)}
+      <span class="fg-radial-label">
+       <strong>${radialLabel(node)}</strong>
+       <small>${radialRankNames[node.rank]} · ${countText(node.count)}</small>
+      </span>
+     </button>`;
+    }).join('')}
+   </div>
+  </div>
  </div>`:`<div class="fg-radial-leaf">${centerLabel}</div>`;
- const pagination=pages>1?`<div class="fg-radial-pagination">
-  <button type="button" data-radial-page="-1"${radialPage===0?' disabled':''}>← Önceki</button>
-  <span>${radialPage+1} / ${pages} · ${radialChildren.length} dal</span>
-  <button type="button" data-radial-page="1"${radialPage===pages-1?' disabled':''}>Sonraki →</button>
- </div>`:'';
  const ownRecords=center.rank==='species'?center.records:center.records.filter(record=>record.rank!=='species');
  $('fgRadialRoot').disabled=lineage.length===1;
  radialContainer.innerHTML=`<nav class="fg-radial-breadcrumbs" aria-label="Takson yolu"><ol>${breadcrumb}</ol></nav>
-  ${wheel}${pagination}
+  ${wheel}
   ${credits.length?`<details class="fg-radial-credits"><summary>Fotoğraf kaynakları</summary><ul>${credits.join('')}</ul></details>`:''}
   ${radialGallery(ownRecords,center.rank==='species'?'Gözlem ve örnek fotoğrafları':radialRankNames[center.rank]+' düzeyinde kayıtlar')}`;
+ connectRadialMap();
 }
 
 function selectRadialPath(path){
  radialPath=path;
- radialPage=0;
  renderDiagram(taxonomy);
  $('fgRadialFocus').focus({preventScroll:true});
 }
@@ -249,6 +347,7 @@ function showView(){
  }
 }
 function render(){
+ if(!collectionReady)return;
  const query=$('fgSearch').value.trim().toLocaleLowerCase('tr'),phylum=$('fgPhylum').value,family=$('fgFamily').value;
  const researchOnly=$('fgResearchOnly').checked;
  const collectedOnly=$('fgCollectedOnly').checked;
@@ -267,7 +366,6 @@ function render(){
   radialPath=findSearchPath(taxonomy,query);
   previousQuery=query;
  }
- radialPage=0;
  showView();
 }
 function reset(){$('fgFilters').reset()}
@@ -311,15 +409,17 @@ radialContainer.addEventListener('click',event=>{
   selectRadialPath([...radialPath,taxonKey(radialChildren[Number(button.dataset.radialChild)])]);
  }else if(button.dataset.radialDepth!==undefined){
   selectRadialPath(radialPath.slice(0,Number(button.dataset.radialDepth)));
- }else if(button.dataset.radialPage!==undefined){
-  radialPage+=Number(button.dataset.radialPage);
-  renderDiagram(taxonomy);
-  (radialContainer.querySelector('[data-radial-page="'+button.dataset.radialPage+'"]:not(:disabled)')||$('fgRadialFocus')).focus({preventScroll:true});
+ }else if(button.dataset.radialZoom&&radialMap){
+  const action=button.dataset.radialZoom;
+  if(action==='fit')setRadialZoom(radialMap,radialMap.fit,true);
+  else setRadialZoom(radialMap,radialMap.scale*(action==='in'?1.4:1/1.4));
  }
 });
-compactWheel.addEventListener('change',()=>{
- radialPage=0;
- showView();
+radialContainer.addEventListener('change',event=>{
+ const select=event.target;
+ if(select.matches('[data-radial-jump]')&&select.value!==''){
+  selectRadialPath([...radialPath,taxonKey(radialChildren[Number(select.value)])]);
+ }
 });
 $('fungarium').addEventListener('error',event=>{
  const img=event.target;
@@ -331,13 +431,9 @@ $('fungarium').addEventListener('error',event=>{
   img.hidden=true;
  }
 },true);
-fetch('./assets/fungarium/taxon-photos.json?v=1')
+const taxonPhotosReady=fetch('./assets/fungarium/taxon-photos.json?v=1')
  .then(response=>response.ok?response.json():{})
- .then(photos=>{
-  taxonPhotos=photos;
-  showView();
- })
- .catch(()=>{});
+ .catch(()=>({}));
 $('fgFilters').addEventListener('submit',event=>event.preventDefault());
 $('fgFilters').addEventListener('input',render);
 $('fgFilters').addEventListener('reset',event=>{
@@ -353,7 +449,8 @@ $('fgFilters').addEventListener('reset',event=>{
 $('fgClear').addEventListener('click',reset);
 window.addEventListener('hashchange',syncHash);
 const files=['photos.json','specimens.json','observations-1.json','observations-2.json','observations-3.json','taxa-1.json','taxa-2.json','taxa-3.json'];
-Promise.all(files.map(file=>fetch('./assets/fungarium/'+file+'?v=4').then(r=>{if(!r.ok)throw Error(file);return r.json()}))).then(([photos,specimens,obs1,obs2,obs3,...parts])=>{
+Promise.all([taxonPhotosReady,...files.map(file=>fetch('./assets/fungarium/'+file+'?v=4').then(r=>{if(!r.ok)throw Error(file);return r.json()}))]).then(([imageIndex,photos,specimens,obs1,obs2,obs3,...parts])=>{
+ taxonPhotos=imageIndex;
  const observations=[...obs1,...obs2,...obs3];
  const taxa=Object.assign({},...parts);
  records=specimens.concat(observations.map(([id,taxonId,date,research,microscopy])=>({id,observation:id,date,quality:research?'research':'needs_id',microscopy:!!microscopy,collected:false,...taxa[taxonId]})))
@@ -364,6 +461,7 @@ Promise.all(files.map(file=>fetch('./assets/fungarium/'+file+'?v=4').then(r=>{if
   });
  $('fgTotals').innerHTML=`<div><strong>${records.length.toLocaleString('tr-TR')}</strong><span>kayıt</span></div><div><strong>${specimens.length}</strong><span>collected</span></div><div><strong>${new Set(records.map(r=>r.name)).size}</strong><span>farklı takson</span></div>`;
  for(const [id,key]of [['fgPhylum','phylum'],['fgFamily','family']]){const select=$(id);[...new Set(records.map(r=>r.taxonomy[key]).filter(v=>v&&v.toLowerCase()!=='unknown'))].sort((a,b)=>a.localeCompare(b)).forEach(v=>{const opt=document.createElement('option');opt.value=v;opt.textContent=v;select.append(opt)})}
+ collectionReady=true;
  render();syncHash();
 }).catch(()=>{$('fgCount').textContent='Koleksiyon yüklenemedi. Sayfayı yenileyin veya örnek listesini açın.'});
 })();

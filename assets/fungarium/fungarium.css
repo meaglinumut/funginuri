@@ -117,7 +117,8 @@
   --radial-apricot: var(--choice-soft, #FFCC8A);
   --radial-soft: var(--choice-soft2, #FFE0B2);
   --radial-line: #ac8fb8;
-  --radial-map-bg: #1d382c;
+  --radial-map-bg: #f4efd8;
+  --radial-branch: #48654b;
   --radial-serif: Georgia, "Times New Roman", serif;
   padding: clamp(12px, 2vw, 24px);
   border: 3px outset #eee;
@@ -240,7 +241,7 @@ button.fg-radial-crumb:hover {
   height: clamp(470px, 58vw, 650px);
   overflow: scroll;
   scrollbar-width: thin;
-  scrollbar-color: #71b880 var(--radial-map-bg);
+  scrollbar-color: #73836a var(--radial-map-bg);
   cursor: grab;
 }
 .fg-radial-viewport.is-panning {
@@ -268,7 +269,7 @@ button.fg-radial-crumb:hover {
 }
 .fg-radial-links path {
   fill: none;
-  stroke: #70de7c;
+  stroke: var(--radial-branch);
   stroke-width: 7;
   stroke-linecap: round;
 }
@@ -334,7 +335,7 @@ button.fg-radial-crumb:hover {
 }
 .fg-radial-center h3:focus-visible,
 .fg-radial-viewport:focus-visible {
-  outline: 2px solid #70de7c;
+  outline: 2px solid var(--radial-branch);
   outline-offset: 3px;
 }
 .fg-radial-node:hover .fg-radial-label,
@@ -342,7 +343,7 @@ button.fg-radial-crumb:hover {
   background: #fff;
 }
 .fg-radial-node:focus-visible .fg-radial-photo {
-  outline: 2px solid #fff;
+  outline: 2px solid var(--radial-branch);
   outline-offset: 2px;
 }
 .fg-radial-photo {
@@ -357,7 +358,7 @@ button.fg-radial-crumb:hover {
   height: var(--radial-disc);
   border: 5px solid var(--radial-ring, #d8b8ff);
   border-radius: 50%;
-  box-shadow: 0 0 0 2px var(--radial-map-bg);
+  box-shadow: 0 0 0 1px var(--radial-branch);
 }
 .fg-radial-center .fg-radial-photo { border-width: 6px; }
 .fg-radial-photo:empty::before,

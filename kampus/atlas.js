@@ -33,7 +33,7 @@ function link(text, url) {
 }
 
 async function read(name) {
-  const response = await fetch('data/' + name);
+  const response = await fetch('data/' + name + '?v=2');
   if (!response.ok) throw new Error(name + ' (' + response.status + ')');
   return response.json();
 }
@@ -43,7 +43,8 @@ function counts(records) {
     total: records.length,
     species: new Set(records.map(o => o.taxon.species).filter(Boolean)).size,
     observers: new Set(records.map(o => o.user).filter(Boolean)).size,
-    research: records.filter(o => o.quality === 'research').length
+    research: records.filter(o => o.quality === 'research').length,
+    needsId: records.filter(o => o.quality === 'needs_id').length
   };
 }
 
@@ -60,11 +61,9 @@ function tally(records, key) {
   return [...buckets];
 }
 
-function campusSelection(campuses, page) {
+function campusSelection(campuses) {
   const select = byId('campus');
-  const options = [['','Tüm kampüsler'], ...campuses.map(c => [c.id,c.name]),
-    ['outside','Kampüs sınırı dışında']];
-  if (page !== 'map') options.push(['hidden','Kampüsü belirlenemeyenler']);
+  const options = [['','Tüm kampüsler'], ...campuses.map(c => [c.id,c.name])];
   populateOptions(select, options);
 
   const requested = new URLSearchParams(location.search).get('kampus') || '';
@@ -76,9 +75,8 @@ function campusSelection(campuses, page) {
     history.replaceState(null,'',current);
     for (const tab of document.querySelectorAll('.atlas .event-tabs a')) {
       const target = new URL(tab.href);
-      if (select.value && (select.value !== 'hidden' || !target.pathname.endsWith('/'))) {
-        target.searchParams.set('kampus',select.value);
-      } else target.searchParams.delete('kampus');
+      if (select.value) target.searchParams.set('kampus',select.value);
+      else target.searchParams.delete('kampus');
       tab.href = target.href;
     }
   }
@@ -105,7 +103,8 @@ function inScope(records, id) {
 }
 
 function initMap(records, boundaries, campuses, campus, summary) {
-  const mapped = records.filter(o => o.lat !== null);
+  const campusIds = new Set(campuses.map(c => c.id));
+  const mapped = records.filter(o => o.lat !== null && campusIds.has(o.campus));
   const group = groupSelection(mapped);
   const quality = byId('quality');
   const map = L.map('atlasMap',{maxZoom:19, zoomSnap:.5});
@@ -123,7 +122,6 @@ function initMap(records, boundaries, campuses, campus, summary) {
 
   const colors = new Map(campuses.map(c => [c.id,c.color]));
   const campusNames = new Map(campuses.map(c => [c.id,c.name]));
-  campusNames.set('outside','Kampüs sınırı dışında');
   const borders = L.geoJSON(boundaries,{
     style: feature => ({color:feature.properties.color,weight:3,fillOpacity:.10}),
     onEachFeature(feature,layer) {
@@ -135,13 +133,13 @@ function initMap(records, boundaries, campuses, campus, summary) {
   const allBounds = borders.getBounds();
   const campusBounds = new Map();
   borders.eachLayer(layer => campusBounds.set(layer.feature.properties.id,layer.getBounds()));
-  campusBounds.set('outside',L.latLngBounds(mapped.filter(o => o.campus === 'outside').map(o => [o.lat,o.lon])));
+  for (const o of mapped) campusBounds.get(o.campus).extend([o.lat,o.lon]);
   function fit() {
     const bounds = campusBounds.get(campus.value);
     map.fitBounds(bounds?.isValid() ? bounds : allBounds,{padding:[28,28],maxZoom:17});
   }
 
-  const keys = [['','Tümü',null], ...campuses.map(c => [c.id,c.name,c.color]), ['outside','Sınır dışında','#59636c']];
+  const keys = [['','Tümü',null], ...campuses.map(c => [c.id,c.name,c.color])];
   const keyButtons = keys.map(([id,name,color]) => {
     const button = element('button');
     button.type = 'button';
@@ -294,38 +292,87 @@ function renderBars(id, entries) {
   byId(id).replaceChildren(...(rows.length ? rows : [element('p','Bu kapsamda kayıt yok.')]));
 }
 
+function renderGrowth(records, summary) {
+  const countsByYear = new Map(tally(records,o => o.date.slice(0,4)));
+  const first = Number(summary.from.slice(0,4));
+  const last = Number(summary.to.slice(0,4));
+  let runningTotal = 0;
+  const years = Array.from({length:last-first+1},(_,i) => {
+    const year = String(first+i);
+    const added = countsByYear.get(year) || 0;
+    runningTotal += added;
+    return {year,added,total:runningTotal};
+  });
+
+  const svgNS = 'http://www.w3.org/2000/svg';
+  function draw(tag, attrs, label) {
+    const node = document.createElementNS(svgNS,tag);
+    for (const [key,value] of Object.entries(attrs)) node.setAttribute(key,value);
+    if (label) node.textContent = label;
+    return node;
+  }
+  const chart = draw('svg',{viewBox:'0 0 760 265',role:'img','aria-label':'Yıllara göre birikimli gözlem sayısı. ' + last + ' itibarıyla ' + format(runningTotal) + ' gözlem.'});
+  const left = 56, right = 733, top = 22, bottom = 228;
+  const stepBase = Math.pow(10,Math.floor(Math.log10(Math.max(1,runningTotal / 5))));
+  const step = stepBase * [1,2,5,10].find(n => n*stepBase >= runningTotal / 5);
+  const max = Math.max(step,Math.ceil(runningTotal/step)*step);
+  const x = index => left + index * (right-left) / Math.max(1,years.length-1);
+  const y = value => bottom - (value / max) * (bottom-top);
+  for (let value = 0; value <= max; value += step) {
+    chart.append(draw('line',{x1:left,y1:y(value),x2:right,y2:y(value),class:'atlas-gridline'}),
+      draw('text',{x:left-8,y:y(value)+4,'text-anchor':'end'},format(value)));
+  }
+  chart.append(draw('line',{x1:left,y1:top,x2:left,y2:bottom,class:'atlas-gridline'}));
+  const points = years.map(({total},i) => x(i) + ',' + y(total));
+  chart.append(draw('polygon',{points:[left+','+bottom,...points,x(years.length-1)+','+bottom].join(' '),class:'atlas-growth-area'}),
+    draw('polyline',{points:points.join(' '),class:'atlas-growth-line'}));
+  years.forEach(({year,added,total},i) => {
+    const dot = draw('circle',{cx:x(i),cy:y(total),r:3.5,class:'atlas-growth-point'});
+    dot.append(draw('title',{},year + ' · ' + format(total) + ' birikimli, ' + format(added) + ' yeni gözlem'));
+    chart.append(dot,draw('text',{x:x(i),y:bottom+22,'text-anchor':'middle'},year));
+  });
+  byId('yearGrowth').replaceChildren(chart);
+  byId('yearRows').replaceChildren(...years.map(({year,added,total}) => {
+    const row = element('tr');
+    const heading = element('th',year);
+    heading.scope = 'row';
+    row.append(heading,element('td',format(added)),element('td',format(total)));
+    return row;
+  }));
+}
+
 function initStats(records, campuses, campus, summary) {
-  const names = new Map(campuses.map(c => [c.id,c.name]));
-  names.set('outside','Kampüs sınırı dışında');
-  names.set('hidden','Kampüsü belirlenemeyenler');
-  const rows = [...names].map(([id,name]) => {
+  const metrics = [
+    ['total','Gözlem sayısı'],['species','Tür sayısı'],['observers','Gözlemci sayısı'],
+    ['research','Araştırma sınıfı'],['needsId','Tanılama gerekli']
+  ];
+  const rows = [{id:'',name:'Tüm kampüsler'},...campuses].map(({id,name}) => {
     const data = counts(inScope(records,id));
     const row = element('tr');
     const title = element('th',name);
     title.scope = 'row';
-    row.append(title,...Object.values(data).map(value => element('td',format(value))));
+    row.append(title,...metrics.map(([key]) => element('td',format(data[key]))));
     return [id,row];
   });
   byId('campusRows').replaceChildren(...rows.map(([,row]) => row));
   function update() {
     const scoped = inScope(records,campus.value);
     const data = counts(scoped);
-    const metrics = [' gözlem',' tür',' gözlemci',' araştırma sınıfı kayıt'].map((label,index) => {
+    const cards = metrics.map(([key,label]) => {
       const metric = element('span');
-      metric.append(element('b',format(Object.values(data)[index])),label);
+      metric.append(element('b',format(data[key])),element('span',label));
       return metric;
     });
-    byId('statsMetrics').replaceChildren(...metrics);
+    byId('statsMetrics').replaceChildren(...cards);
     byId('statsScope').textContent = scoped.length
       ? dateLabel(scoped[0].day) + ' – ' + dateLabel(scoped.at(-1).day)
       : 'Bu kapsamda kayıt yok.';
-    const yearCounts = new Map(tally(scoped,o => o.date.slice(0,4)));
-    const firstYear = Number(summary.from.slice(0,4));
-    const lastYear = Number(summary.to.slice(0,4));
-    renderBars('yearBars',Array.from({length:lastYear-firstYear+1},(_,i) => {
-      const year = String(firstYear+i);
-      return [year,yearCounts.get(year) || 0];
-    }));
+    renderGrowth(scoped,summary);
+    renderBars('qualityBars',[['Araştırma sınıfı',data.research],['Tanılama gerekli',data.needsId]]);
+    const observers = tally(scoped,o => o.user).sort((a,b) => b[1]-a[1] || a[0].localeCompare(b[0],'tr'));
+    renderBars('observerBars',observers.slice(0,12));
+    byId('moreObservers').hidden = observers.length <= 12;
+    renderBars('otherObserverBars',observers.slice(12));
     renderBars('groupBars',tally(scoped,o => labels[o.taxon.group] || o.taxon.group).sort((a,b) => b[1]-a[1]));
     renderBars('speciesBars',tally(scoped,o => o.taxon.species).sort((a,b) => b[1]-a[1]).slice(0,15));
     for (const [id,row] of rows) row.toggleAttribute('data-selected',campus.value === id);
@@ -425,7 +472,7 @@ async function main() {
     ({id,date,day:day(date),user:catalog.users[user],taxon:taxa[taxon],quality,lat,lon,campus,status,image}));
   if (records.length !== summary.total) throw new Error('Eksik gözlem verisi');
   const campuses = boundaries.features.map(feature => feature.properties);
-  const campus = campusSelection(campuses,page);
+  const campus = campusSelection(campuses);
   byId('atlasContent').hidden = false;
   if (page === 'map') initMap(records,boundaries,campuses,campus,summary);
   if (page === 'stats') initStats(records,campuses,campus,summary);

@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="../css/events.css?v=4">
 <link rel="stylesheet" href="../assets/funginuri/header.css?v=2">
 <link rel="stylesheet" href="../assets/funginuri/illustrations.css?v=3">
-<link rel="stylesheet" href="atlas.css?v=1">
+<link rel="stylesheet" href="atlas.css?v=2">
 </head>
 <body class="event-site" data-base="../" data-atlas="stats">
 <div data-include="header"></div>
@@ -31,12 +31,18 @@
 <div id="atlasContent" hidden>
 <div class="atlas-controls atlas-section"><label>Kampüs<select id="campus"></select></label><p id="statsScope"></p></div>
 <div class="event-totals atlas-metrics" id="statsMetrics"></div>
-<p class="atlas-note">Tür sayısı, tür düzeyine veya altına kadar tanımlanmış kayıtlar üzerinden hesaplanır. Aynı tür ve gözlemci, her seçili kapsam içinde bir kez sayılır.</p>
+<p class="atlas-note">Tür sayısı, tür düzeyine veya altına kadar tanımlanmış kayıtlar üzerinden hesaplanır. Aynı tür ve gözlemci, seçili kapsamda bir kez sayılır. Tüm kampüsler toplamına kampüse atanmamış kayıtlar da dahildir.</p>
 <div class="atlas-stats">
-  <section class="atlas-section"><h2>Yıllara göre gözlemler</h2><div class="atlas-bars" id="yearBars"></div></section>
+  <section class="atlas-section atlas-wide">
+    <h2>Yıllara göre gözlem artışı</h2>
+    <div class="atlas-growth" id="yearGrowth"></div>
+    <details class="atlas-details"><summary>Yıllık ve birikimli gözlem sayılarını aç</summary><div class="stat-table-wrap"><table><thead><tr><th scope="col">Yıl</th><th scope="col">Yeni gözlem</th><th scope="col">Birikimli gözlem</th></tr></thead><tbody id="yearRows"></tbody></table></div></details>
+  </section>
+  <section class="atlas-section"><h2>Tanılama durumu</h2><div class="atlas-bars" id="qualityBars"></div></section>
   <section class="atlas-section"><h2>Canlı grupları</h2><div class="atlas-bars" id="groupBars"></div></section>
-  <section class="atlas-section atlas-wide"><h2>Kampüslere göre sayılar</h2><div class="stat-table-wrap"><table><thead><tr><th scope="col">Kampüs</th><th scope="col">Gözlem</th><th scope="col">Tür</th><th scope="col">Gözlemci</th><th scope="col">Araştırma sınıfı</th></tr></thead><tbody id="campusRows"></tbody></table></div></section>
-  <section class="atlas-section atlas-wide"><h2>En çok gözlemlenen türler</h2><div class="atlas-bars" id="speciesBars"></div></section>
+  <section class="atlas-section atlas-wide"><h2>Kampüslere göre sayılar</h2><div class="stat-table-wrap"><table><thead><tr><th scope="col">Kampüs</th><th scope="col">Gözlem</th><th scope="col">Tür</th><th scope="col">Gözlemci</th><th scope="col">Araştırma sınıfı</th><th scope="col">Tanılama gerekli</th></tr></thead><tbody id="campusRows"></tbody></table></div></section>
+  <section class="atlas-section"><h2>En çok gözlemlenen türler</h2><div class="atlas-bars" id="speciesBars"></div></section>
+  <section class="atlas-section"><h2>Gözlemciler</h2><div class="atlas-bars" id="observerBars"></div><details class="atlas-details" id="moreObservers"><summary>Diğer gözlemcileri göster</summary><div class="atlas-bars" id="otherObserverBars"></div></details></section>
 </div>
 </div>
 </main>
@@ -47,6 +53,6 @@
 <script defer src="../js/common.js"></script>
 <script defer src="../assets/funginuri/illustrations.js?v=3"></script>
 
-<script defer src="atlas.js?v=1"></script>
+<script defer src="atlas.js?v=2"></script>
 </body>
 </html>

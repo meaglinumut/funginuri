@@ -3,8 +3,8 @@ const $=id=>document.getElementById(id),escape=s=>String(s??'').replace(/[&<>"']
 const rankNames={phylum:'Bölüm',class:'Sınıf',order:'Takım',family:'Familya',genus:'Cins',species:'Takson'};
 const hierarchy=['phylum','class','order','family','genus'];
 let records=[],filtered=[],lastFocus=null;
-let view='list',taxonomy=null;
-const renderedTaxonomies=new Map();
+let view=new URLSearchParams(location.search).get('gorunum')==='agac'?'tree':'list';
+let taxonomy=null,lastListTaxonomy=null;
 const groupThreshold=2;
 let openDepth=hierarchy.length-1;
 const dialog=$('fgDetail');
@@ -36,7 +36,7 @@ function hasSideLabel(node){
 function openAttribute(depth){
  return depth<=openDepth?' open':'';
 }
-function recordGroups(items,groupOpen=openAttribute(hierarchy.length)){
+function recordGroups(items){
  const groups=new Map();
  for(const record of items){
   const key=record.rank+':'+record.name;
@@ -48,13 +48,14 @@ function recordGroups(items,groupOpen=openAttribute(hierarchy.length)){
   if(group.length<groupThreshold||!['species','genus'].includes(record.rank))return `<li>${recordLink(record)}</li>`;
   if(group[0]!==record)return '';
   const title=group.every(item=>displayName(item)===displayName(record))?displayName(record):record.name;
-  return `<li><details class="fg-record-group" data-fg-depth="${hierarchy.length}"${groupOpen}><summary><i>${escape(title)}</i> <span>${group.length} adet</span></summary><ul class="fg-tree-list">${group.map(item=>`<li>${recordLink(item)}</li>`).join('')}</ul></details></li>`;
+  return `<li><details class="fg-record-group" data-fg-depth="${hierarchy.length}"${openAttribute(hierarchy.length)}><summary><i>${escape(title)}</i> <span>${group.length} adet</span></summary><ul class="fg-tree-list">${group.map(item=>`<li>${recordLink(item)}</li>`).join('')}</ul></details></li>`;
  }).join('');
 }
 function buildTaxonomy(){
- const root={children:new Map(),records:[]};
+ const root={rank:'kingdom',name:'Fungi',children:new Map(),records:[],count:filtered.length,sample:null};
  for(const record of filtered){
   let parent=root;
+  if(!root.sample&&record.thumbnail)root.sample=record;
   for(const rank of hierarchy){
    const value=record.taxonomy[rank];
    if(!value||value.toLowerCase()==='unknown')continue;
@@ -62,6 +63,7 @@ function buildTaxonomy(){
    if(!parent.children.has(key))parent.children.set(key,{rank,name:value,children:new Map(),records:[],count:0});
    parent=parent.children.get(key);
    parent.count++;
+   if(!parent.sample&&record.thumbnail)parent.sample=record;
   }
   parent.records.push(record);
  }
@@ -86,28 +88,159 @@ function renderList(root){
  }
  $('fgTree').innerHTML=`<ul class="fg-tree-list">${branch(root)}</ul>`;
 }
-function renderDiagram(root){
- const openMatches=$('fgSearch').value.trim()&&filtered.length<=20;
- function branch(node){
-  const children=branchesOf(node).map(child=>`<li><details class="fg-branch fg-branch-${child.rank}"${openMatches?' open':''}>
-   <summary><span class="fg-branch-label"><small>${rankNames[child.rank]}</small><strong>${escape(child.name)}</strong></span><span class="fg-branch-count">${child.count.toLocaleString('tr-TR')} kayıt</span></summary>
-   ${branch(child)}
-   </details></li>`).join('');
-  return `<ul class="fg-branches">${children}${recordGroups(node.records,'')}</ul>`;
+const radialRankNames={...rankNames,kingdom:'Âlem',species:'Tür'};
+const radialContainer=$('fgDiagramTree');
+const compactWheel=window.matchMedia('(max-width: 650px)');
+let radialPath=[],radialPage=0,radialChildren=[],taxonPhotos={};
+let previousQuery='';
+const countText=count=>count.toLocaleString('tr-TR')+' kayıt';
+const taxonKey=node=>node.rank+':'+node.name;
+
+function diagramChildren(node){
+ const species=new Map();
+ for(const record of node.records){
+  if(record.rank!=='species'||node.rank==='species')continue;
+  if(!species.has(record.name))species.set(record.name,{
+   rank:'species',name:record.name,children:new Map(),records:[],count:0,sample:null
+  });
+  const child=species.get(record.name);
+  child.records.push(record);
+  child.count++;
+  if(record.thumbnail&&(!child.sample||record.quality==='research'))child.sample=record;
  }
- $('fgDiagramTree').innerHTML=`<div class="fg-diagram-root">
-  <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M24 43V23Q24 15 15 15H8m16 14q0-9 9-9h7M24 25V6M15 15q-3-2-3-6m21 11q3-3 3-8M24 36q-4-6-12-6m12 8q4-6 12-6"/><circle cx="24" cy="5" r="2"/><circle cx="6" cy="15" r="2"/><circle cx="42" cy="20" r="2"/></svg>
-  <div><small>Mantarlar</small><strong>Fungi</strong></div>
-  <span class="fg-branch-count">${filtered.length.toLocaleString('tr-TR')} kayıt</span>
- </div>${branch(root)}`;
+ return [...branchesOf(node),...species.values()].sort((a,b)=>a.name.localeCompare(b.name,'tr'));
 }
+
+function getRadialLineage(root){
+ const lineage=[root];
+ for(const key of radialPath){
+  const next=diagramChildren(lineage.at(-1)).find(node=>taxonKey(node)===key);
+  if(!next)break;
+  lineage.push(next);
+ }
+ radialPath=lineage.slice(1).map(taxonKey);
+ return lineage;
+}
+
+function findSearchPath(root,query){
+ if(!query)return [];
+ const path=[];
+ let node=root;
+ while(node.rank!=='species'){
+  const children=diagramChildren(node);
+  const match=children.find(child=>child.name.toLocaleLowerCase('tr')===query);
+  const next=match||(children.length===1?children[0]:null);
+  if(!next||node.name.toLocaleLowerCase('tr')===query)break;
+  path.push(taxonKey(next));
+  node=next;
+ }
+ return path;
+}
+
+function radialLabel(node){
+ const uncertain=node.rank==='species'&&node.records.every(record=>record.quality!=='research');
+ return escape(uncertain?displayName(node.records[0]):node.name);
+}
+
+function radialPhoto(node,credits,useCollection=false){
+ const official=useCollection?null:taxonPhotos[taxonKey(node)];
+ const sample=node.sample;
+ if(official){
+  const [url,id,author,license]=official;
+  const page='https://www.inaturalist.org/photos/'+encodeURIComponent(id);
+  const licenseUrl=license==='cc0'?'https://creativecommons.org/publicdomain/zero/1.0/':'https://creativecommons.org/licenses/'+license.slice(3)+'/4.0/';
+  credits.push(`<li><i>${escape(node.name)}</i> · <a href="${page}" target="_blank" rel="noopener">${escape(author)} ↗</a> · <a href="${licenseUrl}" target="_blank" rel="noopener">${escape(license.toUpperCase())}</a></li>`);
+  return url;
+ }
+ if(sample?.thumbnail){
+  credits.push(`<li><i>${escape(node.name)}</i> · <a href="${obs(sample)}" target="_blank" rel="noopener">Koleksiyondan temsilî gözlem ↗</a></li>`);
+  return sample.thumbnail;
+ }
+ return '';
+}
+
+function radialImage(src,lazy=false){
+ return `<span class="fg-radial-photo">${src?`<img src="${escape(src)}" alt="" decoding="async"${lazy?' loading="lazy"':''}>`:''}</span>`;
+}
+
+function radialGallery(records,heading){
+ if(!records.length)return '';
+ return `<section class="fg-radial-gallery"><h3>${heading}</h3><ul>${records.map(record=>{
+  const href=record.collected?'#ornek-'+encodeURIComponent(record.id):obs(record);
+  const kind=record.collected?'Örnek':'Gözlem';
+  const id=record.collected?record.id:record.observation;
+  return `<li><a href="${href}"${record.collected?'':' target="_blank" rel="noopener"'}>${radialImage(record.photo||record.thumbnail,true)}<span class="fg-radial-record-info"><i>${name(record)}</i><small>${kind} · #${escape(id)} · ${escape(date(record.date))}</small>${badges(record)}</span></a></li>`;
+ }).join('')}</ul></section>`;
+}
+
+function renderDiagram(root){
+ const lineage=getRadialLineage(root);
+ const center=lineage.at(-1);
+ radialChildren=diagramChildren(center);
+ const pageSize=compactWheel.matches?6:8;
+ const pages=Math.max(1,Math.ceil(radialChildren.length/pageSize));
+ radialPage=Math.min(radialPage,pages-1);
+ const start=radialPage*pageSize;
+ const children=radialChildren.slice(start,start+pageSize);
+ const credits=[];
+ const rootPhoto=radialPhoto(center,credits,center.rank==='species');
+ const positions=children.map((node,index)=>{
+  const angle=2*Math.PI*index/children.length-Math.PI/2;
+  const radiusX=compactWheel.matches?33:36;
+  return [50+radiusX*Math.cos(angle),50+37*Math.sin(angle)];
+ });
+ const breadcrumb=lineage.map((node,index)=>index===lineage.length-1
+  ?`<li aria-current="location">${radialLabel(node)}</li>`
+  :`<li><button type="button" data-radial-depth="${index}">${radialLabel(node)}</button></li>`).join('');
+ const centerLabel=`<div class="fg-radial-center">
+  ${radialImage(rootPhoto)}
+  <small>${radialRankNames[center.rank]}</small>
+  <h3 id="fgRadialFocus" tabindex="-1">${radialLabel(center)}</h3>
+  <span>${countText(center.count)}</span>
+ </div>`;
+ const wheel=children.length?`<div class="fg-radial-wheel">
+  <svg class="fg-radial-links" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+   ${positions.map(([x,y])=>`<path d="M50 50 L${x} ${y}"/>`).join('')}
+  </svg>
+  ${centerLabel}
+  ${children.map((node,index)=>{
+   const [x,y]=positions[index];
+   return `<button type="button" class="fg-radial-node" data-radial-child="${start+index}" style="--node-x:${x}%;--node-y:${y}%">
+    ${radialImage(radialPhoto(node,credits))}
+    <small>${radialRankNames[node.rank]}</small><strong>${radialLabel(node)}</strong><span>${countText(node.count)}</span>
+   </button>`;
+  }).join('')}
+ </div>`:`<div class="fg-radial-leaf">${centerLabel}</div>`;
+ const pagination=pages>1?`<div class="fg-radial-pagination">
+  <button type="button" data-radial-page="-1"${radialPage===0?' disabled':''}>← Önceki</button>
+  <span>${radialPage+1} / ${pages} · ${radialChildren.length} dal</span>
+  <button type="button" data-radial-page="1"${radialPage===pages-1?' disabled':''}>Sonraki →</button>
+ </div>`:'';
+ const ownRecords=center.rank==='species'?center.records:center.records.filter(record=>record.rank!=='species');
+ $('fgRadialRoot').disabled=lineage.length===1;
+ radialContainer.innerHTML=`<nav class="fg-radial-breadcrumbs" aria-label="Takson yolu"><ol>${breadcrumb}</ol></nav>
+  ${wheel}${pagination}
+  ${credits.length?`<details class="fg-radial-credits"><summary>Fotoğraf kaynakları</summary><ul>${credits.join('')}</ul></details>`:''}
+  ${radialGallery(ownRecords,center.rank==='species'?'Gözlem ve örnek fotoğrafları':radialRankNames[center.rank]+' düzeyinde kayıtlar')}`;
+}
+
+function selectRadialPath(path){
+ radialPath=path;
+ radialPage=0;
+ renderDiagram(taxonomy);
+ $('fgRadialFocus').focus({preventScroll:true});
+}
+
 function showView(){
  $('fgClassic').hidden=view!=='list';
  $('fgDiagram').hidden=view!=='tree'||!filtered.length;
- if(!taxonomy||renderedTaxonomies.get(view)===taxonomy)return;
- if(view==='tree')renderDiagram(taxonomy);
- else renderList(taxonomy);
- renderedTaxonomies.set(view,taxonomy);
+ if(!taxonomy)return;
+ if(view==='tree'){
+  if(filtered.length)renderDiagram(taxonomy);
+ }else if(lastListTaxonomy!==taxonomy){
+  renderList(taxonomy);
+  lastListTaxonomy=taxonomy;
+ }
 }
 function render(){
  const query=$('fgSearch').value.trim().toLocaleLowerCase('tr'),phylum=$('fgPhylum').value,family=$('fgFamily').value;
@@ -124,6 +257,11 @@ function render(){
  $('fgCount').textContent=`${filtered.length.toLocaleString('tr-TR')} / ${records.length.toLocaleString('tr-TR')} kayıt · ${filtered.filter(r=>r.collected).length} collected · ${new Set(filtered.map(r=>r.name)).size} farklı takson`;
  $('fgEmpty').hidden=filtered.length>0;
  taxonomy=buildTaxonomy();
+ if(query!==previousQuery){
+  radialPath=findSearchPath(taxonomy,query);
+  previousQuery=query;
+ }
+ radialPage=0;
  showView();
 }
 function reset(){$('fgFilters').reset()}
@@ -150,17 +288,43 @@ document.querySelectorAll('[data-fg-open-depth]').forEach(button=>{
  button.addEventListener('click',()=>expandTo(Number(button.dataset.fgOpenDepth)));
 });
 const viewButtons=document.querySelectorAll('[data-fg-view]');
+function updateView(){
+ viewButtons.forEach(button=>button.setAttribute('aria-pressed',button.dataset.fgView===view));
+ showView();
+}
 viewButtons.forEach(button=>button.addEventListener('click',()=>{
  view=button.dataset.fgView;
- viewButtons.forEach(item=>item.setAttribute('aria-pressed',item===button));
- showView();
+ updateView();
 }));
-$('fgCollapseBranches').addEventListener('click',()=>{
- $('fgDiagramTree').querySelectorAll('details[open]').forEach(detail=>{detail.open=false});
+updateView();
+$('fgRadialRoot').addEventListener('click',()=>selectRadialPath([]));
+radialContainer.addEventListener('click',event=>{
+ const button=event.target.closest('button');
+ if(!button)return;
+ if(button.dataset.radialChild!==undefined){
+  selectRadialPath([...radialPath,taxonKey(radialChildren[Number(button.dataset.radialChild)])]);
+ }else if(button.dataset.radialDepth!==undefined){
+  selectRadialPath(radialPath.slice(0,Number(button.dataset.radialDepth)));
+ }else if(button.dataset.radialPage!==undefined){
+  radialPage+=Number(button.dataset.radialPage);
+  renderDiagram(taxonomy);
+  (radialContainer.querySelector('[data-radial-page="'+button.dataset.radialPage+'"]:not(:disabled)')||$('fgRadialFocus')).focus({preventScroll:true});
+ }
+});
+compactWheel.addEventListener('change',()=>{
+ radialPage=0;
+ showView();
 });
 $('fungarium').addEventListener('error',event=>{
- if(event.target.matches('.fg-thumbnail'))event.target.hidden=true;
+ if(event.target.matches('.fg-thumbnail,.fg-radial-photo > img'))event.target.hidden=true;
 },true);
+fetch('./assets/fungarium/taxon-photos.json?v=1')
+ .then(response=>response.ok?response.json():{})
+ .then(photos=>{
+  taxonPhotos=photos;
+  showView();
+ })
+ .catch(()=>{});
 $('fgFilters').addEventListener('submit',event=>event.preventDefault());
 $('fgFilters').addEventListener('input',render);
 $('fgFilters').addEventListener('reset',event=>{

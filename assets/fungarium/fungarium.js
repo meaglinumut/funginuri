@@ -115,7 +115,6 @@ function expandTo(depth){
  });
 }
 $('fgExpandAll').addEventListener('click',()=>expandTo(hierarchy.length));
-$('fgCollapseAll').addEventListener('click',()=>expandTo(-1));
 document.querySelectorAll('[data-fg-open-depth]').forEach(button=>{
  button.addEventListener('click',()=>expandTo(Number(button.dataset.fgOpenDepth)));
 });

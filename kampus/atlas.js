@@ -432,18 +432,103 @@ function initLife(records, campus) {
   const next = byId('nextPage');
   let page = 0;
 
+  // Broken image URLs may result from a removed photo or a change in its
+  // iNaturalist license / hosting domain. Query the live URL only on failure.
+  const photoLookups = new Map();
+  async function currentPhoto(record, wantedId) {
+    const key = String(record.id);
+    if (!photoLookups.has(key)) {
+      const task = fetch('https://api.inaturalist.org/v1/observations/' + encodeURIComponent(key))
+        .then(response => {
+          if (!response.ok) throw new Error('Fotoğraf sorgusu: ' + response.status);
+          return response.json();
+        })
+        .then(payload => payload.results?.[0]?.photos || [])
+        .catch(() => []);
+      photoLookups.set(key,task);
+    }
+    const photos = await photoLookups.get(key);
+    const photo = photos.find(p => String(p.id) === String(wantedId)) || photos[0];
+    if (!photo) return null;
+    const original = photo.medium_url || photo.url || '';
+    const url = original.replace(/\/(?:square|thumb|small|large|original)(?=\.[a-z]+(?:\?|$))/i,'/medium');
+    try {
+      const host = new URL(url).hostname;
+      if (!['inaturalist-open-data.s3.amazonaws.com','static.inaturalist.org'].includes(host)) return null;
+    } catch { return null; }
+    return {url,photoId:String(photo.id)};
+  }
+
   function card([taxon, sightings]) {
     const item = element('article',null,'atlas-taxon');
-    const cover = sightings.find(o => o.image);
-    if (cover) {
-      const [id,extension] = cover.image.split('.');
-      const image = element('img');
-      image.src = 'https://inaturalist-open-data.s3.amazonaws.com/photos/' + id + '/medium.' + extension;
-      image.alt = taxon.name;
-      image.loading = 'lazy';
-      image.addEventListener('error',() => image.remove());
-      item.append(image);
+    const media = element('div',null,'atlas-taxon-media');
+    const image = element('img');
+    image.alt = taxon.name;
+    image.loading = 'lazy';
+    image.decoding = 'async';
+    const placeholder = element('div','Fotoğraf bulunamadı','atlas-taxon-placeholder');
+    placeholder.hidden = true;
+    media.append(image,placeholder);
+    item.append(media);
+    const unique = new Set();
+    const candidates = sightings.filter(record => {
+      if (!/^\d+\.(?:jpe?g|png|webp)$/i.test(record.image || '')) return false;
+      if (unique.has(record.image)) return false;
+      unique.add(record.image);
+      return true;
+    }).slice(0,10);
+    const credit = element('p',null,'photo-credit');
+    credit.hidden = true;
+    let index = 0, current = null, apiAttempts = 0, shown = false;
+    const attemptedUrls = new Set();
+    const fallbackLink = () => observationUrl(sightings[0].id);
+
+    function missing() {
+      image.remove();
+      placeholder.hidden = false;
+      credit.hidden = false;
+      credit.removeAttribute('data-observation-id');
+      credit.removeAttribute('data-photo-id');
+      credit.replaceChildren(link('Gözlemi iNaturalist’te aç ↗',fallbackLink()));
     }
+    function show(url,record,photoId,live) {
+      if (!url || attemptedUrls.has(url)) { next(); return; }
+      attemptedUrls.add(url);
+      current = {record,photoId,live};
+      image.src = url;
+    }
+    function next() {
+      if (index >= candidates.length) { missing(); return; }
+      const record = candidates[index++];
+      const [photoId,extension] = record.image.split('.');
+      show('https://inaturalist-open-data.s3.amazonaws.com/photos/' + photoId + '/medium.' + extension,
+        record,photoId,false);
+    }
+    image.addEventListener('load',() => {
+      if (!item.isConnected || !current) return;
+      shown = true;
+      placeholder.hidden = true;
+      credit.hidden = false;
+      credit.dataset.observationId = current.record.id;
+      credit.dataset.photoId = current.photoId;
+      credit.replaceChildren(link('Fotoğraf kaynağı',observationUrl(current.record.id)));
+      window.BaharPhotoCredits?.sync();
+    });
+    image.addEventListener('error',async () => {
+      if (!item.isConnected || !current || shown) return;
+      const failed = current;
+      if (!failed.live && apiAttempts < 2) {
+        apiAttempts++;
+        const latest = await currentPhoto(failed.record,failed.photoId);
+        if (!item.isConnected || current !== failed) return;
+        if (latest && !attemptedUrls.has(latest.url)) {
+          show(latest.url,failed.record,latest.photoId,true);
+          return;
+        }
+      }
+      next();
+    });
+
     const heading = element('h2');
     heading.append(element('i',taxon.name));
     item.append(heading);
@@ -461,14 +546,9 @@ function initLife(records, campus) {
       }
       details.append(list);
     });
-    item.append(details);
-    if (cover) {
-      const credit = element('p',null,'photo-credit');
-      credit.dataset.observationId = cover.id;
-      credit.dataset.photoId = cover.image.split('.')[0];
-      credit.append(link('Fotoğraf kaynağı',observationUrl(cover.id)));
-      item.append(credit);
-    }
+    item.append(details,credit);
+    if (candidates.length) next();
+    else missing();
     return item;
   }
 

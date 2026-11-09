@@ -193,9 +193,9 @@
   display: block;
   left: 50%;
   bottom: calc(100% - 8px);
-  width: min(104%, 147px);
+  width: min(98%, 139px);
   max-width: none;
-  height: 120px;
+  height: 113px;
   flex: none;
   object-fit: contain;
   object-position: center bottom;
@@ -240,8 +240,8 @@
   }
   .site-header .main-nav .fn-nav-with-icon > .fn-nav-mushroom,
   #funginuriHeader .fn-nav .fn-nav-with-icon > .fn-nav-mushroom {
-    width: min(88%, 138px);
-    height: 105px;
+    width: min(83%, 130px);
+    height: 99px;
   }
 }
 @media (max-width: 550px) {
@@ -263,8 +263,8 @@
   }
   .site-header .main-nav .fn-nav-with-icon > .fn-nav-mushroom,
   #funginuriHeader .fn-nav .fn-nav-with-icon > .fn-nav-mushroom {
-    width: min(84%, 124px);
-    height: 98px;
+    width: min(79%, 117px);
+    height: 92px;
   }
   .site-header .nav-dropdown-menu,
   #funginuriHeader .fn-menu {
@@ -280,13 +280,13 @@
 /* Biraz daha büyük Funginuri marka mantarı. */
 .site-header .funginuri-logo,
 #funginuriHeader .fn-logo {
-  width: 61px;
-  height: 84px;
+  width: 65px;
+  height: 90px;
 }
 @media (max-width: 720px) {
   .site-header .funginuri-logo,
   #funginuriHeader .fn-logo {
-    width: 48px;
-    height: 69px;
+    width: 51px;
+    height: 74px;
   }
 }

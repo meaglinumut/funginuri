@@ -109,3 +109,178 @@
   object-fit: cover;
   border: 1px solid #b49aaf;
 }
+
+.fg-diagram {
+  --fg-branch-ink: #80638d;
+  --fg-branch-step: clamp(12px, 2.3vw, 34px);
+  --fg-branch-joint: clamp(9px, 1.5vw, 22px);
+  background: #fff9ef;
+}
+.fg-diagram-heading {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  padding-bottom: 17px;
+  border-bottom: 2px ridge #eee;
+  margin-bottom: 18px;
+}
+.fg-diagram-heading h2 {
+  margin: 0 0 6px;
+  font: 32px var(--font-display, Georgia, serif);
+}
+.fg-diagram-heading p {
+  margin: 0;
+  font-size: 13px;
+}
+.fg-diagram-heading button {
+  padding: 7px 10px;
+  border: 2px outset #eee;
+  background: var(--button);
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.fg-diagram-heading button:hover {
+  background: var(--active);
+}
+.fg-diagram-root,
+.fg-branch > summary {
+  display: flex;
+  align-items: center;
+  gap: 8px 14px;
+  min-width: 0;
+}
+.fg-diagram-root {
+  background: #552274;
+  color: #fff9ef;
+  padding: 10px 15px;
+  border: 1px solid #552274;
+}
+.fg-diagram-root svg {
+  flex: 0 0 auto;
+}
+.fg-diagram-root small,
+.fg-branch-label small {
+  display: block;
+  font: 10px/1.4 var(--font-body, Arial, sans-serif);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+.fg-diagram-root strong {
+  font: 30px/1 var(--font-display, Georgia, serif);
+}
+.fg-branch-count {
+  margin-inline-start: auto;
+  font: 11px/1.4 var(--font-body, Arial, sans-serif);
+  text-align: end;
+  flex: 0 0 auto;
+}
+.fg-branches {
+  list-style: none;
+  margin: 0 0 0 var(--fg-branch-step);
+  padding: 0 0 0 var(--fg-branch-joint);
+}
+.fg-branches > li {
+  position: relative;
+  min-width: 0;
+  padding-top: 10px;
+}
+.fg-branches > li::before,
+.fg-branches > li::after {
+  content: '';
+  position: absolute;
+  left: calc(-1 * var(--fg-branch-joint));
+  pointer-events: none;
+}
+.fg-branches > li::before {
+  top: 0;
+  bottom: 0;
+  border-left: 1px solid var(--fg-branch-ink);
+}
+.fg-branches > li:last-child::before {
+  bottom: auto;
+  height: 21px;
+}
+.fg-branches > li::after {
+  top: 20px;
+  width: var(--fg-branch-joint);
+  height: 12px;
+  border-left: 1px solid var(--fg-branch-ink);
+  border-bottom: 1px solid var(--fg-branch-ink);
+  border-bottom-left-radius: 9px;
+}
+.fg-branch > summary,
+.fg-branches > li > .fg-record-group > summary {
+  position: relative;
+  padding: 8px 10px;
+  border: 1px solid #b49aaf;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+.fg-branch > summary {
+  list-style: none;
+  background: var(--fg-branch-bg);
+}
+.fg-branch > summary::-webkit-details-marker {
+  display: none;
+}
+.fg-branch > summary::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg);
+  margin-right: 2px;
+  flex: 0 0 auto;
+}
+.fg-branch[open] > summary::before {
+  transform: rotate(45deg);
+}
+.fg-branch > summary:hover,
+.fg-branches > li > .fg-record-group > summary:hover {
+  border-color: #552274;
+}
+.fg-branch > summary:focus-visible,
+.fg-branches > li > .fg-record-group > summary:focus-visible {
+  outline: 2px solid #552274;
+  outline-offset: 2px;
+}
+.fg-branch-label {
+  min-width: 0;
+}
+.fg-branch-label strong {
+  font: 19px/1.2 var(--font-display, Georgia, serif);
+}
+.fg-branch-phylum { --fg-branch-bg: #ffccd2; }
+.fg-branch-class { --fg-branch-bg: #ffe0b2; }
+.fg-branch-order { --fg-branch-bg: #fff9c4; }
+.fg-branch-family { --fg-branch-bg: #c8e6c9; }
+.fg-branch-genus { --fg-branch-bg: #bbdefb; }
+.fg-branches > li > .fg-record-group > summary {
+  background: #e1d4f0;
+  font: 16px/1.3 Georgia, serif;
+}
+.fg-branches > li > .fg-record-group > summary span {
+  color: #624662;
+  font: 11px Arial, sans-serif;
+  white-space: nowrap;
+}
+.fg-branches > li > .fg-record-group > .fg-tree-list {
+  margin-inline-start: 8px;
+}
+@media (max-width: 650px) {
+  .fg-diagram {
+    --fg-branch-step: 6px;
+    --fg-branch-joint: 8px;
+  }
+  .fg-diagram-root,
+  .fg-branch > summary {
+    gap: 7px;
+  }
+  .fg-branch-label strong {
+    font-size: 16px;
+  }
+}

@@ -3,6 +3,8 @@ const $=id=>document.getElementById(id),escape=s=>String(s??'').replace(/[&<>"']
 const rankNames={phylum:'Bölüm',class:'Sınıf',order:'Takım',family:'Familya',genus:'Cins',species:'Takson'};
 const hierarchy=['phylum','class','order','family','genus'];
 let records=[],filtered=[],lastFocus=null;
+let view='list',taxonomy=null;
+const renderedTaxonomies=new Map();
 const groupThreshold=2;
 let openDepth=hierarchy.length-1;
 const dialog=$('fgDetail');
@@ -34,7 +36,7 @@ function hasSideLabel(node){
 function openAttribute(depth){
  return depth<=openDepth?' open':'';
 }
-function recordGroups(items){
+function recordGroups(items,groupOpen=openAttribute(hierarchy.length)){
  const groups=new Map();
  for(const record of items){
   const key=record.rank+':'+record.name;
@@ -46,10 +48,10 @@ function recordGroups(items){
   if(group.length<groupThreshold||!['species','genus'].includes(record.rank))return `<li>${recordLink(record)}</li>`;
   if(group[0]!==record)return '';
   const title=group.every(item=>displayName(item)===displayName(record))?displayName(record):record.name;
-  return `<li><details class="fg-record-group" data-fg-depth="${hierarchy.length}"${openAttribute(hierarchy.length)}><summary><i>${escape(title)}</i> <span>${group.length} adet</span></summary><ul class="fg-tree-list">${group.map(item=>`<li>${recordLink(item)}</li>`).join('')}</ul></details></li>`;
+  return `<li><details class="fg-record-group" data-fg-depth="${hierarchy.length}"${groupOpen}><summary><i>${escape(title)}</i> <span>${group.length} adet</span></summary><ul class="fg-tree-list">${group.map(item=>`<li>${recordLink(item)}</li>`).join('')}</ul></details></li>`;
  }).join('');
 }
-function renderTree(){
+function buildTaxonomy(){
  const root={children:new Map(),records:[]};
  for(const record of filtered){
   let parent=root;
@@ -57,15 +59,19 @@ function renderTree(){
    const value=record.taxonomy[rank];
    if(!value||value.toLowerCase()==='unknown')continue;
    const key=rank+':'+value;
-   if(!parent.children.has(key))parent.children.set(key,{rank,name:value,children:new Map(),records:[]});
+   if(!parent.children.has(key))parent.children.set(key,{rank,name:value,children:new Map(),records:[],count:0});
    parent=parent.children.get(key);
+   parent.count++;
   }
   parent.records.push(record);
  }
+ return root;
+}
+const branchesOf=node=>[...node.children.values()].sort((a,b)=>a.name.localeCompare(b.name,'tr'));
+function renderList(root){
  let railIndex=0;
  function branch(node){
-  const children=[...node.children.values()].sort((a,b)=>a.name.localeCompare(b.name,'tr'));
-  const nested=children.map(child=>{
+  const nested=branchesOf(node).map(child=>{
    const depth=hierarchy.indexOf(child.rank);
    const label=escape(child.name);
    let rail='';
@@ -80,6 +86,29 @@ function renderTree(){
  }
  $('fgTree').innerHTML=`<ul class="fg-tree-list">${branch(root)}</ul>`;
 }
+function renderDiagram(root){
+ const openMatches=$('fgSearch').value.trim()&&filtered.length<=20;
+ function branch(node){
+  const children=branchesOf(node).map(child=>`<li><details class="fg-branch fg-branch-${child.rank}"${openMatches?' open':''}>
+   <summary><span class="fg-branch-label"><small>${rankNames[child.rank]}</small><strong>${escape(child.name)}</strong></span><span class="fg-branch-count">${child.count.toLocaleString('tr-TR')} kayıt</span></summary>
+   ${branch(child)}
+   </details></li>`).join('');
+  return `<ul class="fg-branches">${children}${recordGroups(node.records,'')}</ul>`;
+ }
+ $('fgDiagramTree').innerHTML=`<div class="fg-diagram-root">
+  <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M24 43V23Q24 15 15 15H8m16 14q0-9 9-9h7M24 25V6M15 15q-3-2-3-6m21 11q3-3 3-8M24 36q-4-6-12-6m12 8q4-6 12-6"/><circle cx="24" cy="5" r="2"/><circle cx="6" cy="15" r="2"/><circle cx="42" cy="20" r="2"/></svg>
+  <div><small>Mantarlar</small><strong>Fungi</strong></div>
+  <span class="fg-branch-count">${filtered.length.toLocaleString('tr-TR')} kayıt</span>
+ </div>${branch(root)}`;
+}
+function showView(){
+ $('fgClassic').hidden=view!=='list';
+ $('fgDiagram').hidden=view!=='tree'||!filtered.length;
+ if(!taxonomy||renderedTaxonomies.get(view)===taxonomy)return;
+ if(view==='tree')renderDiagram(taxonomy);
+ else renderList(taxonomy);
+ renderedTaxonomies.set(view,taxonomy);
+}
 function render(){
  const query=$('fgSearch').value.trim().toLocaleLowerCase('tr'),phylum=$('fgPhylum').value,family=$('fgFamily').value;
  const researchOnly=$('fgResearchOnly').checked;
@@ -93,7 +122,9 @@ function render(){
  });
  const sort=$('fgSort').value;filtered.sort((a,b)=>sort==='name'?a.name.localeCompare(b.name,'tr')||Number(a.observation)-Number(b.observation):sort==='date'?b.date.localeCompare(a.date)||Number(a.observation)-Number(b.observation):Number(b.collected)-Number(a.collected)||Number(a.id)-Number(b.id));
  $('fgCount').textContent=`${filtered.length.toLocaleString('tr-TR')} / ${records.length.toLocaleString('tr-TR')} kayıt · ${filtered.filter(r=>r.collected).length} collected · ${new Set(filtered.map(r=>r.name)).size} farklı takson`;
- $('fgEmpty').hidden=filtered.length>0;renderTree();
+ $('fgEmpty').hidden=filtered.length>0;
+ taxonomy=buildTaxonomy();
+ showView();
 }
 function reset(){$('fgFilters').reset()}
 function closeDetail(){if(dialog.open)dialog.close();if(location.hash.startsWith('#ornek-'))history.replaceState(null,'',location.pathname+location.search);if(lastFocus&&document.contains(lastFocus))lastFocus.focus()}
@@ -118,7 +149,16 @@ $('fgExpandAll').addEventListener('click',()=>expandTo(hierarchy.length));
 document.querySelectorAll('[data-fg-open-depth]').forEach(button=>{
  button.addEventListener('click',()=>expandTo(Number(button.dataset.fgOpenDepth)));
 });
-$('fgTree').addEventListener('error',event=>{
+const viewButtons=document.querySelectorAll('[data-fg-view]');
+viewButtons.forEach(button=>button.addEventListener('click',()=>{
+ view=button.dataset.fgView;
+ viewButtons.forEach(item=>item.setAttribute('aria-pressed',item===button));
+ showView();
+}));
+$('fgCollapseBranches').addEventListener('click',()=>{
+ $('fgDiagramTree').querySelectorAll('details[open]').forEach(detail=>{detail.open=false});
+});
+$('fungarium').addEventListener('error',event=>{
  if(event.target.matches('.fg-thumbnail'))event.target.hidden=true;
 },true);
 $('fgFilters').addEventListener('submit',event=>event.preventDefault());

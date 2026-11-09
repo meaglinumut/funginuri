@@ -13,7 +13,7 @@ const obs=r=>`https://www.inaturalist.org/observations/${encodeURIComponent(r.ob
 const taxLabel=x=>x==='Unknown'?'Belirlenmemiş':escape(x);
 function displayName(r){if(r.rank==='genus')return `${r.name} sp.`;if(r.rank==='species'&&r.quality!=='research'){const parts=r.name.split(/\s+/);return [parts[0],'cf.',...parts.slice(1)].join(' ')}return r.name}
 const name=r=>escape(displayName(r));
-function badges(r){return `<span class="fg-badges">${r.collected?'<span class="fg-badge fg-collected-badge">collected</span>':''}<span class="fg-badge ${r.quality==='research'?'fg-research':'fg-ordinary'}">${r.quality==='research'?'araştırma sınıfı':'sıradan'}</span>${r.microscopy?'<span class="fg-badge fg-microscopy">mikroskopi yapıldı</span>':''}</span>`}
+function badges(r){return `<span class="fg-badges">${r.collected?'<span class="fg-badge fg-collected-badge">collected</span>':''}<span class="fg-badge ${r.quality==='research'?'fg-research':'fg-ordinary'}">${r.quality==='research'?'araştırma sınıfı':'tanımlama gerekli'}</span>${r.microscopy?'<span class="fg-badge fg-microscopy">mikroskopi yapıldı</span>':''}</span>`}
 function recordLink(r){const href=r.collected?`#ornek-${r.id}`:obs(r);const thumbnail=r.thumbnail?`<img class="fg-thumbnail" src="${escape(r.thumbnail)}" alt="" width="28" height="28" loading="lazy" decoding="async">`:'';return `<a class="fg-tree-record ${r.collected?'fg-collected':'fg-uncollected'}" href="${href}"${r.collected?'':' target="_blank" rel="noopener"'}><span class="fg-record-name"><i>${name(r)}</i>${badges(r)}${thumbnail}</span><span class="fg-record-meta">${date(r.date)}<br>${r.collected?r.id:'#'+r.observation} ${r.collected?'→':'↗'}</span></a>`}
 function singleChild(node,rank){
  const children=[...node.children.values()];
@@ -257,7 +257,7 @@ function render(){
   if(collectedOnly&&!r.collected)return false;
   if(phylum!=='all'&&r.taxonomy.phylum!==phylum)return false;
   if(family!=='all'&&r.taxonomy.family!==family)return false;
-  return [r.id,r.name,displayName(r),r.commonName||'',r.date,r.observation,...Object.values(r.taxonomy),r.collected?'collected':'',r.quality==='research'?'araştırma sınıfı':'sıradan',r.microscopy?'mikroskopi yapıldı':''].join(' ').toLocaleLowerCase('tr').includes(query);
+  return [r.id,r.name,displayName(r),r.commonName||'',r.date,r.observation,...Object.values(r.taxonomy),r.collected?'collected':'',r.quality==='research'?'araştırma sınıfı':'tanımlama gerekli',r.microscopy?'mikroskopi yapıldı':''].join(' ').toLocaleLowerCase('tr').includes(query);
  });
  const sort=$('fgSort').value;filtered.sort((a,b)=>sort==='name'?a.name.localeCompare(b.name,'tr')||Number(a.observation)-Number(b.observation):sort==='date'?b.date.localeCompare(a.date)||Number(a.observation)-Number(b.observation):Number(b.collected)-Number(a.collected)||Number(a.id)-Number(b.id));
  $('fgCount').textContent=`${filtered.length.toLocaleString('tr-TR')} / ${records.length.toLocaleString('tr-TR')} kayıt · ${filtered.filter(r=>r.collected).length} collected · ${new Set(filtered.map(r=>r.name)).size} farklı takson`;
@@ -276,7 +276,7 @@ function openDetail(id){
  const r=records.find(x=>x.collected&&x.id===id);if(!r)return;
  if(!dialog.open)lastFocus=document.activeElement;
  $('fgDetailId').textContent=`FUNGARIUM / ${r.id} · collected`;
- const details=[['Örnek numarası',escape(r.id)],['Gözlem tarihi',date(r.date)],['Familya',taxLabel(r.taxonomy.family||'Belirlenmemiş')],['Tanımlama durumu',r.quality==='research'?'Araştırma sınıfı':'Sıradan'],['Kaynak gözlem',`<a href="${obs(r)}" target="_blank" rel="noopener">iNaturalist #${escape(r.observation)} ↗</a>`]];
+ const details=[['Örnek numarası',escape(r.id)],['Gözlem tarihi',date(r.date)],['Familya',taxLabel(r.taxonomy.family||'Belirlenmemiş')],['Tanımlama durumu',r.quality==='research'?'Araştırma sınıfı':'Tanımlama gerekli'],['Kaynak gözlem',`<a href="${obs(r)}" target="_blank" rel="noopener">iNaturalist #${escape(r.observation)} ↗</a>`]];
  if(r.microscopy)details.push(['Mikroskopi','Mikroskopi yapıldı']);
  $('fgDetailBody').innerHTML=`<div class="fg-detail-grid"><figure class="fg-detail-photo"><a href="${obs(r)}" target="_blank" rel="noopener"><img src="${escape(r.photo)}" alt="${name(r)} · ${r.id}"></a></figure><section class="fg-detail-info"><h2 id="fgDetailTitle"><i>${name(r)}</i></h2><dl>${details.map(([k,v])=>`<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl></section></div><section class="fg-taxonomy"><h3>Sınıflandırma</h3><ol>${Object.entries(r.taxonomy).filter(([k,v])=>v&&v.toLowerCase()!=='unknown').map(([k,v])=>`<li class="fg-rank-${escape(k)}"><small>${rankNames[k]||escape(k)}</small><span>${escape(v)}</span></li>`).join('')}</ol></section>`;
  if(!dialog.open)dialog.showModal();dialog.scrollTop=0;

@@ -4,9 +4,7 @@
   let page = location.pathname.slice(siteRoot.length);
   if (!page || page.endsWith('/')) page += 'index.html';
   const pageIndex = Math.max(0, pages.indexOf(page));
-  const choices = Array.from({length: 15}, (_, index) =>
-    artwork[(pageIndex * 13 + index * 5) % artwork.length]
-  );
+  const artworkAt = index => artwork[(pageIndex * 13 + index * 5) % artwork.length];
 
   function illustration(filename) {
     const img = document.createElement('img');
@@ -17,15 +15,24 @@
     return img;
   }
 
-  function fillIllustrations(container, files, start) {
-    if (!container) return;
-    files.forEach((filename, index) => {
-      const img = illustration(filename);
-      const variation = pageIndex * 7 + (start + index) * 3;
-      img.style.setProperty('--fn-art-tilt', (variation % 7 - 3) + 'deg');
-      img.style.setProperty('--fn-art-width', (76 + variation % 24) + '%');
-      container.append(img);
-    });
+  function placedIllustration(index) {
+    const img = illustration(artworkAt(index));
+    const variation = pageIndex * 7 + index * 3;
+    img.style.setProperty('--fn-art-tilt', (variation % 7 - 3) + 'deg');
+    img.style.setProperty('--fn-art-width', (76 + variation % 24) + '%');
+    return img;
+  }
+
+  function fillRail(rail, inner, start) {
+    const height = inner.clientHeight;
+    const gap = Number.parseFloat(getComputedStyle(inner).rowGap) || 0;
+    const preferredHeight = Math.min(148, rail.clientHeight * .14);
+    const count = height > 0 ? Math.max(1, Math.round((height + gap) / (preferredHeight + gap))) : 0;
+    while (inner.children.length > count) inner.lastElementChild.remove();
+    for (let position = inner.children.length; position < count; position++) {
+      const index = position < 5 ? start + position : 15 + 2 * (position - 5) + Number(start > 0);
+      inner.append(placedIllustration(index));
+    }
   }
 
   for (const [side, start] of [['left', 0], ['right', 5]]) {
@@ -36,10 +43,15 @@
     const inner = document.createElement('div');
     inner.className = 'fn-decor-rail-inner';
     rail.append(inner);
-    fillIllustrations(inner, choices.slice(start, start + 5), start);
+    const update = () => fillRail(rail, inner, start);
+    new ResizeObserver(update).observe(inner);
+    update();
   }
 
-  fillIllustrations(document.querySelector('.fn-bottom-illustrations'), choices.slice(10), 10);
+  const bottom = document.querySelector('.fn-bottom-illustrations');
+  if (bottom) {
+    for (let index = 10; index < 15; index++) bottom.append(placedIllustration(index));
+  }
 
   const navArtwork = {
     anasayfa: 'plate-01.webp',

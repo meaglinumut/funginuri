@@ -42,15 +42,14 @@
 
   .fn-decor-rail img {
     width: var(--fn-art-width, 90%);
-    height: min(148px, 14cqh);
+    flex: 1 1 0;
+    height: 0;
+    min-height: 0;
     object-fit: contain;
     transform: rotate(var(--fn-art-tilt, 0deg));
     filter: drop-shadow(1px 2px 1px #3c291522);
   }
 
-  .fn-decor-rail img:nth-child(4) {
-    margin-top: auto;
-  }
 }
 
 .fn-bottom-illustrations {

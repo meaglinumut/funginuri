@@ -3,7 +3,7 @@ const $=id=>document.getElementById(id),escape=s=>String(s??'').replace(/[&<>"']
 const rankNames={phylum:'Bölüm',class:'Sınıf',order:'Takım',family:'Familya',genus:'Cins',species:'Takson'};
 const hierarchy=['phylum','class','order','family','genus'];
 let records=[],filtered=[],lastFocus=null;
-const groupThreshold=5;
+const groupThreshold=2;
 let openDepth=hierarchy.length-1;
 const dialog=$('fgDetail');
 const date=value=>{const parts=(value||'').split('-');return parts.length===3?`${parts[2]}.${parts[1]}.${parts[0]}`:value};
@@ -19,7 +19,7 @@ function singleChild(node,rank){
 }
 function hasSideLabel(node){
  if(node.rank==='genus')return node.records.length>=5;
- if(node.rank==='family')return !singleChild(node,'genus');
+ if(node.rank==='family')return [...node.children.values()].some(genus=>genus.rank==='genus'&&hasSideLabel(genus));
  if(node.rank==='order'){
   const family=singleChild(node,'family');
   return !(family&&singleChild(family,'genus'));

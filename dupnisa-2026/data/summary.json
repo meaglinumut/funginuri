@@ -1,0 +1,26 @@
+{
+  "observations": 71,
+  "observers": 4,
+  "species": 42,
+  "taxa": 57,
+  "quality": {
+    "research": 26,
+    "needs_id": 45,
+    "casual": 0
+  },
+  "location": {
+    "gps_likely": 23,
+    "entrance": 48,
+    "gps_explicit": 0,
+    "estimated": 0,
+    "unlocated": 0
+  },
+  "date": "17–18 Ekim 2026",
+  "time_zone": "Europe/Istanbul",
+  "source": "observations-811247.csv",
+  "original_gps_verified": false,
+  "map_visible": 71,
+  "campuses": {
+    "dupnisa": 71
+  }
+}

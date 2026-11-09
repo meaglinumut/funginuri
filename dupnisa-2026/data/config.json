@@ -1,0 +1,131 @@
+{
+  "title": "BÜMAK Dupnisa Tür Say 2026",
+  "date": "16–18 Ekim 2026",
+  "start": 500,
+  "end": 2400,
+  "observations_manifest": "data/observations-manifest.json",
+  "boundary_url": "data/campus-boundary.geojson",
+  "groups": {
+    "Plantae": [
+      "Bitkiler",
+      "#A8CC09"
+    ],
+    "Fungi": [
+      "Mantarlar",
+      "#FF1493"
+    ],
+    "Insecta": [
+      "Böcekler",
+      "#FF6300"
+    ],
+    "Arachnida": [
+      "Örümceğimsiler",
+      "#FF8D00"
+    ],
+    "Mollusca": [
+      "Yumuşakçalar",
+      "#FF4500"
+    ],
+    "Animalia": [
+      "Diğer hayvanlar",
+      "#1E90FF"
+    ],
+    "Mammalia": [
+      "Memeliler",
+      "#2BCEFF"
+    ],
+    "Reptilia": [
+      "Sürüngenler",
+      "#1978D5"
+    ],
+    "Aves": [
+      "Kuşlar",
+      "#1565B3"
+    ],
+    "Amphibia": [
+      "İki yaşamlılar",
+      "#35B7A7"
+    ],
+    "Actinopterygii": [
+      "Balıklar",
+      "#2496CF"
+    ],
+    "Unidentified": [
+      "Tanımlanmamış",
+      "#AAAAAA"
+    ],
+    "Chromista": [
+      "Kromistler",
+      "#993300"
+    ],
+    "Protozoa": [
+      "Protozoalar",
+      "#691776"
+    ]
+  },
+  "statuses": {
+    "entrance": [
+      "Gözlem",
+      "#3e9c69"
+    ],
+    "gps_likely": [
+      "Gözlem",
+      "#3e9c69"
+    ]
+  },
+  "default_smoothing": 30,
+  "default_visibility": 2.5,
+  "min_zoom": 10,
+  "max_zoom": 21,
+  "total_observations": 71,
+  "coverage_origin": [
+    41.84058,
+    27.55587
+  ],
+  "fit_bounds": [
+    [
+      41.8390152804,
+      27.554969999999997
+    ],
+    [
+      41.84384,
+      27.5592260134
+    ]
+  ],
+  "campus_bounds": {
+    "dupnisa": [
+      [
+        41.8390152804,
+        27.554969999999997
+      ],
+      [
+        41.84384,
+        27.5592260134
+      ]
+    ],
+    "all": [
+      [
+        41.8390152804,
+        27.554969999999997
+      ],
+      [
+        41.84384,
+        27.5592260134
+      ]
+    ]
+  },
+  "max_bounds": [
+    [
+      41.827615280399996,
+      27.53587
+    ],
+    [
+      41.85524,
+      27.578326013399998
+    ]
+  ],
+  "entrance": [
+    41.84058,
+    27.55587
+  ]
+}

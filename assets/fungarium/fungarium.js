@@ -175,6 +175,7 @@ function radialGallery(records,heading){
 }
 
 function radialLayout(count){
+ if(count>12)return compactRadialLayout(count);
  const spacing=196;
  const radius=count>1?spacing/(2*Math.sin(Math.PI/count)):0;
  const radiusX=Math.max(216,radius*1.12);
@@ -185,7 +186,47 @@ function radialLayout(count){
   const angle=2*Math.PI*index/count-Math.PI/2;
   return [width/2+radiusX*Math.cos(angle),height/2+radiusY*Math.sin(angle)];
  });
- return {width,height,positions};
+ const centerX=width/2;
+ const centerY=height/2;
+ const links=positions.map(([x,y])=>{
+  const dx=x-centerX;
+  const dy=y-centerY;
+  return `M${centerX} ${centerY} Q${centerX+dx*.46-dy*.14} ${centerY+dy*.46+dx*.14} ${x} ${y}`;
+ });
+ return {width,height,positions,links};
+}
+
+function compactRadialLayout(count){
+ const columns=Math.ceil(Math.sqrt(count)*.68);
+ const leftCount=Math.ceil(count/2);
+ const rows=Math.ceil(leftCount/columns);
+ const columnGap=164;
+ const rowGap=178;
+ const innerColumn=168;
+ const centerX=innerColumn+(columns-1)*columnGap+80;
+ const width=2*centerX;
+ const height=rows*rowGap+12;
+ const centerY=height/2;
+ const positions=[];
+ const links=[];
+ // Keep the shared row branches in the gaps above the photo cards.
+ for(const [side,branchCount] of [[-1,leftCount],[1,count-leftCount]]){
+  const base=Math.floor(branchCount/rows);
+  const extra=branchCount%rows;
+  for(let row=0;row<rows;row++){
+   const length=base+Number(row<extra);
+   const y=78+row*rowGap;
+   const lane=y-60;
+   const lastX=centerX+side*(innerColumn+(length-1)*columnGap);
+   links.push(`M${centerX} ${centerY} C${centerX+side*116} ${centerY} ${centerX+side*77} ${lane} ${centerX+side*(innerColumn-34)} ${lane} H${lastX}`);
+   for(let column=0;column<length;column++){
+    const x=centerX+side*(innerColumn+column*columnGap);
+    positions.push([x,y]);
+    links.push(`M${x-side*14} ${lane} Q${x} ${lane} ${x} ${lane+14} V${y}`);
+   }
+  }
+ }
+ return {width,height,positions,links};
 }
 
 function setRadialZoom(map,scale,reset=false,anchor=null){
@@ -266,7 +307,7 @@ function renderDiagram(root){
  const center=lineage.at(-1);
  const children=diagramChildren(center);
  radialChildren=children;
- const {width,height,positions}=radialLayout(children.length);
+ const {width,height,positions,links}=radialLayout(children.length);
  const credits=[];
  const rootPhoto=radialPhoto(center,credits,center.rank==='species');
  const breadcrumb=lineage.map((node,index)=>{
@@ -304,7 +345,7 @@ function renderDiagram(root){
   <div class="fg-radial-map-content">
    <div class="fg-radial-wheel" data-width="${width}" data-height="${height}" style="width:${width}px;height:${height}px">
     <svg class="fg-radial-links" viewBox="0 0 ${width} ${height}" aria-hidden="true">
-     ${positions.map(([x,y])=>`<path d="M${width/2} ${height/2} L${x} ${y}"/>`).join('')}
+     ${links.map(path=>`<path d="${path}"/>`).join('')}
     </svg>
     ${centerLabel}
     ${children.map((node,index)=>{

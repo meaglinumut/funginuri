@@ -4,7 +4,7 @@ const rankNames={phylum:'Bölüm',class:'Sınıf',order:'Takım',family:'Familya
 const hierarchy=['phylum','class','order','family','genus'];
 let records=[],filtered=[],lastFocus=null,collectionReady=false;
 let view=new URLSearchParams(location.search).get('gorunum')==='agac'?'tree':'list';
-let taxonomy=null,lastListTaxonomy=null;
+let taxonomy=null,lastListFiltered=null;
 const groupThreshold=2;
 let openDepth=hierarchy.length-1;
 const dialog=$('fgDetail');
@@ -91,7 +91,7 @@ function renderList(root){
 const radialRankNames={...rankNames,kingdom:'Âlem',species:'Tür'};
 const radialContainer=$('fgDiagramTree');
 let radialPath=[],radialChildren=[],taxonPhotos={},radialMap=null;
-let previousQuery='';
+let radialResearchOnly=false;
 const countText=count=>count.toLocaleString('tr-TR')+' kayıt';
 const taxonKey=node=>node.rank+':'+node.name;
 
@@ -121,21 +121,6 @@ function getRadialLineage(root){
  return lineage;
 }
 
-function findSearchPath(root,query){
- if(!query)return [];
- const path=[];
- let node=root;
- while(node.rank!=='species'){
-  const children=diagramChildren(node);
-  const match=children.find(child=>child.name.toLocaleLowerCase('tr')===query);
-  const next=match||(children.length===1?children[0]:null);
-  if(!next||node.name.toLocaleLowerCase('tr')===query)break;
-  path.push(taxonKey(next));
-  node=next;
- }
- return path;
-}
-
 function radialLabel(node){
  const uncertain=node.rank==='species'&&node.records.every(record=>record.quality!=='research');
  return escape(uncertain?displayName(node.records[0]):node.name);
@@ -152,7 +137,7 @@ function radialPhoto(node,credits,useCollection=false){
   return url;
  }
  if(sample?.thumbnail){
-  credits.push(`<li><i>${escape(node.name)}</i> · <a href="${obs(sample)}" target="_blank" rel="noopener">Koleksiyondan temsilî gözlem ↗</a></li>`);
+  credits.push(`<li><i>${escape(node.name)}</i> · <a href="${obs(sample)}" target="_blank" rel="noopener">Umut Nuri Erdoğan ↗</a></li>`);
   return sample.thumbnail;
  }
  return '';
@@ -324,24 +309,17 @@ function renderDiagram(root){
    <small>${radialRankNames[center.rank]} · ${countText(center.count)}</small>
   </div>
  </div>`;
- const wheel=children.length?`<div class="fg-radial-controls">
-  <span>${children.length.toLocaleString('tr-TR')} alt dal</span>
-  <div class="fg-radial-jump">
-   <label for="fgRadialJump">Dal seç</label>
-   <select id="fgRadialJump" data-radial-jump>
-    <option value="">Takson seç…</option>
-    ${children.map((node,index)=>`<option value="${index}">${radialLabel(node)} · ${radialRankNames[node.rank]}</option>`).join('')}
-   </select>
-  </div>
-  <div class="fg-radial-zoom" role="group" aria-label="Harita yakınlaştırma">
+ const controls=`<div class="fg-radial-controls">
+  <label><input type="checkbox" id="fgRadialResearch"${radialResearchOnly?' checked':''}> Sadece araştırma sınıfı</label>
+  ${children.length?`<div class="fg-radial-zoom" role="group" aria-label="Harita yakınlaştırma">
    <button type="button" data-radial-zoom="out" aria-label="Uzaklaştır">−</button>
    <output class="fg-radial-zoom-level"></output>
    <button type="button" data-radial-zoom="in" aria-label="Yakınlaştır">+</button>
    <button type="button" data-radial-zoom="fit">Tümünü göster</button>
-  </div>
- </div>
- <p id="fgRadialHelp" class="fg-radial-help">Boş alana çift tıklayarak o noktaya yakınlaş. Yakınlaştırınca haritayı sürükleyebilir veya kaydırabilirsin.</p>
- <div class="fg-radial-viewport" tabindex="0" role="region" aria-label="Takson haritası" aria-describedby="fgRadialHelp">
+  </div>`:''}
+ </div>`;
+ const help=children.length?'<p id="fgRadialHelp" class="fg-radial-help">Boş alana çift tıklayarak o noktaya yakınlaş. Yakınlaştırınca haritayı sürükleyebilir veya kaydırabilirsin.</p>':'';
+ const wheel=children.length?`<div class="fg-radial-viewport" tabindex="0" role="region" aria-label="Takson haritası" aria-describedby="fgRadialHelp">
   <div class="fg-radial-map-content">
    <div class="fg-radial-wheel" data-width="${width}" data-height="${height}" style="width:${width}px;height:${height}px">
     <svg class="fg-radial-links" viewBox="0 0 ${width} ${height}" aria-hidden="true">
@@ -362,9 +340,8 @@ function renderDiagram(root){
   </div>
  </div>`:`<div class="fg-radial-leaf">${centerLabel}</div>`;
  const ownRecords=center.rank==='species'?center.records:center.records.filter(record=>record.rank!=='species');
- $('fgRadialRoot').disabled=lineage.length===1;
  radialContainer.innerHTML=`<nav class="fg-radial-breadcrumbs" aria-label="Takson yolu"><ol>${breadcrumb}</ol></nav>
-  ${wheel}
+  ${help}${controls}${wheel}
   ${credits.length?`<details class="fg-radial-credits"><summary>Fotoğraf kaynakları</summary><ul>${credits.join('')}</ul></details>`:''}
   ${radialGallery(ownRecords,center.rank==='species'?'Gözlem ve örnek fotoğrafları':radialRankNames[center.rank]+' düzeyinde kayıtlar')}`;
  connectRadialMap();
@@ -376,38 +353,34 @@ function selectRadialPath(path){
  $('fgRadialFocus').focus({preventScroll:true});
 }
 
-function showView(){
- $('fgClassic').hidden=view!=='list';
- $('fgDiagram').hidden=view!=='tree'||!filtered.length;
- if(!taxonomy)return;
- if(view==='tree'){
-  if(filtered.length)renderDiagram(taxonomy);
- }else if(lastListTaxonomy!==taxonomy){
-  renderList(taxonomy);
-  lastListTaxonomy=taxonomy;
- }
-}
 function render(){
+ const isTree=view==='tree';
+ $('fgFilters').hidden=isTree;
+ $('fgClassic').hidden=isTree;
+ $('fgDiagram').hidden=!isTree;
  if(!collectionReady)return;
  const query=$('fgSearch').value.trim().toLocaleLowerCase('tr'),phylum=$('fgPhylum').value,family=$('fgFamily').value;
- const researchOnly=$('fgResearchOnly').checked;
+ const researchOnly=isTree?radialResearchOnly:$('fgResearchOnly').checked;
  const collectedOnly=$('fgCollectedOnly').checked;
  filtered=records.filter(r=>{
   if(researchOnly&&r.quality!=='research')return false;
+  if(isTree)return true;
   if(collectedOnly&&!r.collected)return false;
   if(phylum!=='all'&&r.taxonomy.phylum!==phylum)return false;
   if(family!=='all'&&r.taxonomy.family!==family)return false;
   return [r.id,r.name,displayName(r),r.commonName||'',r.date,r.observation,...Object.values(r.taxonomy),r.collected?'collected':'',r.quality==='research'?'araştırma sınıfı':'tanımlama gerekli',r.microscopy?'mikroskopi yapıldı':''].join(' ').toLocaleLowerCase('tr').includes(query);
  });
- const sort=$('fgSort').value;filtered.sort((a,b)=>sort==='name'?a.name.localeCompare(b.name,'tr')||Number(a.observation)-Number(b.observation):sort==='date'?b.date.localeCompare(a.date)||Number(a.observation)-Number(b.observation):Number(b.collected)-Number(a.collected)||Number(a.id)-Number(b.id));
+ const sort=isTree?'id':$('fgSort').value;
+ filtered.sort((a,b)=>sort==='name'?a.name.localeCompare(b.name,'tr')||Number(a.observation)-Number(b.observation):sort==='date'?b.date.localeCompare(a.date)||Number(a.observation)-Number(b.observation):Number(b.collected)-Number(a.collected)||Number(a.id)-Number(b.id));
  $('fgCount').textContent=`${filtered.length.toLocaleString('tr-TR')} / ${records.length.toLocaleString('tr-TR')} kayıt · ${filtered.filter(r=>r.collected).length} collected · ${new Set(filtered.map(r=>r.name)).size} farklı takson`;
- $('fgEmpty').hidden=filtered.length>0;
- taxonomy=buildTaxonomy();
- if(query!==previousQuery){
-  radialPath=findSearchPath(taxonomy,query);
-  previousQuery=query;
+ $('fgEmpty').hidden=isTree||filtered.length>0;
+ if(isTree){
+  taxonomy=buildTaxonomy();
+  renderDiagram(taxonomy);
+ }else if(!lastListFiltered||filtered.length!==lastListFiltered.length||filtered.some((record,index)=>record!==lastListFiltered[index])){
+  renderList(buildTaxonomy());
+  lastListFiltered=filtered;
  }
- showView();
 }
 function reset(){$('fgFilters').reset()}
 function closeDetail(){if(dialog.open)dialog.close();if(location.hash.startsWith('#ornek-'))history.replaceState(null,'',location.pathname+location.search);if(lastFocus&&document.contains(lastFocus))lastFocus.focus()}
@@ -435,14 +408,13 @@ document.querySelectorAll('[data-fg-open-depth]').forEach(button=>{
 const viewButtons=document.querySelectorAll('[data-fg-view]');
 function updateView(){
  viewButtons.forEach(button=>button.setAttribute('aria-pressed',button.dataset.fgView===view));
- showView();
+ render();
 }
 viewButtons.forEach(button=>button.addEventListener('click',()=>{
  view=button.dataset.fgView;
  updateView();
 }));
 updateView();
-$('fgRadialRoot').addEventListener('click',()=>selectRadialPath([]));
 radialContainer.addEventListener('click',event=>{
  const button=event.target.closest('button');
  if(!button)return;
@@ -457,10 +429,10 @@ radialContainer.addEventListener('click',event=>{
  }
 });
 radialContainer.addEventListener('change',event=>{
- const select=event.target;
- if(select.matches('[data-radial-jump]')&&select.value!==''){
-  selectRadialPath([...radialPath,taxonKey(radialChildren[Number(select.value)])]);
- }
+ if(event.target.id!=='fgRadialResearch')return;
+ radialResearchOnly=event.target.checked;
+ render();
+ $('fgRadialResearch').focus({preventScroll:true});
 });
 $('fungarium').addEventListener('error',event=>{
  const img=event.target;

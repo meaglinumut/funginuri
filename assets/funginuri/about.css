@@ -1,0 +1,120 @@
+/* Funginuri Hakkımda: kişisel anlatı ve fotoğraf kolajı. */
+#hakkimda .about-layout-profile {
+  grid-template-columns: minmax(0, 1.34fr) minmax(280px, .86fr);
+  align-items: start;
+  gap: clamp(14px, 2vw, 24px);
+}
+#hakkimda .about-biography {
+  max-width: none;
+  padding: clamp(22px, 3vw, 34px);
+  background: var(--panel-soft);
+}
+#hakkimda .about-biography p {
+  max-width: none;
+  margin: 0 0 1.2em;
+  font: 17px/1.75 Georgia, 'Times New Roman', serif;
+}
+#hakkimda .about-biography p:last-of-type { margin-bottom: 0; }
+#hakkimda .about-social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 27px;
+  padding-top: 20px;
+  border-top: 2px ridge var(--border-light, #eee);
+}
+#hakkimda .about-social-links a {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  min-height: 42px;
+  padding: 10px 14px;
+  border: 3px outset var(--border-light, #eee);
+  background: var(--button, #fff4de);
+  color: var(--text, #342046);
+  font: 15px/1.25 'Times New Roman', serif;
+  text-decoration: none;
+}
+#hakkimda .about-social-links a:hover,
+#hakkimda .about-social-links a:focus-visible {
+  background: var(--active, #d6b9ff);
+  border-style: inset;
+}
+#hakkimda .about-photographs {
+  min-width: 0;
+  display: grid;
+  gap: 12px;
+}
+#hakkimda .about-photo {
+  min-width: 0;
+  margin: 0;
+  padding: 8px;
+  border: 3px outset var(--border-light, #eee);
+  background: var(--surface, #fff2d9);
+}
+#hakkimda .about-photo-frame {
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  min-width: 0;
+  background: var(--panel, #ffcc8a);
+  border: 2px inset var(--border-light, #eee);
+}
+#hakkimda .about-photo-main .about-photo-frame {
+  aspect-ratio: 4 / 4.1;
+}
+#hakkimda .about-photo-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+#hakkimda .about-photo-pair .about-photo-frame {
+  aspect-ratio: 3 / 4;
+}
+#hakkimda .about-photo-placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--muted, #514b57);
+  font: italic 17px/1.2 Georgia, serif;
+  text-align: center;
+  padding: 12px;
+}
+#hakkimda .about-photo-frame img {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+#hakkimda .about-photo-main img { object-position: center 38%; }
+#hakkimda .about-photo-pair img { object-position: center; }
+#hakkimda .about-photo figcaption {
+  margin: 8px 2px 2px;
+  color: var(--text, #342046);
+  font: 13px/1.3 'Times New Roman', serif;
+  text-align: center;
+}
+@media (max-width: 830px) {
+  #hakkimda .about-layout-profile { grid-template-columns: 1fr; }
+  #hakkimda .about-photographs {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: start;
+  }
+  #hakkimda .about-photo-pair { grid-template-columns: 1fr; }
+  #hakkimda .about-photo-main .about-photo-frame { aspect-ratio: 4 / 5; }
+  #hakkimda .about-photo-pair .about-photo-frame { aspect-ratio: 5 / 3.5; }
+}
+@media (max-width: 470px) {
+  #hakkimda .about-biography p { font-size: 16px; line-height: 1.65; }
+  #hakkimda .about-photographs { grid-template-columns: 1fr; }
+  #hakkimda .about-photo-pair { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  #hakkimda .about-photo-pair .about-photo-frame { aspect-ratio: 3 / 4; }
+}
+
+#hakkimda .about-photo-frame img[hidden] { display: none; }

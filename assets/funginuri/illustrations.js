@@ -50,7 +50,16 @@
 
   const bottom = document.querySelector('.fn-bottom-illustrations');
   if (bottom) {
-    for (let index = 10; index < 15; index++) bottom.append(placedIllustration(index));
+    const fillBottom = () => {
+      const columns = getComputedStyle(bottom).gridTemplateColumns;
+      const count = columns === 'none' ? 0 : columns.split(' ').length;
+      while (bottom.children.length > count) bottom.lastElementChild.remove();
+      for (let position = bottom.children.length; position < count; position++) {
+        bottom.append(placedIllustration(10 + position));
+      }
+    };
+    new ResizeObserver(fillBottom).observe(bottom);
+    fillBottom();
   }
 
   const navArtwork = {
@@ -102,6 +111,14 @@
         footer.prepend(brand);
       }
       brand.append(wordmark);
+
+      const credit = document.createElement('div');
+      credit.className = 'fn-illustration-credit';
+      const source = document.createElement('a');
+      source.href = 'https://www.biodiversitylibrary.org/bibliography/163049';
+      source.textContent = 'Kenar çizimleri · Sarah Price';
+      credit.append(source);
+      footer.after(credit);
     }
   }
 

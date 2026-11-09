@@ -434,3 +434,73 @@ button.fg-radial-crumb:hover {
   .fg-diagram-heading h2 { font-size: 25px; }
   .fg-radial-viewport { height: 440px; }
 }
+
+/* Taksonomik dizin: tüm gerekli kontroller tek bir satırda, arşiv seçimi ayrı. */
+.fungarium-page .fg-toolbar { justify-content: flex-start; }
+.fungarium-page .fg-filters-inline {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+.fungarium-page .fg-filters-inline .fg-rank-key {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+.fungarium-page .fg-filters-inline .fg-inline-family {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  font: 12px/1.25 Arial, sans-serif;
+  white-space: nowrap;
+}
+.fungarium-page .fg-filters-inline .fg-inline-family select {
+  width: 165px;
+  max-width: 100%;
+  min-height: 30px;
+  padding: 4px 6px;
+  font-size: 12px;
+}
+.fungarium-page .fg-filters-inline .fg-inline-check {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  min-width: 0;
+  white-space: nowrap;
+  font: 12px/1.25 Arial, sans-serif;
+  cursor: pointer;
+}
+.fungarium-page .fg-filters-inline .fg-inline-check input {
+  width: 14px;
+  height: 14px;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  accent-color: #785195;
+}
+.fungarium-page .fg-filters-inline .fg-inline-reset {
+  min-height: 30px;
+  padding: 4px 9px;
+  font: 12px/1.25 Arial, sans-serif;
+  cursor: pointer;
+}
+@media (max-width: 650px) {
+  .fungarium-page .fg-filters-inline .fg-rank-key { gap: 7px 5px; }
+  .fungarium-page .fg-filters-inline .fg-inline-family {
+    flex: 1 1 190px;
+  }
+  .fungarium-page .fg-filters-inline .fg-inline-family select {
+    width: auto;
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+  .fungarium-page .fg-filters-inline .fg-inline-check {
+    flex: 1 1 180px;
+  }
+}

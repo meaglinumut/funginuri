@@ -159,8 +159,10 @@ function radialPhoto(node,credits,useCollection=false){
  return '';
 }
 
-function radialImage(src,lazy=false){
- return `<span class="fg-radial-photo">${src?`<img src="${escape(src)}" alt="" decoding="async"${lazy?' loading="lazy"':''}>`:''}</span>`;
+function radialImage(src='',lazy=false){
+ const larger=src.replace(/\/square(?=\.[a-z]+$)/i,'/small');
+ const fallback=larger!==src?` data-square-src="${escape(src)}"`:'';
+ return `<span class="fg-radial-photo">${src?`<img src="${escape(larger)}"${fallback} alt="" decoding="async"${lazy?' loading="lazy"':''}>`:''}</span>`;
 }
 
 function radialGallery(records,heading){
@@ -189,10 +191,14 @@ function renderDiagram(root){
   const radiusX=compactWheel.matches?33:36;
   return [50+radiusX*Math.cos(angle),50+37*Math.sin(angle)];
  });
- const breadcrumb=lineage.map((node,index)=>index===lineage.length-1
-  ?`<li aria-current="location">${radialLabel(node)}</li>`
-  :`<li><button type="button" data-radial-depth="${index}">${radialLabel(node)}</button></li>`).join('');
- const centerLabel=`<div class="fg-radial-center">
+ const breadcrumb=lineage.map((node,index)=>{
+  const label=radialLabel(node);
+  const item=index===lineage.length-1
+   ?`<strong class="fg-radial-crumb" aria-current="location">${label}</strong>`
+   :`<button type="button" class="fg-radial-crumb" data-radial-depth="${index}">${label}</button>`;
+  return `<li data-rank="${node.rank}">${item}</li>`;
+ }).join('');
+ const centerLabel=`<div class="fg-radial-center" data-rank="${center.rank}">
   ${radialImage(rootPhoto)}
   <small>${radialRankNames[center.rank]}</small>
   <h3 id="fgRadialFocus" tabindex="-1">${radialLabel(center)}</h3>
@@ -205,7 +211,7 @@ function renderDiagram(root){
   ${centerLabel}
   ${children.map((node,index)=>{
    const [x,y]=positions[index];
-   return `<button type="button" class="fg-radial-node" data-radial-child="${start+index}" style="--node-x:${x}%;--node-y:${y}%">
+   return `<button type="button" class="fg-radial-node" data-rank="${node.rank}" data-radial-child="${start+index}" style="--node-x:${x}%;--node-y:${y}%">
     ${radialImage(radialPhoto(node,credits))}
     <small>${radialRankNames[node.rank]}</small><strong>${radialLabel(node)}</strong><span>${countText(node.count)}</span>
    </button>`;
@@ -316,7 +322,14 @@ compactWheel.addEventListener('change',()=>{
  showView();
 });
 $('fungarium').addEventListener('error',event=>{
- if(event.target.matches('.fg-thumbnail,.fg-radial-photo > img'))event.target.hidden=true;
+ const img=event.target;
+ if(!img.matches('.fg-thumbnail,.fg-radial-photo > img'))return;
+ if(img.dataset.squareSrc){
+  img.src=img.dataset.squareSrc;
+  delete img.dataset.squareSrc;
+ }else{
+  img.hidden=true;
+ }
 },true);
 fetch('./assets/fungarium/taxon-photos.json?v=1')
  .then(response=>response.ok?response.json():{})

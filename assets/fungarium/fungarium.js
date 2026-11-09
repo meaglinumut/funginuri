@@ -12,7 +12,7 @@ const taxLabel=x=>x==='Unknown'?'Belirlenmemiş':escape(x);
 function displayName(r){if(r.rank==='genus')return `${r.name} sp.`;if(r.rank==='species'&&r.quality!=='research'){const parts=r.name.split(/\s+/);return [parts[0],'cf.',...parts.slice(1)].join(' ')}return r.name}
 const name=r=>escape(displayName(r));
 function badges(r){return `<span class="fg-badges">${r.collected?'<span class="fg-badge fg-collected-badge">collected</span>':''}<span class="fg-badge ${r.quality==='research'?'fg-research':'fg-ordinary'}">${r.quality==='research'?'araştırma sınıfı':'sıradan'}</span>${r.microscopy?'<span class="fg-badge fg-microscopy">mikroskopi yapıldı</span>':''}</span>`}
-function recordLink(r){const href=r.collected?`#ornek-${r.id}`:obs(r);return `<a class="fg-tree-record ${r.collected?'fg-collected':'fg-uncollected'}" href="${href}"${r.collected?'':' target="_blank" rel="noopener"'}><span class="fg-record-name"><i>${name(r)}</i>${badges(r)}</span><span class="fg-record-meta">${date(r.date)}<br>${r.collected?r.id:'#'+r.observation} ${r.collected?'→':'↗'}</span></a>`}
+function recordLink(r){const href=r.collected?`#ornek-${r.id}`:obs(r);const thumbnail=r.thumbnail?`<img class="fg-thumbnail" src="${escape(r.thumbnail)}" alt="" width="28" height="28" loading="lazy" decoding="async">`:'';return `<a class="fg-tree-record ${r.collected?'fg-collected':'fg-uncollected'}" href="${href}"${r.collected?'':' target="_blank" rel="noopener"'}><span class="fg-record-name"><i>${name(r)}</i>${badges(r)}${thumbnail}</span><span class="fg-record-meta">${date(r.date)}<br>${r.collected?r.id:'#'+r.observation} ${r.collected?'→':'↗'}</span></a>`}
 function singleChild(node,rank){
  const children=[...node.children.values()];
  return children.length===1&&children[0].rank===rank?children[0]:null;
@@ -116,9 +116,12 @@ function expandTo(depth){
 }
 $('fgExpandAll').addEventListener('click',()=>expandTo(hierarchy.length));
 $('fgCollapseAll').addEventListener('click',()=>expandTo(-1));
-document.querySelectorAll('[data-fg-rank]').forEach(button=>{
- button.addEventListener('click',()=>expandTo(hierarchy.indexOf(button.dataset.fgRank)));
+document.querySelectorAll('[data-fg-open-depth]').forEach(button=>{
+ button.addEventListener('click',()=>expandTo(Number(button.dataset.fgOpenDepth)));
 });
+$('fgTree').addEventListener('error',event=>{
+ if(event.target.matches('.fg-thumbnail'))event.target.hidden=true;
+},true);
 $('fgFilters').addEventListener('submit',event=>event.preventDefault());
 $('fgFilters').addEventListener('input',render);
 $('fgFilters').addEventListener('reset',event=>{
@@ -133,11 +136,16 @@ $('fgFilters').addEventListener('reset',event=>{
 });
 $('fgClear').addEventListener('click',reset);
 window.addEventListener('hashchange',syncHash);
-const files=['specimens.json','observations-1.json','observations-2.json','observations-3.json','taxa-1.json','taxa-2.json','taxa-3.json'];
-Promise.all(files.map(file=>fetch('./assets/fungarium/'+file+'?v=4').then(r=>{if(!r.ok)throw Error(file);return r.json()}))).then(([specimens,obs1,obs2,obs3,...parts])=>{
+const files=['photos.json','specimens.json','observations-1.json','observations-2.json','observations-3.json','taxa-1.json','taxa-2.json','taxa-3.json'];
+Promise.all(files.map(file=>fetch('./assets/fungarium/'+file+'?v=4').then(r=>{if(!r.ok)throw Error(file);return r.json()}))).then(([photos,specimens,obs1,obs2,obs3,...parts])=>{
  const observations=[...obs1,...obs2,...obs3];
  const taxa=Object.assign({},...parts);
- records=specimens.concat(observations.map(([id,taxonId,date,research,microscopy])=>({id,observation:id,date,quality:research?'research':'needs_id',microscopy:!!microscopy,collected:false,...taxa[taxonId]})));
+ records=specimens.concat(observations.map(([id,taxonId,date,research,microscopy])=>({id,observation:id,date,quality:research?'research':'needs_id',microscopy:!!microscopy,collected:false,...taxa[taxonId]})))
+  .map(record=>{
+   const photoPath=photos[record.observation];
+   const thumbnail=photoPath?`https://inaturalist-open-data.s3.amazonaws.com${photoPath}`:record.photo;
+   return {...record,thumbnail};
+  });
  $('fgTotals').innerHTML=`<div><strong>${records.length.toLocaleString('tr-TR')}</strong><span>kayıt</span></div><div><strong>${specimens.length}</strong><span>collected</span></div><div><strong>${new Set(records.map(r=>r.name)).size}</strong><span>farklı takson</span></div>`;
  for(const [id,key]of [['fgPhylum','phylum'],['fgFamily','family']]){const select=$(id);[...new Set(records.map(r=>r.taxonomy[key]).filter(v=>v&&v.toLowerCase()!=='unknown'))].sort((a,b)=>a.localeCompare(b)).forEach(v=>{const opt=document.createElement('option');opt.value=v;opt.textContent=v;select.append(opt)})}
  render();syncHash();
